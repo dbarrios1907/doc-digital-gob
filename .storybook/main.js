@@ -1,3 +1,5 @@
+const VuetifyLoaderPlugin = require('vuetify-loader');
+
 const path = require('path');
 
 module.exports = {
@@ -23,25 +25,38 @@ module.exports = {
     }
   ],
   webpackFinal: config => {
-    // config.module.rules.push({
-    //   test: /\.scss$/,
-    //   sideEffects: true,
-    //   use: ['style-loader',
-    //     {
-    //       loader: require.resolve('css-loader'),
-    //       options: {
-    //         esModule: true,
-    //         sourceMap: true,
-    //         importLoaders: 2,
-    //         modules: {
-    //           compileType: "module",
-    //           localIdentName: '[name]__[local]--[hash:base64:5]',
-    //           auto: true
-    //         },
-    //       }
-    //     },
-    //     'sass-loader', 'postcss-loader'],
-    // });
+    // console.log(config.module.rules.filter(v => v.test.toString().includes('.css'))[0].use[1].options);
+    config.module.rules.push({
+      test: /\.s(c|a)ss$/,
+      sideEffects: true,
+      use: [
+        'vue-style-loader',
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          // Requires sass-loader@^8.0.0
+          options: {
+            implementation: require('sass'),
+            prependData: "@import '@/assets/styles/main.scss'",
+            sassOptions: {
+              // fiber: require('fibers'),
+              indentedSyntax: true // optional
+            },
+          },
+        }
+      ]
+    });
+
+    config.module.rules.push({
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, '../src'),
+          vue: 'vue/dist/vue.js',
+          'vue$': 'vue/dist/vue.esm.js',
+        },
+      },
+    });
+
     return config;
   },
 };
