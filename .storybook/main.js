@@ -1,6 +1,35 @@
 const VuetifyLoaderPlugin = require('vuetify-loader');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const path = require('path');
+
+const cssLoaders = [
+  'vue-style-loader',
+  'style-loader',
+  { loader: 'css-loader', options: { sourceMap: true } },
+  // { loader: 'postcss-loader', options: { sourceMap: true } }
+];
+
+const sassLoaders = {
+  loader: 'sass-loader',
+  options: {
+    implementation: require('sass'),
+    prependData: "@import '@/assets/styles/scss/_variables.scss'",
+    sassOptions: {
+      indentedSyntax: true
+    }
+  }
+};
+
+const scssLoaders = {
+  loader: 'sass-loader',
+  options: {
+    implementation: require('sass'),
+    sassOptions: {
+      indentedSyntax: false
+    }
+  }
+};
 
 module.exports = {
   'stories': [
@@ -27,27 +56,6 @@ module.exports = {
   webpackFinal: config => {
     // console.log(config.module.rules.filter(v => v.test.toString().includes('.css'))[0].use[1].options);
     config.module.rules.push({
-      test: /\.s(c|a)ss$/,
-      sideEffects: true,
-      use: [
-        'vue-style-loader',
-        'css-loader',
-        {
-          loader: 'sass-loader',
-          // Requires sass-loader@^8.0.0
-          options: {
-            implementation: require('sass'),
-            prependData: "@import '@/assets/styles/main.scss'",
-            sassOptions: {
-              // fiber: require('fibers'),
-              indentedSyntax: true // optional
-            },
-          },
-        }
-      ]
-    });
-
-    config.module.rules.push({
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '../src'),
@@ -57,6 +65,23 @@ module.exports = {
       },
     });
 
+    config.module.rules.push({
+      test: /\.sass$/,
+      sideEffects: true,
+      use: [
+        ...cssLoaders,
+        sassLoaders,
+      ]
+    });
+
+    config.module.rules.push({
+      test: /\.scss$/,
+      sideEffects: true,
+      use: [
+        ...cssLoaders,
+        scssLoaders,
+      ]
+    });
     return config;
   },
 };

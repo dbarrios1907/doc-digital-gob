@@ -1,0 +1,25 @@
+@import '../../../assets/styles/themes/light/colors';
+@import '../../../assets/styles/themes/dark/colors';
+
+.v-application .v-btn:hover {
+    background-color: darken(map-get($light-colors, 'primary'), 10%) !important;
+}
+
+.v-application .v-btn:active {
+    background-color: map-get($light-colors, 'white') !important;
+}
+
+
+.v-application .v-btn.theme--dark:hover {
+    background-color: darken(map-get($dark-colors, 'primary'), 10%) !important;
+}
+
+.v-application .v-btn.theme--dark:active {
+    background-color: map-get($dark-colors, 'white') !important;
+}
+
+.v-btn {
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
