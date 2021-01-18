@@ -1,14 +1,33 @@
 @import '../../../assets/styles/themes/light/colors';
 @import '../../../assets/styles/themes/dark/colors';
 
-.v-application .v-btn:hover {
+.v-application .v-btn.primary:hover{
     background-color: darken(map-get($light-colors, 'primary'), 10%) !important;
+}
+
+.v-application .v-btn.secondary:hover {
+    background-color: darken(map-get($light-colors, 'secondary'), 10%) !important;
+}
+
+.v-application .v-btn.neutral:hover {
+    background-color: darken(map-get($light-colors, 'neutral'), 10%) !important;
 }
 
 .v-application .v-btn:active {
     background-color: map-get($light-colors, 'white') !important;
 }
 
+.v-application .v-btn.theme--dark.primary:hover {
+    background-color: darken(map-get($dark-colors, 'primary'), 10%) !important;
+}
+
+.v-application .v-btn.theme--dark.secondary:hover {
+    background-color: darken(map-get($dark-colors, 'secondary'), 10%) !important;
+}
+
+.v-application .v-btn.theme--dark.neutral:hover {
+    background-color: darken(map-get($dark-colors, 'neutral'), 10%) !important;
+}
 
 .v-application .v-btn.theme--dark:hover {
     background-color: darken(map-get($dark-colors, 'primary'), 10%) !important;

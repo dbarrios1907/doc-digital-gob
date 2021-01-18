@@ -2,8 +2,6 @@ import Vue from 'vue'
 import MyButton from './Button.vue';
 import vuetify from '../plugins/vuetify';
 
-Vue.use(vuetify);
-
 export default {
   title: 'Example/Button',
   component: MyButton,
