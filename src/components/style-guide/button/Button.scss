@@ -1,19 +1,32 @@
 .v-btn {
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 @include theme(v-btn) using ($material) {
     @debug $material;
     &.primary:hover {
-        background-color: darken(map-deep-get($material, 'colors', 'primary'), 10%) !important;
+        background-color: darken(map-deep-get($material, 'colors', 'primary'), 5%) !important;
     }
 
-    &.primary:active {
-        background-color: darken(map-deep-get($material, 'colors', 'primary'), 15%) !important;
+    &.primary:active, &.primary:focus {
+        background-color: darken(map-deep-get($material, 'colors', 'primary'), 10%) !important;
+        border-color: darken(map-deep-get($material, 'colors', 'primary'), 10%) !important;
+    }
+
+    &:focus {
+        box-shadow: map-deep-get($material, 'buttons', 'outlines', 'primary') !important;
+    }
+
+    &.primary:focus:before {
+        opacity: 0; // top white layer, disable opacity to reduce transparency effect
     }
 }
 
 @include themeDark(v-btn) using ($material) {
+
     &.neutral{
         background-color: map-deep-get($material, 'colors', 'white') !important;
         color: map-deep-get($material, 'colors', 'black') !important;
@@ -24,7 +37,7 @@
         color: map-deep-get($material, 'colors', 'black') !important;
     }
 
-    &.neutral:active {
+    &.neutral:active, &.neutral:focus {
         background-color: lighten(map-deep-get($material, 'colors', 'neutral'), 15%) !important;
         color: map-deep-get($material, 'colors', 'black') !important;
     }

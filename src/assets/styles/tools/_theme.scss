@@ -13,6 +13,12 @@
   }
 }
 
+@mixin themeLight ($component) {
+  .v-application .theme--light.#{$component} {
+    @content($material-light);
+  }
+}
+
 @function map-deep-get($map, $keys...) {
   @each $key in $keys {
     $map: map-get($map, $key);

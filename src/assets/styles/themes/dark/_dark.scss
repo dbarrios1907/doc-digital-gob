@@ -1,4 +1,20 @@
 $material-dark: (
+  'buttons': (
+    //'disabled': rgba(map-get($shades, 'black'), 0.26),
+    //'focused': rgba(map-get($shades, 'black'), 0.12),
+    //'focused-alt': rgba(map-get($shades, 'white'), 0.6),
+    //'pressed': rgba(#999, 0.4),
+    'outlines': (
+      'primary': 0 0 0 0.2rem rgba(lighten(map-get($dark-colors, 'primary'), 5%), 0.4)
+    ),
+  ),
+  'colors': $dark-colors,
+  'primary-text-percent': 1,
+  'secondary-text-percent': 0.7,
+  'disabledORhints-text-percent': 0.5,
+  'divider-percent': 0.12,
+  'active-icon-percent': 1,
+  'inactive-icon-percent': 0.5
       //'status-bar': (
       //  'regular': map-get($shades, 'black'),
       //  'lights-out': rgba(map-get($shades, 'black'), 0.2)
@@ -119,12 +135,6 @@ $material-dark: (
       //'bg-color': #303030,
       //'fg-color': map-get($shades, 'white'),
       //'text-color': map-get($shades, 'white'),
-      'colors': $dark-colors,
-      'primary-text-percent': 1,
-      'secondary-text-percent': 0.7,
-      'disabledORhints-text-percent': 0.5,
-      'divider-percent': 0.12,
-      'active-icon-percent': 1,
-      'inactive-icon-percent': 0.5
+
 );
 
