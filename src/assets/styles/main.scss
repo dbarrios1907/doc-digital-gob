@@ -3,10 +3,14 @@
 //@import "scss/defaults";
 //@import "scss/colors";
 //@import "scss/variables";
+//
+@import "variables/_overrides";
 
-//@import "themes/dark";
-//@import "themes/light";
+@import "themes/_themes";
 
+@import "tools/_theme";
+
+//
 //@import 'scss/gob.cl';
 //@import 'bootstrap/scss/bootstrap.scss';
 //@import 'bootstrap-vue/src/index.scss';

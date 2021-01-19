@@ -14,7 +14,7 @@ const sassLoaders = {
   loader: 'sass-loader',
   options: {
     implementation: require('sass'),
-    prependData: "@import '@/assets/styles/scss/_variables.scss'",
+    prependData: `@import '@/assets/styles/main.scss'`,
     sassOptions: {
       indentedSyntax: true
     }
@@ -25,6 +25,9 @@ const scssLoaders = {
   loader: 'sass-loader',
   options: {
     implementation: require('sass'),
+    prependData: `
+      @import '@/assets/styles/main.scss';
+    `,
     sassOptions: {
       indentedSyntax: false
     }

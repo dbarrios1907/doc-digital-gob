@@ -1,0 +1,24 @@
+@mixin theme ($component) {
+  .v-application .theme--light.#{$component} {
+    @content($material-light);
+  }
+  .v-application .theme--dark.#{$component} {
+    @content($material-dark);
+  }
+}
+
+@mixin themeDark ($component) {
+  .v-application .theme--dark.#{$component} {
+    @content($material-dark);
+  }
+}
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+
+

@@ -1,44 +1,33 @@
-@import '../../../assets/styles/themes/light/colors';
-@import '../../../assets/styles/themes/dark/colors';
-
-.v-application .v-btn.primary:hover{
-    background-color: darken(map-get($light-colors, 'primary'), 10%) !important;
-}
-
-.v-application .v-btn.secondary:hover {
-    background-color: darken(map-get($light-colors, 'secondary'), 10%) !important;
-}
-
-.v-application .v-btn.neutral:hover {
-    background-color: darken(map-get($light-colors, 'neutral'), 10%) !important;
-}
-
-.v-application .v-btn:active {
-    background-color: map-get($light-colors, 'white') !important;
-}
-
-.v-application .v-btn.theme--dark.primary:hover {
-    background-color: darken(map-get($dark-colors, 'primary'), 10%) !important;
-}
-
-.v-application .v-btn.theme--dark.secondary:hover {
-    background-color: darken(map-get($dark-colors, 'secondary'), 10%) !important;
-}
-
-.v-application .v-btn.theme--dark.neutral:hover {
-    background-color: darken(map-get($dark-colors, 'neutral'), 10%) !important;
-}
-
-.v-application .v-btn.theme--dark:hover {
-    background-color: darken(map-get($dark-colors, 'primary'), 10%) !important;
-}
-
-.v-application .v-btn.theme--dark:active {
-    background-color: map-get($dark-colors, 'white') !important;
-}
-
 .v-btn {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+@include theme(v-btn) using ($material) {
+    @debug $material;
+    &.primary:hover {
+        background-color: darken(map-deep-get($material, 'colors', 'primary'), 10%) !important;
+    }
+
+    &.primary:active {
+        background-color: darken(map-deep-get($material, 'colors', 'primary'), 15%) !important;
+    }
+}
+
+@include themeDark(v-btn) using ($material) {
+    &.neutral{
+        background-color: map-deep-get($material, 'colors', 'white') !important;
+        color: map-deep-get($material, 'colors', 'black') !important;
+    }
+
+    &.neutral:hover {
+        background-color: lighten(map-deep-get($material, 'colors', 'neutral'), 10%) !important;
+        color: map-deep-get($material, 'colors', 'black') !important;
+    }
+
+    &.neutral:active {
+        background-color: lighten(map-deep-get($material, 'colors', 'neutral'), 15%) !important;
+        color: map-deep-get($material, 'colors', 'black') !important;
+    }
 }
 
 
