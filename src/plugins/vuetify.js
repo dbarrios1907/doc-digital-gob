@@ -3,7 +3,14 @@ import Vuetify, {
   VApp,
   VContainer,
   VBtn,
-  VMain
+  VMain,
+  VItem,
+  VItemGroup,
+  VSheet,
+  VExpandTransition,
+  VResponsive,
+  VChip
+
 } from 'vuetify/lib'
 
 import es from 'vuetify/lib/locale/es';
@@ -14,8 +21,14 @@ Vue.use(Vuetify, {
     VApp,
     VContainer,
     VBtn,
-    VMain
-  }
+    VMain,
+    VItem,
+    VItemGroup,
+    VSheet,
+    VExpandTransition,
+    VResponsive,
+  },
+
 });
 
 export default new Vuetify({

@@ -1,14 +1,10 @@
-// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+@import "base/_fonts";
+@import "base/_typography";
 
-//@import "scss/defaults";
-//@import "scss/colors";
-//@import "scss/variables";
-//
 @import "variables/_overrides";
-
 @import "themes/_themes";
-
 @import "tools/_theme";
+@import "tools/_rem-calc";
 
 //
 //@import 'scss/gob.cl';
