@@ -11,12 +11,12 @@ import Vuetify, {
   VResponsive,
   VChip,
   VIcon,
+  VAlert
 
 } from 'vuetify/lib'
 
 import es from 'vuetify/lib/locale/es';
 import {themes} from '@/shared/theme/color-palette';
-import '@mdi/font/css/materialdesignicons.css';
 
 Vue.use(Vuetify, {
   components: {
@@ -30,6 +30,8 @@ Vue.use(Vuetify, {
     VExpandTransition,
     VResponsive,
     VIcon,
+    VAlert,
+    VChip
   },
 
 });

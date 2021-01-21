@@ -6,6 +6,8 @@ $font-size-root: 16px;
 $body-font-family: "Roboto", sans-serif;
 $heading-font-family: "Roboto Slab", serif;
 
+$alert-outline: 2px solid currentColor !default;
+
 $headings: (
     'h1': (
         'size': 3.052rem,
