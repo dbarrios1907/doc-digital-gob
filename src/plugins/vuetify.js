@@ -9,6 +9,8 @@ import Vuetify, {
   VSheet,
   VExpandTransition,
   VResponsive,
+  VChip,
+  VIcon,
   VAlert
 
 } from 'vuetify/lib'
@@ -27,7 +29,9 @@ Vue.use(Vuetify, {
     VSheet,
     VExpandTransition,
     VResponsive,
-    VAlert
+    VIcon,
+    VAlert,
+    VChip
   },
 
 });
@@ -46,6 +50,6 @@ export default new Vuetify({
     current: 'es',
   },
   icons: {
-    iconfont: 'md',
+    iconfont: 'mdi',
   },
 });
