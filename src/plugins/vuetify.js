@@ -9,12 +9,14 @@ import Vuetify, {
   VSheet,
   VExpandTransition,
   VResponsive,
-  VChip
+  VChip,
+  VIcon,
 
 } from 'vuetify/lib'
 
 import es from 'vuetify/lib/locale/es';
 import {themes} from '@/shared/theme/color-palette';
+import '@mdi/font/css/materialdesignicons.css';
 
 Vue.use(Vuetify, {
   components: {
@@ -27,6 +29,7 @@ Vue.use(Vuetify, {
     VSheet,
     VExpandTransition,
     VResponsive,
+    VIcon,
   },
 
 });
@@ -45,6 +48,6 @@ export default new Vuetify({
     current: 'es',
   },
   icons: {
-    iconfont: 'md',
+    iconfont: 'mdi',
   },
 });
