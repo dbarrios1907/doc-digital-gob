@@ -2,7 +2,7 @@ import Button from './Button.vue';
 import Icon from '../icon/Icon.vue';
 
 export default {
-  title: 'Vuetify/Style Guide/Button',
+  title: 'Style Guide/Button',
   component: Button,
   argTypes: {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
