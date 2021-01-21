@@ -9,7 +9,7 @@ import Vuetify, {
   VSheet,
   VExpandTransition,
   VResponsive,
-  VChip
+  VAlert
 
 } from 'vuetify/lib'
 
@@ -27,6 +27,7 @@ Vue.use(Vuetify, {
     VSheet,
     VExpandTransition,
     VResponsive,
+    VAlert
   },
 
 });

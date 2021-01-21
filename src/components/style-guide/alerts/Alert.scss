@@ -1,0 +1,42 @@
+.v-alert {
+  width: 27.37rem;
+}
+
+.v-alert__content {
+  color: black !important;
+}
+
+@include theme(v-alert) using($material) {
+  &.success--text, &.success {
+    border: 2px solid #04A398 !important;
+  }
+
+  &.success {
+    background: #DBF2F0 !important;
+  }
+
+  &.error--text, &.error {
+    border: 2px solid #E22C2C !important;
+  }
+
+  &.error {
+    background: #FDF4F4 !important;
+  }
+
+  &.warning--text, &.warning {
+    border: 2px solid #F56B0F !important;
+  }
+
+  &.warning {
+    background: #FEF8F2 !important;
+  }
+
+  &.info--text, &.info {
+    border: 2px solid #0F69C4 !important;
+  }
+
+  &.info {
+    background: #F3F7FC !important;
+  }
+}
+
