@@ -1,7 +1,7 @@
 import Typography from './Typography.vue';
 
 export default {
-  title: 'Vuetify/Style Guide/Typography',
+  title: 'Style Guide/Typography',
   component: Typography,
   argTypes: {},
 };

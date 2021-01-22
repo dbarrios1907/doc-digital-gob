@@ -24,11 +24,15 @@ export default {
       }
 
       if (this.$props.type === 'warning') {
-        return 'mdi-error-outline';
+        return 'mdi-alert-circle-outline';
       }
 
       if (this.$props.type === 'success') {
-        return 'mdi-tick-circle-outline';
+        return 'mdi-check-circle-outline';
+      }
+
+      if (this.$props.type === 'error') {
+        return 'mdi-close-circle-outline';
       }
 
       return false;

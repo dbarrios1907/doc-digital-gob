@@ -17,6 +17,7 @@ import Vuetify, {
 
 import es from 'vuetify/lib/locale/es';
 import {themes} from '@/shared/theme/color-palette';
+import '@mdi/font/css/materialdesignicons.min.css';
 
 Vue.use(Vuetify, {
   components: {
