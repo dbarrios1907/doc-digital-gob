@@ -2,7 +2,7 @@
   <div>
     <v-alert
         :type="type"
-        :icon="iconByType()"
+        :icon="iconByType"
         tile
         v-bind="$attrs"
         v-on="$listeners">
@@ -17,7 +17,7 @@ import './Alert.scss';
 export default {
   name: 'Alert',
   inheritAttrs: false,
-  methods: {
+  computed: {
     iconByType: function () {
       if (this.$props.type === 'info') {
         return 'mdi-bell-outline';
