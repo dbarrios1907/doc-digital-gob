@@ -6,9 +6,30 @@
   color: black !important;
 }
 
+@mixin borderAndIcon($color) {
+  border: 2px solid $color !important;
+
+  .v-icon {
+    color: $color !important;
+  }
+}
+
 @include theme(v-alert) using($material) {
+  .v-alert__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .v-icon {
+    font-size: 2.5rem;
+    display: flex;
+    align-self: center;
+    width: 30px;
+  }
+
   &.success--text, &.success {
-    border: 2px solid #04A398 !important;
+    @include borderAndIcon(#04A398);
   }
 
   &.success {
@@ -16,7 +37,7 @@
   }
 
   &.error--text, &.error {
-    border: 2px solid #E22C2C !important;
+    @include borderAndIcon(#E22C2C);
   }
 
   &.error {
@@ -24,7 +45,7 @@
   }
 
   &.warning--text, &.warning {
-    border: 2px solid #F56B0F !important;
+    @include borderAndIcon(#F56B0F);
   }
 
   &.warning {
@@ -32,7 +53,7 @@
   }
 
   &.info--text, &.info {
-    border: 2px solid #0F69C4 !important;
+    @include borderAndIcon(#0F69C4);
   }
 
   &.info {
