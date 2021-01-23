@@ -4,6 +4,8 @@
         :type="type"
         :icon="iconByType"
         tile
+        close-icon="mdi-close"
+        dismissible
         v-bind="$attrs"
         v-on="$listeners">
       <slot></slot>
