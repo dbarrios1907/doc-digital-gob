@@ -34,7 +34,6 @@ Vue.use(Vuetify, {
     VAlert,
     VChip
   },
-
 });
 
 export default new Vuetify({

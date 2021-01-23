@@ -1,0 +1,7 @@
+
+@include theme(v-chip) using($material) {
+   &.badge-link {
+     text-decoration: underline;
+   }
+}
+
