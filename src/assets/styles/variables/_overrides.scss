@@ -6,7 +6,17 @@ $font-size-root: 16px;
 $body-font-family: "Roboto", sans-serif;
 $heading-font-family: "Roboto Slab", serif;
 
+$btn-font-weight: 700;
+
 $alert-outline: 2px solid currentColor !default;
+
+$tooltip-background-color: rgba(map-get($light-colors, 'dark'), 0.9);
+//$tooltip-border-radius: $border-radius-root;
+//$tooltip-font-size: 14px !default;
+//$tooltip-transition-timing-function: map-get($transition, 'linear-out-slow-in') !default;
+//$tooltip-transition-enter-duration: 150ms !default;
+//$tooltip-transition-leave-duration: 75ms !default;
+//$tooltip-padding: 5px 16px !default;
 
 $headings: (
     'h1': (

@@ -3,7 +3,7 @@
 }
 
 @include theme(v-btn) using ($material) {
-    @debug $material;
+
     &.primary:hover {
         background-color: darken(map-deep-get($material, 'colors', 'primary'), 5%) !important;
     }
@@ -13,11 +13,35 @@
         border-color: darken(map-deep-get($material, 'colors', 'primary'), 10%) !important;
     }
 
+    &.secondary:hover {
+        background-color: darken(map-deep-get($material, 'colors', 'secondary'), 5%) !important;
+    }
+
+    &.secondary:active, &.secondary:focus {
+        background-color: darken(map-deep-get($material, 'colors', 'secondary'), 10%) !important;
+        border-color: darken(map-deep-get($material, 'colors', 'secondary'), 10%) !important;
+    }
+
+    &.dark {
+        background-color: lighten(map-deep-get($material, 'colors', 'dark'), 10%) !important;
+        @debug map-deep-get($material, 'colors', 'light');
+        color: map-deep-get($material, 'colors', 'light') !important;
+    }
+
+    &.dark:hover {
+        background-color: darken(map-deep-get($material, 'colors', 'dark'), 5%) !important;
+    }
+
+    &.dark:active, &.dark:focus {
+        background-color: darken(map-deep-get($material, 'colors', 'dark'), 10%) !important;
+        border-color: darken(map-deep-get($material, 'colors', 'dark'), 10%) !important;
+    }
+
     &:focus {
         box-shadow: map-deep-get($material, 'buttons', 'outlines', 'primary') !important;
     }
 
-    &.primary:focus:before {
+    &.primary:focus:before, &.dark:focus:before, &.secondary:focus:before {
         opacity: 0; // top white layer, disable opacity to reduce transparency effect
     }
 }

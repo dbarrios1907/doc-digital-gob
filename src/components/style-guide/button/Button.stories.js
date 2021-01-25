@@ -31,7 +31,7 @@ const Template = (args, { argTypes }) => ({
         BUTTON
       </Button>
       <Button outlined v-bind="$props"> 
-        BUTTON
+        <span class="text-underline">BUTTON</span>
         <Icon right regular>
           mdi-chevron-down
         </Icon>

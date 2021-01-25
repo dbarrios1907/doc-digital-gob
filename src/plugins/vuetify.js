@@ -1,38 +1,42 @@
 import Vue from 'vue';
-import Vuetify, {
-  VApp,
-  VContainer,
-  VBtn,
-  VMain,
-  VItem,
-  VItemGroup,
-  VSheet,
-  VExpandTransition,
-  VResponsive,
-  VChip,
-  VIcon,
-  VAlert
+import * as _Vuetify from 'vuetify/lib';
 
-} from 'vuetify/lib'
+const Vuetify = _Vuetify.default
+
+const isVueComponent = obj => obj.name === 'VueComponent'
+
+const VComponents = Object.keys(_Vuetify).reduce((acc, key) => {
+  if (isVueComponent(_Vuetify[key])) {
+    acc[key] = _Vuetify[key]
+  }
+  return acc
+}, {})
+
+import {
+  Button,
+  Badge,
+  Alert,
+  VIcon,
+  Icon,
+} from '../components/style-guide';
 
 import es from 'vuetify/lib/locale/es';
 import {themes} from '@/shared/theme/color-palette';
 import '@mdi/font/css/materialdesignicons.min.css';
 
+const styleGuideComponents = {
+  Button,
+  Badge,
+  Alert,
+  Icon
+}
+
 Vue.use(Vuetify, {
   components: {
-    VApp,
-    VContainer,
-    VBtn,
-    VMain,
-    VItem,
-    VItemGroup,
-    VSheet,
-    VExpandTransition,
-    VResponsive,
-    VIcon,
-    VAlert,
-    VChip
+    ...VComponents,
+    VExpandTransition: _Vuetify.VExpandTransition,
+    VSlideXReverseTransition: _Vuetify.VSlideXReverseTransition,
+    ...styleGuideComponents
   },
 });
 
@@ -51,5 +55,6 @@ export default new Vuetify({
   },
   icons: {
     iconfont: 'mdi',
-  },
+
+  }
 });

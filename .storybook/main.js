@@ -41,8 +41,13 @@ module.exports = {
   ],
   'addons': [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        docs: false
+      }
+    },
     {
       name: '@storybook/addon-storysource',
       options: {
@@ -61,9 +66,8 @@ module.exports = {
     config.module.rules.push({
       resolve: {
         alias: {
+          ...config.resolve.alias,
           '@': path.resolve(__dirname, '../src'),
-          vue: 'vue/dist/vue.js',
-          'vue$': 'vue/dist/vue.esm.js',
         },
       },
     });
