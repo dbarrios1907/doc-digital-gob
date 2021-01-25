@@ -38,6 +38,10 @@ export const Badge = {
         return 'black';
       }
 
+      if (this.$props.type === 'info') {
+        return '#CFE1F3';
+      }
+
       return this.$props.type;
     },
     className: function () {
