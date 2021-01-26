@@ -5,7 +5,7 @@
 <script>
 import './Icon.scss';
 export default {
-  name: 'Icon',
+  name: 'doc-icon',
   inheritAttrs: false,
   props: {
     regular: Boolean
