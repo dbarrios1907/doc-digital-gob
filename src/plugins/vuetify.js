@@ -16,7 +16,6 @@ import {
   Button,
   Badge,
   Alert,
-  VIcon,
   Icon,
 } from '../components/style-guide';
 
@@ -27,8 +26,8 @@ import '@mdi/font/css/materialdesignicons.min.css';
 const styleGuideComponents = {
   Button,
   Badge,
+  Icon,
   Alert,
-  Icon
 }
 
 Vue.use(Vuetify, {
