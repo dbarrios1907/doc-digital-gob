@@ -1,3 +1,8 @@
+import Vue from 'vue';
+import GobTextField from './story-components/text-field/GobTextField.vue';
+
+Vue.component('gob-text-field', GobTextField);
+
 export default {
   title: 'Style Guide/Form Fields',
   argTypes: {
@@ -9,52 +14,9 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
-    <v-form>
-      <v-row>
-        <v-col
-          cols="12"
-          sm="6"
-          md="4"
-        >
-          <v-text-field
-              label="Outlined"
-              color="error"
-              outlined
-              dense
-          >
-            <template v-slot:prepend>
-              <v-tooltip
-                  bottom
-              >
-                <template v-slot:activator="{ on }">
-                  <v-icon v-on="on">
-                    mdi-help-circle-outline
-                  </v-icon>
-                </template>
-                I'm a tooltip
-              </v-tooltip>
-            </template>
-            <template v-slot:append>
-              <v-fade-transition leave-absolute>
-                <v-progress-circular
-                    v-if="loading"
-                    size="24"
-                    color="info"
-                    indeterminate
-                ></v-progress-circular>
-                <v-icon color="success">
-                  mdi-check
-                </v-icon>
-              </v-fade-transition>
-            </template>
-            
-          </v-text-field>
-        </v-col>
-      </v-row>
-    </v-form>
+    <gob-text-field />
   `
 });
 
 export const Default = Template.bind({});
 Default.args = {};
-

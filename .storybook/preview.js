@@ -1,5 +1,6 @@
 import { addDecorator } from '@storybook/vue';
 import vuetify from '@/plugins/vuetify';
+import '@/plugins/vee-validate';
 
 import 'vuetify/src/styles/main.sass';
 

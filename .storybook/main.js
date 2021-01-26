@@ -43,12 +43,6 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-a11y',
     {
-      name: '@storybook/addon-essentials',
-      options: {
-        docs: false
-      }
-    },
-    {
       name: '@storybook/addon-storysource',
       options: {
         rule: {
@@ -59,7 +53,13 @@ module.exports = {
           prettierConfig: { printWidth: 80, singleQuote: false },
         },
       },
-    }
+    },
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        docs: false
+      }
+    },
   ],
   webpackFinal: config => {
     // console.log(config.module.rules.filter(v => v.test.toString().includes('.css'))[0].use[1].options);
