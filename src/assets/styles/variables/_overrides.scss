@@ -11,6 +11,12 @@ $btn-font-weight: 700;
 $alert-outline: 2px solid currentColor !default;
 
 $tooltip-background-color: rgba(map-get($light-colors, 'dark'), 0.9);
+
+$expansion-panel-border-radius: none !default;
+$expansion-panel-header-min-height: 80px !default;
+$expansion-panel-active-header-min-height: 80px !default;
+$expansion-panel-content-padding: 24px 16px !default;
+
 //$tooltip-border-radius: $border-radius-root;
 //$tooltip-font-size: 14px !default;
 //$tooltip-transition-timing-function: map-get($transition, 'linear-out-slow-in') !default;
