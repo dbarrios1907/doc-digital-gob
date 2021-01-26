@@ -53,21 +53,12 @@
         </v-icon>
       </template>
 
-
     </v-data-table>
     <div class="text-center pt-2">
       <v-pagination
           v-model="page"
           :length="pageCount"
       ></v-pagination>
-      <v-text-field
-          :value="itemsPerPage"
-          label="Items per page"
-          type="number"
-          min="-1"
-          max="15"
-          @input="itemsPerPage = parseInt($event, 10)"
-      ></v-text-field>
     </div>
   </div>
 </template>
