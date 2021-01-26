@@ -2,7 +2,7 @@ export const themes = {
   light: {
     primary: '#006FB3',
     secondary: '#F56B0F',
-    tertiary: '#0A132D',
+    tertiary: '#0a132d',
     accent: '#A8B7C7',
     error: '#FE6565',
     info: '#2196F3',
