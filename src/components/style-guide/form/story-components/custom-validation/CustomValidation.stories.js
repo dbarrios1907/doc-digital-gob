@@ -4,7 +4,7 @@ import CustomValidation from './CustomValidation.vue';
 Vue.component('custom-validation', CustomValidation);
 
 export default {
-  title: 'Style Guide/Form Fields/Custom Validation',
+  title: 'Style Guide/Form/Custom Validation',
   argTypes: {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },

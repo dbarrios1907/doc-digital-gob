@@ -1,10 +1,10 @@
 import Vue from 'vue';
-import GobTextField from './story-components/text-field/GobTextField.vue';
+import TextField from './text-field/TextField.vue';
 
-Vue.component('gob-text-field', GobTextField);
+Vue.component('doc-text-field', TextField);
 
 export default {
-  title: 'Style Guide/Form Fields',
+  title: 'Style Guide/Form',
   argTypes: {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
@@ -14,9 +14,9 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
-    <gob-text-field />
+    <doc-text-field rules="required" name="some-field"/>
   `
 });
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Textfield = Template.bind({});
+Textfield.args = {};
