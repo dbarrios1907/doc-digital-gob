@@ -1,40 +1,18 @@
-.v-btn {
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
+//.v-btn {
+//    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+//
+//}
 
 @include theme(v-btn) using ($material) {
 
-    &.primary:hover {
-        background-color: darken(map-deep-get($material, 'colors', 'primary'), 5%) !important;
+    padding: rem-calc(12px) rem-calc(20px);
+
+    &.v-size--large {
+        padding: rem-calc(12px) rem-calc(25px);
     }
 
-    &.primary:active, &.primary:focus {
-        background-color: darken(map-deep-get($material, 'colors', 'primary'), 10%) !important;
-        border-color: darken(map-deep-get($material, 'colors', 'primary'), 10%) !important;
-    }
-
-    &.secondary:hover {
-        background-color: darken(map-deep-get($material, 'colors', 'secondary'), 5%) !important;
-    }
-
-    &.secondary:active, &.secondary:focus {
-        background-color: darken(map-deep-get($material, 'colors', 'secondary'), 10%) !important;
-        border-color: darken(map-deep-get($material, 'colors', 'secondary'), 10%) !important;
-    }
-
-    &.dark {
-        background-color: lighten(map-deep-get($material, 'colors', 'dark'), 10%) !important;
-        @debug map-deep-get($material, 'colors', 'light');
-        color: map-deep-get($material, 'colors', 'light') !important;
-    }
-
-    &.dark:hover {
-        background-color: darken(map-deep-get($material, 'colors', 'dark'), 5%) !important;
-    }
-
-    &.dark:active, &.dark:focus {
-        background-color: darken(map-deep-get($material, 'colors', 'dark'), 10%) !important;
-        border-color: darken(map-deep-get($material, 'colors', 'dark'), 10%) !important;
+    &.v-size--small {
+        padding: rem-calc(8px) rem-calc(15px);
     }
 
     &:focus {
@@ -43,24 +21,6 @@
 
     &.primary:focus:before, &.dark:focus:before, &.secondary:focus:before {
         opacity: 0; // top white layer, disable opacity to reduce transparency effect
-    }
-}
-
-@include themeDark(v-btn) using ($material) {
-
-    &.neutral{
-        background-color: map-deep-get($material, 'colors', 'white') !important;
-        color: map-deep-get($material, 'colors', 'black') !important;
-    }
-
-    &.neutral:hover {
-        background-color: lighten(map-deep-get($material, 'colors', 'neutral'), 10%) !important;
-        color: map-deep-get($material, 'colors', 'black') !important;
-    }
-
-    &.neutral:active, &.neutral:focus {
-        background-color: lighten(map-deep-get($material, 'colors', 'neutral'), 15%) !important;
-        color: map-deep-get($material, 'colors', 'black') !important;
     }
 }
 

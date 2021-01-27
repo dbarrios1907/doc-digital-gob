@@ -1,5 +1,5 @@
 <template>
-  <v-btn elevation="0" :ripple="false" v-bind="$attrs" v-on="$listeners"> <slot></slot> </v-btn>
+  <v-btn elevation="0" retain-focus-on-click :ripple="false" v-bind="$attrs" v-on="$listeners"> <slot></slot> </v-btn>
 </template>
 
 <script>

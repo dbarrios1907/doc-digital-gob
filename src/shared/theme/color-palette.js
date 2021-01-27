@@ -1,29 +1,30 @@
 export const themes = {
   light: {
-    primary: '#006FB3',
-    secondary: '#F56B0F',
-    tertiary: '#0a132d',
-    accent: '#A8B7C7',
-    error: '#FE6565',
-    info: '#2196F3',
-    success: '#4CAF50',
-    warning: '#FFC107',
-    neutral: '#EEEEEE',
-    grayA: '#4A4A4A',
-    grayB: '#8A8A8A',
+    primary: '#0F69C4',
+    secondary: '#001C41',
+    tertiary: '#E22C2C',
+    accent: '#EEEEEE',
+    neutral: '#F8F8F8',
+    darken1: '#BBBBBB',
+    darken2: '#656565',
+    dark: '#373737',
     black: '#111111',
-    white: '#FFFFFF'
+    light: '#FFFFFF',
+    error: '#F56B0F',
+    info: '#CFE1F3',
+    success: '#00ADA2',
+    warning: '#E22C2C'
 
   },
   dark: {
-    primary: '#ff904c',
-      secondary: '#019a9a',
-      tertiary: '#f5ecd2',
-      accent: '#574838',
-      neutral: '#111',
-      grayA: '#b5b5b5',
-      grayB: '#757575',
-      black: '#eee',
-      white: '#000'
+    primary: '#E22C2C',
+    secondary: '#00ADA2',
+    tertiary: '#f5ecd2',
+    accent: '#574838',
+    neutral: '#111',
+    grayA: '#b5b5b5',
+    grayB: '#757575',
+    black: '#eee',
+    white: '#000'
   }
 };
