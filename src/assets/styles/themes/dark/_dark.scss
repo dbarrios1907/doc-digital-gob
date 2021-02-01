@@ -15,7 +15,17 @@ $material-dark: (
   'disabledORhints-text-percent': 0.5,
   'divider-percent': 0.12,
   'active-icon-percent': 1,
-  'inactive-icon-percent': 0.5
+  'inactive-icon-percent': 0.5,
+  'cards': #ffffff,
+  'states': (
+    'hover': 0.08,
+    'focus': 0.24,
+    'selected': 0.16,
+    'activated': 0.24,
+    'pressed': 0.32,
+    'dragged': 0.16
+  ),
+  'tabs': rgba(#ffffff, 0.6),
       //'status-bar': (
       //  'regular': map-get($shades, 'black'),
       //  'lights-out': rgba(map-get($shades, 'black'), 0.2)
@@ -93,15 +103,6 @@ $material-dark: (
       //  'discrete': map-get($shades, 'white')
       //),
       //'skeleton': linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .05), rgba(255, 255, 255, 0)),
-      //'states': (
-      //  'hover': 0.08,
-      //  'focus': 0.24,
-      //  'selected': 0.16,
-      //  'activated': 0.24,
-      //  'pressed': 0.32,
-      //  'dragged': 0.16
-      //),
-      //'tabs': rgba(map-get($shades, 'white'), 0.6),
       //'toggle-buttons': (
       //  'color': map-get($shades, 'white')
       //),
