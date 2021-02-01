@@ -20,5 +20,5 @@ const Template = (args, { argTypes }) => ({
   `
 });
 
-export const Sample1 = Template.bind({});
-Sample1.args = {};
+export const UsersTable = Template.bind({});
+UsersTable.args = {};

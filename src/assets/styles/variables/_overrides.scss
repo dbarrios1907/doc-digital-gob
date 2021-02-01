@@ -28,6 +28,15 @@ $stepper-step-error-icon-font-size: 2rem;
 $stepper-elevation: 0;
 $stepper-header-elevation: 0;
 
+$switch-thumb-top: calc(50% - 9px) !default;
+$switch-thumb-dense-height: 18px !default;
+$switch-thumb-dense-width: 18px !default;
+$switch-track-dense-height: 12px !default;
+$switch-track-dense-inset-height: 24px !default;
+$switch-track-dense-inset-width: 40px !default;
+$switch-track-dense-top: calc(50% - 12px) !default;
+$switch-track-dense-width: 32px !default;
+
 //$primary-transition: 0.3s map-get($transition, 'swing') !default;
 
 //$tooltip-border-radius: $border-radius-root;

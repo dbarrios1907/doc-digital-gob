@@ -3,7 +3,7 @@
     <DataTable
         color="primary"
         :headers="headers"
-        :items="desserts"
+        :items="values"
         :page.sync="page"
         :items-per-page="itemsPerPage"
         hide-default-footer
@@ -48,13 +48,13 @@
         ></v-simple-checkbox>
       </template>
 
-      <template v-slot:item.calories="{ item }">
-        <v-chip
-            :color="getColor(item.calories)"
-            dark
+      <template v-slot:item.access="{ item: { access } }">
+        <v-chip v-for="v in access"
+            class="ml-2"
+            color="primary"
             small
         >
-          {{ item.calories }}
+          {{ v }}
         </v-chip>
       </template>
 
@@ -97,8 +97,8 @@ export default {
           filterable: true,
         },
         { text: 'Rut', value: 'rut', filterable: true },
-        { text: 'Permisos', value: 'access', sorteable: false },
-        { text: 'Acciones', value: 'actions', sorteable: false },
+        { text: 'Permisos', value: 'access', sortable: true },
+        { text: 'Acciones', value: 'actions', sortable: false },
       ],
       values: [
         {
