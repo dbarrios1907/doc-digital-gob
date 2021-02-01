@@ -1,4 +1,18 @@
+@include theme(v-data-table) using ($material) {
 
-@include theme(v-table) using ($material) {
+  .v-data-table-header .v-icon {
+    color: map-deep-get($material, 'colors', 'light');
+  }
+  & > .v-data-table__wrapper > table > thead > tr > th {
+    color: map-deep-get($material, 'colors', 'light');
+    background: map-deep-get($material, 'colors', 'primary');
 
+    &.sortable .v-data-table-header__icon, &.sortable.active  .v-data-table-header__icon {
+      color: map-deep-get($material, 'colors', 'light');
+    }
+
+    &.sortable:hover, &.sortable.active {
+      color: map-deep-get($material, 'colors', 'light');
+    }
+  }
 }
