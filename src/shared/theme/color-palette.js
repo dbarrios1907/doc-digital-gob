@@ -1,20 +1,18 @@
 export const themes = {
   light: {
     primary: '#0F69C4',
-    secondary: '#001C41',
-    tertiary: '#E22C2C',
-    accent: '#EEEEEE',
+    secondary: '#CFE1F3',
+    accent: '#E22C2C',
     neutral: '#F8F8F8',
     darken1: '#BBBBBB',
     darken2: '#656565',
-    dark: '#373737',
+    darken3: '#373737',
+    dark: '#001C41',
     black: '#111111',
     light: '#FFFFFF',
     error: '#F56B0F',
-    info: '#CFE1F3',
     success: '#00ADA2',
     warning: '#E22C2C'
-
   },
   dark: {
     primary: '#E22C2C',

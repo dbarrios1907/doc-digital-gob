@@ -5,7 +5,10 @@ $font-size-root: 16px;
 $body-font-family: "Roboto", sans-serif;
 $heading-font-family: "Roboto Slab", serif;
 
-$btn-font-weight: 700;
+$btn-focus-opacity: 0;
+$btn-font-weight: 600;
+$btn-hover-opacity: 0;
+$btn-text-transform: capitalize;
 
 $alert-outline: 2px solid currentColor !default;
 
@@ -24,6 +27,8 @@ $stepper-step-step-font-size: 2rem;
 $stepper-step-error-icon-font-size: 2rem;
 $stepper-elevation: 0;
 $stepper-header-elevation: 0;
+
+//$primary-transition: 0.3s map-get($transition, 'swing') !default;
 
 //$tooltip-border-radius: $border-radius-root;
 //$tooltip-font-size: 14px !default;

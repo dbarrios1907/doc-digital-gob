@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-data-table
+    <DataTable
+        color="primary"
         :headers="headers"
         :items="desserts"
         :page.sync="page"
@@ -10,6 +11,22 @@
         show-select
         @page-count="pageCount = $event"
     >
+
+<!--      <template #header="{ props: { headers } }">-->
+<!--        <thead class="v-data-table-header">-->
+<!--        <tr>-->
+<!--          <th-->
+<!--              v-for="header in headers"-->
+<!--              :key="header.value"-->
+<!--              class="text-uppercase"-->
+<!--              scope="col"-->
+<!--          >-->
+<!--            {{ header.text }}-->
+<!--          </th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--      </template>-->
+
       <template
           v-slot:item.data-table-select="{ isSelected, select }"
       >
@@ -53,7 +70,7 @@
         </v-icon>
       </template>
 
-    </v-data-table>
+    </DataTable>
     <div class="text-center pt-2">
       <v-pagination
           v-model="page"
@@ -75,11 +92,12 @@ export default {
         {
           text: 'Dessert (100g serving)',
           align: 'start',
-          sortable: false,
+          sortable: true,
           value: 'name',
-          class: 'primary shades--text text--white'
+          class: 'primary shades--text text--white',
+          filterable: true,
         },
-        { text: 'Calories', value: 'calories' },
+        { text: 'Calories', value: 'calories', filterable: true },
         { text: 'Fat (g)', value: 'fat' },
         { text: 'Carbs (g)', value: 'carbs' },
         { text: 'Protein (g)', value: 'protein' },

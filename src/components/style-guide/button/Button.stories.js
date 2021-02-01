@@ -5,6 +5,7 @@ export default {
   title: 'Style Guide/Button',
   component: Button,
   argTypes: {
+    label: {control: { type: 'text' }},
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
@@ -19,25 +20,25 @@ const Template = (args, { argTypes }) => ({
       <h3>Primary</h3>
       <v-row>
         <v-col>
-          <Button small v-bind="$props"> BUTTON </Button>
-          <Button v-bind="$props"> BUTTON </Button>
-          <Button large v-bind="$props"> BUTTON </Button>
-          <Button rounded v-bind="$props">
+          <Button color="primary" small v-bind="$props"> {{label}} </Button>
+          <Button color="primary" v-bind="$props"> {{label}}  </Button>
+          <Button color="primary" rounded v-bind="$props">
             <Icon left>
               mdi-pencil
             </Icon>
-            BUTTON
+            {{label}}
           </Button>
-          <Button fab v-bind="$props">
+          <Button color="primary" fab v-bind="$props">
             <Icon dark>
               mdi-pencil
             </Icon>
           </Button>
-          <Button text v-bind="$props">
-            BUTTON
+          <Button color="primary" disabled v-bind="$props"> {{label}} </Button>
+          <Button color="primary" text v-bind="$props">
+            {{label}}
           </Button>
-          <Button outlined v-bind="$props">
-            <span class="text-underline">BUTTON</span>
+          <Button color="primary" outlined v-bind="$props">
+            <span class="text-underline">{{label}} </span>
             <Icon right regular>
               mdi-chevron-down
             </Icon>
@@ -48,50 +49,62 @@ const Template = (args, { argTypes }) => ({
       <h3>Secondary</h3>
       <v-row>
         <v-col>
-          <Button color="secondary" v-bind="$props"> BUTTON </Button>
-          <Button color="secondary" rounded v-bind="$props">
+          <Button class="primary--text" color="secondary" v-bind="$props"> {{label}}  </Button>
+          <Button class="primary--text" color="secondary"  rounded v-bind="$props">
             <Icon left>
               mdi-pencil
             </Icon>
-            BUTTON
+            {{label}}
           </Button>
-          <Button color="secondary" fab v-bind="$props">
+          <Button class="primary--text" color="secondary" fab v-bind="$props">
             <Icon dark>
               mdi-pencil
             </Icon>
           </Button>
-          <Button color="secondary" text v-bind="$props">
-            BUTTON
+          <Button class="primary--text" color="secondary" disabled v-bind="$props"> {{label}}  </Button>
+        </v-col>
+      </v-row>
+
+      <h3>Neutral</h3>
+      <v-row>
+        <v-col>
+          <Button color="neutral"  v-bind="$props"> {{label}}  </Button>
+          <Button color="neutral"  rounded v-bind="$props">
+            <Icon left>
+              mdi-pencil
+            </Icon>
+            {{label}}
           </Button>
-          <Button color="secondary" outlined v-bind="$props">
-            <span class="text-underline">BUTTON</span>
-            <Icon right regular>
-              mdi-chevron-down
+          <Button color="neutral"  fab v-bind="$props">
+            <Icon dark>
+              mdi-pencil
             </Icon>
           </Button>
+          <Button color="neutral"  disabled v-bind="$props"> {{label}} </Button>
         </v-col>
       </v-row>
       
       <h3>Success</h3>
       <v-row>
         <v-col>
-          <Button color="success" v-bind="$props"> BUTTON </Button>
+          <Button color="success" v-bind="$props"> {{label}} </Button>
           <Button color="success" rounded v-bind="$props">
             <Icon left>
               mdi-pencil
             </Icon>
-            BUTTON
+            {{label}}
           </Button>
           <Button color="success" fab v-bind="$props">
             <Icon dark>
               mdi-pencil
             </Icon>
           </Button>
+          <Button color="success" disabled v-bind="$props"> {{label}} </Button>
           <Button color="success" text v-bind="$props">
-            BUTTON
+            {{label}}
           </Button>
           <Button color="success" outlined v-bind="$props">
-            <span class="text-underline">BUTTON</span>
+            <span class="text-underline"> {{label}} </span>
             <Icon right regular>
               mdi-chevron-down
             </Icon>
@@ -102,23 +115,24 @@ const Template = (args, { argTypes }) => ({
       <h3>Error</h3>
       <v-row>
         <v-col>
-          <Button color="error" v-bind="$props"> BUTTON </Button>
+          <Button color="error" v-bind="$props"> {{label}}  </Button>
           <Button color="error" rounded v-bind="$props">
             <Icon left>
               mdi-pencil
             </Icon>
-            BUTTON
+            {{label}}
           </Button>
           <Button color="error" fab v-bind="$props">
             <Icon dark>
               mdi-pencil
             </Icon>
           </Button>
+          <Button color="error" disabled v-bind="$props"> {{label}}  </Button>
           <Button color="error" text v-bind="$props">
-            BUTTON
+            {{label}}
           </Button>
           <Button color="error" outlined v-bind="$props">
-            <span class="text-underline">BUTTON</span>
+            <span class="text-underline"> {{label}} </span>
             <Icon right regular>
               mdi-chevron-down
             </Icon>
@@ -129,23 +143,24 @@ const Template = (args, { argTypes }) => ({
       <h3 class="m-3">Warning</h3>
       <v-row>
         <v-col>
-          <Button color="warning" v-bind="$props"> BUTTON </Button>
+          <Button color="warning" v-bind="$props"> {{label}}  </Button>
           <Button color="warning" rounded v-bind="$props">
             <Icon left>
               mdi-pencil
             </Icon>
-            BUTTON
+            {{label}}
           </Button>
           <Button color="warning" fab v-bind="$props">
             <Icon dark>
               mdi-pencil
             </Icon>
           </Button>
+          <Button color="warning"  disabled v-bind="$props"> {{label}}  </Button>
           <Button color="warning" text v-bind="$props">
-            BUTTON
+            {{label}}
           </Button>
           <Button color="warning" outlined v-bind="$props">
-            <span class="text-underline">BUTTON</span>
+            <span class="text-underline">{{label}} </span>
             <Icon right regular>
               mdi-chevron-down
             </Icon>
@@ -153,26 +168,27 @@ const Template = (args, { argTypes }) => ({
         </v-col>
       </v-row>
 
-      <h3 class="m-3">Info</h3>
+      <h3 class="m-3">Dark</h3>
       <v-row>
         <v-col>
-          <Button color="info" v-bind="$props"> BUTTON </Button>
-          <Button color="info" rounded v-bind="$props">
+          <Button color="dark" v-bind="$props"> {{label}}  </Button>
+          <Button color="dark" rounded v-bind="$props">
             <Icon left>
               mdi-pencil
             </Icon>
-            BUTTON
+            {{label}}
           </Button>
-          <Button color="info" fab v-bind="$props">
+          <Button color="dark" fab v-bind="$props">
             <Icon dark>
               mdi-pencil
             </Icon>
           </Button>
-          <Button color="info" text v-bind="$props">
-            BUTTON
+          <Button color="dark" disabled v-bind="$props"> {{label}}  </Button>
+          <Button color="dark" text v-bind="$props">
+            {{label}}
           </Button>
-          <Button color="info" outlined v-bind="$props">
-            <span class="text-underline">BUTTON</span>
+          <Button color="dark" outlined v-bind="$props">
+            <span class="text-underline"> {{label}} </span>
             <Icon right regular>
               mdi-chevron-down
             </Icon>
@@ -186,9 +202,11 @@ const Template = (args, { argTypes }) => ({
 export const Primary = Template.bind({});
 Primary.args = {
   color: 'primary',
+  label: 'Button'
 };
 
 export const Neutral = Template.bind({});
 Neutral.args = {
   color: 'neutral',
+  label: 'Button'
 };

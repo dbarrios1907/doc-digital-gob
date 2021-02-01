@@ -1,10 +1,12 @@
 import Vue from 'vue';
-import DataTable from './story-components/DataTable.vue';
+import DataTable from './DataTable.vue';
+import TableStory from './story-components/DataTable.vue';
 
-Vue.component('datatable', DataTable);
+Vue.component('DataTable', DataTable);
+Vue.component('table-story', TableStory);
 
 export default {
-  title: 'Style Guide/Table',
+  title: 'Style Guide/DataTable',
   argTypes: {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
@@ -14,7 +16,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
-    <datatable />
+    <table-story />
   `
 });
 

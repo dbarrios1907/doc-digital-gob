@@ -1,11 +1,11 @@
-//.v-btn {
-//    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-//
-//}
+.v-btn {
+    transition: background #{$primary-transition}, color #{$primary-transition};
+}
 
 @include theme(v-btn) using ($material) {
 
     padding: rem-calc(12px) rem-calc(20px);
+
 
     &.v-size--large {
         padding: rem-calc(12px) rem-calc(25px);
@@ -15,12 +15,86 @@
         padding: rem-calc(8px) rem-calc(15px);
     }
 
-    &:focus {
-        box-shadow: map-deep-get($material, 'buttons', 'outlines', 'primary') !important;
+    @each $name, $color in map-get(map-get($material, 'buttons'), 'darken-variants') {
+        @if $name {
+            @debug $color;
+            &.#{$name}:hover { background: darken($color, 10%) !important;}
+
+            &.#{$name}:active { background: darken($color, 20%) !important;}
+            &.#{$name}:visited {
+                background: darken($color, 10%) !important;
+            }
+            &.#{$name}:focus {
+                outline: 1px dashed #000;
+            }
+            &.#{$name}:focus:before {
+                background: transparent;
+            }
+
+            &.v-btn--outlined.#{$name}--text:active { color: darken($color, 20%) !important;}
+            &.v-btn--outlined.#{$name}--text:hover:before {
+                color: darken($color, 10%) !important;
+            }
+            &.v-btn--outlined.#{$name}--text:focus {
+                outline: 1px dashed #000;
+            }
+            &.v-btn--outlined.#{$name}--text:focus:before {
+                background: transparent;
+            }
+
+            &.v-btn--text.#{$name}--text:active { color: darken($color, 20%) !important;}
+            &.v-btn--text.#{$name}--text:hover:before {
+                color: darken($color, 10%) !important;
+            }
+            &.v-btn--text.#{$name}--text:focus {
+                outline: 1px dashed #000;
+            }
+
+            &.v-btn--disabled {
+
+            }
+        }
     }
 
-    &.primary:focus:before, &.dark:focus:before, &.secondary:focus:before {
-        opacity: 0; // top white layer, disable opacity to reduce transparency effect
+    @each $name, $color in map-get(map-get($material, 'buttons'), 'other-variants') {
+        @debug $name;
+        @if $name {
+            &.#{$name} {
+                color: #fff !important;
+            }
+
+            &.#{$name}:hover { background: lighten($color, 10%) !important;}
+
+            &.#{$name}:active { background: lighten($color, 20%) !important;}
+            &.#{$name}:visited {
+                background: lighten($color, 10%) !important;
+            }
+            &.#{$name}:focus {
+                outline: 1px dashed #000;
+            }
+            &.#{$name}:focus:before {
+                background: transparent;
+            }
+
+            &.v-btn--outlined.#{$name}--text:active { color: lighten($color, 20%) !important;}
+            &.v-btn--outlined.#{$name}--text:hover:before {
+                color: lighten($color, 10%) !important;
+            }
+            &.v-btn--outlined.#{$name}--text:focus {
+                outline: 1px dashed #000;
+            }
+            &.v-btn--outlined.#{$name}--text:focus:before {
+                background: transparent;
+            }
+
+            &.v-btn--text.#{$name}--text:active { color: lighten($color, 20%) !important;}
+            &.v-btn--text.#{$name}--text:hover:before {
+                color: darken($color, 10%) !important;
+            }
+            &.v-btn--text.#{$name}--text:focus {
+                outline: 1px dashed #000;
+            }
+        }
     }
 }
 

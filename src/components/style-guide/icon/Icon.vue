@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import './Icon.scss';
 export default {
   name: 'doc-icon',
   inheritAttrs: false,
