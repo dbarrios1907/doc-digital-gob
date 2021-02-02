@@ -1,0 +1,22 @@
+.v-dialog {
+  .v-card {
+    border-radius: 0 !important;
+
+    .v-card__title {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 29px;
+      padding: 15px !important;
+    }
+
+    .v-card__text {
+      padding: 20px !important;
+    }
+
+    .v-card__actions {
+      height: 60px;
+    }
+  }
+}
