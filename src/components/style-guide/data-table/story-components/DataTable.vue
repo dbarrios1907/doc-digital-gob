@@ -49,7 +49,7 @@
       </template>
 
       <template v-slot:item.access="{ item: { access } }">
-        <v-chip v-for="v in access"
+        <v-chip v-for="v in access" :key="v"
             class="ml-2"
             color="primary"
             small
