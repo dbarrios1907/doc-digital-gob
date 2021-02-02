@@ -9,6 +9,9 @@
       <v-card ref="form">
         <v-card-text>
           <v-text-field
+              solo
+              flat
+              outlined
               ref="name"
               v-model="name"
               :rules="[() => !!name || 'This field is required']"
@@ -18,6 +21,9 @@
               required
           ></v-text-field>
           <v-text-field
+              solo
+              flat
+              outlined
               ref="address"
               v-model="address"
               :rules="[
@@ -31,6 +37,9 @@
               required
           ></v-text-field>
           <v-text-field
+              solo
+              flat
+              outlined
               ref="city"
               v-model="city"
               :rules="[() => !!city || 'This field is required', addressCheck]"
@@ -39,6 +48,9 @@
               required
           ></v-text-field>
           <v-text-field
+              solo
+              flat
+              outlined
               ref="state"
               v-model="state"
               :rules="[() => !!state || 'This field is required']"
@@ -55,6 +67,9 @@
               placeholder="79938"
           ></v-text-field>
           <v-autocomplete
+              solo
+              flat
+              outlined
               ref="country"
               v-model="country"
               :rules="[() => !!country || 'This field is required']"
