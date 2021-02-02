@@ -23,10 +23,12 @@ const Template = (args, { argTypes }) => ({
         <v-radio
             label="Option 1"
             value="radio-1"
+            :ripple="false"
         ></v-radio>
         <v-radio
             label="Option 2"
             value="radio-2"
+            :ripple="false"
         ></v-radio>
       </v-radio-group>
       <hr>
@@ -37,10 +39,12 @@ const Template = (args, { argTypes }) => ({
         <v-radio
             label="Option 1"
             value="radio-1"
+            :ripple="false"
         ></v-radio>
         <v-radio
             label="Option 2"
             value="radio-2"
+            :ripple="false"
         ></v-radio>
       </v-radio-group>
     </v-container>
