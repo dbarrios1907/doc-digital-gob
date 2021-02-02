@@ -1,24 +1,13 @@
 @include theme(v-expansion-panels) using($material) {
-  .v-expansion-panel-header {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-  }
-
-  .v-expansion-panel-header--active {
-    // outline: map-get($material, 'outline');
-  }
 
   .active-collapse-item {
     button {
-      border-bottom: 1.25px solid map-get($material, 'colors', 'primary');
+      border-bottom: 1.25px solid map-get($material, 'colors', 'info');
     }
   }
 
   .v-expansion-panel {
-    border-bottom: 1.25px solid map-get($material, 'colors', 'primary');
+    border-bottom: 1.25px solid map-get($material, 'colors', 'info');
   }
 
   .v-expansion-panel-header__icon {

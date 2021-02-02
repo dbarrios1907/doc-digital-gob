@@ -14,7 +14,7 @@ const Template = (args, { argTypes }) => ({
     }
   },
   template: `
-    <v-stepper v-model="e1" alt-labels dark>
+    <v-stepper v-model="e1" alt-labels>
     <v-stepper-header>
       <v-stepper-step
           :complete="e1 > 1"

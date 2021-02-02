@@ -28,13 +28,13 @@ const Template = (args, { argTypes }) => ({
           dense
           :label="'Switch 1: '+ switch1.toString()"
       ></doc-switch>
-      <doc-switch
+      <v-switch
           v-model="switch2"
           inset
           dense
           :ripple="false"
           :label="'Switch 2: ' + switch2.toString()"
-      ></doc-switch>
+      ></v-switch>
       <doc-switch
           v-model="switch3"
           color="#04A398"

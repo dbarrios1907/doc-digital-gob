@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Switch from '../switch/Switch';
+import Button from '../button/Button';
 
 export default {
   title: 'Style Guide/Popover',
@@ -8,7 +9,8 @@ export default {
   },
 };
 
-Vue.component('v-switch', Switch);
+Vue.component('doc-switch', Switch);
+Vue.component('doc-button', Button);
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -28,13 +30,13 @@ const Template = (args, { argTypes }) => ({
         offset-x
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
-            dark
+        <doc-button
+            color="primary"
             v-bind="attrs"
             v-on="on"
         >
           Menu as Popover
-        </v-btn>
+        </doc-button>
       </template>
 
       <v-card>
@@ -53,13 +55,13 @@ const Template = (args, { argTypes }) => ({
             </v-list-item-content>
 
             <v-list-item-action>
-              <v-btn
+              <doc-button
                   :class="fav ? 'red--text' : ''"
                   icon
                   @click="fav = !fav"
               >
                 <v-icon>mdi-heart</v-icon>
-              </v-btn>
+              </doc-button>
             </v-list-item-action>
           </v-list-item>
         </v-list>
@@ -69,20 +71,20 @@ const Template = (args, { argTypes }) => ({
         <v-list>
           <v-list-item>
             <v-list-item-action>
-              <v-switch
+              <doc-switch
                   v-model="message"
                   color="purple"
-              ></v-switch>
+              ></doc-switch>
             </v-list-item-action>
             <v-list-item-title>Enable messages</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-action>
-              <v-switch
+              <doc-switch
                   v-model="hints"
                   color="purple"
-              ></v-switch>
+              ></doc-switch>
             </v-list-item-action>
             <v-list-item-title>Enable hints</v-list-item-title>
           </v-list-item>
@@ -91,19 +93,20 @@ const Template = (args, { argTypes }) => ({
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn
+          <doc-button
+              color="dark"
               text
               @click="menu = false"
           >
             Cancel
-          </v-btn>
-          <v-btn
-              color="primary"
-              text
-              @click="menu = false"
+          </doc-button>
+          <doc-button
+            color="primary"
+            text
+            @click="menu = false"
           >
             Save
-          </v-btn>
+          </doc-button>
         </v-card-actions>
       </v-card>
     </v-menu>
