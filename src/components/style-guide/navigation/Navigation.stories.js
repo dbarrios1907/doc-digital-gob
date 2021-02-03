@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Button from '../button/Button';
 import NavTree from './NavTree';
+import Navigation from './Navigation';
 
 export default {
   title: 'Style Guide/Navigation',
@@ -10,6 +11,7 @@ export default {
 
 Vue.component('v-button', Button);
 Vue.component('v-nav-tree', NavTree);
+Vue.component('Navigation', Navigation);
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -27,73 +29,17 @@ const Template = (args, { argTypes }) => ({
         { title: 'Documentos', icon: 'mdi-file-document-outline' },
         { title: 'Oficina de Partes', icon: 'mdi-office-building' }
       ],
-      right: null,
-      menuItems: [
-        {
-          id: 1,
-          name: 'Vuetify Human Resources',
-          children: [
-            {
-              id: 2,
-              name: 'Core team',
-              children: [
-                {
-                  id: 201,
-                  name: 'John',
-                },
-                {
-                  id: 202,
-                  name: 'Kael',
-                },
-                {
-                  id: 203,
-                  name: 'Nekosaur',
-                },
-                {
-                  id: 204,
-                  name: 'Jacek',
-                },
-                {
-                  id: 205,
-                  name: 'Andrew',
-                },
-              ],
-            },
-            {
-              id: 3,
-              name: 'Administrators',
-              children: [
-                {
-                  id: 301,
-                  name: 'Mike',
-                },
-                {
-                  id: 302,
-                  name: 'Hunt',
-                },
-              ],
-            },
-            {
-              id: 4,
-              name: 'Contributors',
-              children: [
-                {
-                  id: 401,
-                  name: 'Phlow',
-                },
-                {
-                  id: 402,
-                  name: 'Brandon',
-                },
-                {
-                  id: 403,
-                  name: 'Sean',
-                },
-              ],
-            },
-          ],
-        },
+      admins: [
+        ['Management', 'mdi-account-multiple-outline'],
+        ['Settings', 'mdi-cog-outline'],
       ],
+      cruds: [
+        ['Create', 'mdi-plus-outline'],
+        ['Read', 'mdi-file-outline'],
+        ['Update', 'mdi-update'],
+        ['Delete', 'mdi-delete'],
+      ],
+      right: null,
       open: [1, 2],
       tree: null,
       caseSensitive: false,
@@ -101,7 +47,7 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <v-card>
-    <v-navigation-drawer
+    <Navigation
         color="#093F75"
         width="325"
         v-model="drawer"
@@ -138,6 +84,7 @@ const Template = (args, { argTypes }) => ({
         <v-list-item
             v-for="item in items"
             :key="item.title"
+            active-class="light--text"
             link
         >
           <v-list-item-icon>
@@ -150,35 +97,73 @@ const Template = (args, { argTypes }) => ({
         </v-list-item>
       </v-list>
 
-<!--      <v-list-item-group v-model="group" class="light&#45;&#45;text">-->
-<!--        <v-list-item>-->
-<!--          <v-list-item-icon>-->
-<!--            <v-icon>mdi-home</v-icon>-->
-<!--          </v-list-item-icon>-->
-<!--          <v-list-item-title>Home</v-list-item-title>-->
-<!--        </v-list-item>-->
-<!--        <v-list-item>-->
-<!--          <v-list-item-icon>-->
-<!--            <v-icon>mdi-account</v-icon>-->
-<!--          </v-list-item-icon>-->
-<!--          <v-list-item-title>Account</v-list-item-title>-->
-<!--        </v-list-item>-->
-<!--      </v-list-item-group>-->
+      <v-list dark>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>mdi-home</v-icon>
+          </v-list-item-icon>
 
-      <v-nav-tree
-          :v-model="tree"
-          class="light--text"
-          :items="menuItems"
-          selected-color="indigo"
-          open-on-click
-          return-object
-          expand-icon="mdi-chevron-down"
-          :open.sync="open"
-          dark
-      >
-      </v-nav-tree>
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item>
+
+        <v-list-group
+            :value="true"
+            active-class="light--text"
+            prepend-icon="mdi-account-circle"
+        >
+          <template v-slot:activator>
+            <v-list-item-title>Users</v-list-item-title>
+          </template>
+
+          <v-list-group
+              :value="true"
+              no-action
+              sub-group
+          >
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title>Admin</v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+                v-for="([title, icon], i) in admins"
+                :key="i"
+                link
+            >
+              <v-list-item-title v-text="title"></v-list-item-title>
+
+              <v-list-item-icon>
+                <v-icon v-text="icon"></v-icon>
+              </v-list-item-icon>
+            </v-list-item>
+          </v-list-group>
+          <v-list-group
+              no-action
+              sub-group
+          >
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title>Actions</v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+                v-for="([title, icon], i) in cruds"
+                :key="i"
+                link
+            >
+              <v-list-item-title v-text="title"></v-list-item-title>
+
+              <v-list-item-icon>
+                <v-icon v-text="icon"></v-icon>
+              </v-list-item-icon>
+            </v-list-item>
+          </v-list-group>
+        </v-list-group>
+      </v-list>
       
-    </v-navigation-drawer>
+    </Navigation>
     </v-card>
   `
 });

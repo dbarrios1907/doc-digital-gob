@@ -204,9 +204,3 @@ Primary.args = {
   color: 'primary',
   label: 'Button'
 };
-
-export const Neutral = Template.bind({});
-Neutral.args = {
-  color: 'neutral',
-  label: 'Button'
-};
