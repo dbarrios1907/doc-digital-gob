@@ -53,7 +53,8 @@ $ripple-animation-transition-out :opacity .1s linear;
 $ripple-animation-visible-opacity : .15;
 
 $date-picker-event-border-radius: 0 !default;
-
+$text-field-border-radius: 0 !default;
+$text-field-filled-border-radius: 0 !default;
     //$primary-transition: 0.3s map-get($transition, 'swing') !default;
 
 //$tooltip-border-radius: $border-radius-root;
