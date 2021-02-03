@@ -45,13 +45,13 @@ const Template = (args, { argTypes }) => ({
             <v-list-item-avatar>
               <img
                   src="https://cdn.vuetifyjs.com/images/john.jpg"
-                  alt="John"
+                  alt="Juan"
               >
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title>John Leider</v-list-item-title>
-              <v-list-item-subtitle>Founder of Vuetify</v-list-item-subtitle>
+              <v-list-item-title>Juan García</v-list-item-title>
+              <v-list-item-subtitle>Administrador</v-list-item-subtitle>
             </v-list-item-content>
 
             <v-list-item-action>
@@ -76,7 +76,7 @@ const Template = (args, { argTypes }) => ({
                   color="purple"
               ></doc-switch>
             </v-list-item-action>
-            <v-list-item-title>Enable messages</v-list-item-title>
+            <v-list-item-title>Habilitar Mensajes</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
@@ -86,7 +86,7 @@ const Template = (args, { argTypes }) => ({
                   color="purple"
               ></doc-switch>
             </v-list-item-action>
-            <v-list-item-title>Enable hints</v-list-item-title>
+            <v-list-item-title>Habilidar Permisos de Administración</v-list-item-title>
           </v-list-item>
         </v-list>
 

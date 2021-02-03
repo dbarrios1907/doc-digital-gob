@@ -117,8 +117,8 @@ const Template = (args, { argTypes }) => ({
 
           <v-list-group
               :value="true"
+              active-class="light--text"
               no-action
-              sub-group
           >
             <template v-slot:activator>
               <v-list-item-content>

@@ -1,13 +1,11 @@
-import Vue from '../../../../lib/utils/vue'
-import identity from '../../../../lib/utils/identity'
-import { isArray, concat } from '../../../../lib/utils/array'
-import { getComponentConfig } from '../../../../lib/utils/config'
-import { isFile, isFunction, isUndefinedOrNull } from '../../../../lib/utils/inspect'
-import { File } from '../../../../lib/utils/safe-types'
-import { toString } from '../../../../lib/utils/string'
-import { warn } from '../../../../lib/utils/warn'
-import idMixin from '../../../../lib/mixins/id'
-import normalizeSlotMixin from '../../../../lib/mixins/normalize-slot'
+import Vue from '@/shared/utils/vue'
+import identity from '@/shared/utils/identity'
+import { isArray, concat } from '@/shared/utils/array'
+import { getComponentConfig } from '@/shared/utils/config'
+import { isFile, isFunction, isUndefinedOrNull } from '@/shared/utils/inspect'
+import { File } from '@/shared/utils/safe-types'
+import { toString } from '@/shared/utils/string'
+import { warn } from '@/shared/utils/warn'
 
 const NAME = 'BFormFile'
 
@@ -17,7 +15,6 @@ const VALUE_EMPTY_DEPRECATED_MSG =
 // @vue/component
 export default /*#__PURE__*/ Vue.extend({
   name: NAME,
-  mixins: [idMixin, normalizeSlotMixin],
   inheritAttrs: false,
   model: {
     prop: 'value',
