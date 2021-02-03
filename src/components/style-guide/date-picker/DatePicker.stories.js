@@ -21,12 +21,15 @@ const Template = (args, {argTypes}) => ({
   },
 
   watch: {
-    date(val) {
+    date() {
       this.dateFormatted = this.formatDate(this.date)
     },
   },
 
   methods: {
+    formatHeader(date) {
+      return date;
+    },
     formatDate(date) {
       if (!date) return null
 
@@ -42,43 +45,44 @@ const Template = (args, {argTypes}) => ({
   },
   template: `
     <v-row justify="center">
-        <v-col lg="4">
-          <v-date-picker
-              no-title
-              color="primary"
-              v-model="date">
-          </v-date-picker>
-        </v-col>
-        
-        <v-col lg="4">
-          <v-menu
-              ref="menu1"
-              v-model="menu1"
-              :close-on-content-click="false"
-              transition="scale-transition"
-              offset-y
-              min-width="auto">
-            <template v-slot:activator="{ on, attrs }">
-              <v-text-field
-                  v-model="dateFormatted"
-                  label="Date"
-                  persistent-hint
-                  append-icon="mdi-calendar-month-outline"
-                  v-bind="attrs"
-                  @blur="date = parseDate(dateFormatted)"
-                  v-on="on"
-              ></v-text-field>
-            </template>
-            <v-date-picker
-                v-model="date"
-                no-title
-                color="primary"
-                @input="menu1 = false"
-            ></v-date-picker>
-          </v-menu>
-        </v-col>
+    <v-col lg="4">
+      <v-date-picker
+          no-title
+          color="primary"
+          v-model="date">
+      </v-date-picker>
+    </v-col>
 
-        <v-col lg="4"></v-col>
+    <v-col lg="4">
+      <v-menu
+          ref="menu1"
+          v-model="menu1"
+          :close-on-content-click="false"
+          transition="scale-transition"
+          offset-y
+          min-width="auto">
+        <template v-slot:activator="{ on, attrs }">
+          <v-text-field
+              hide-details
+              outlined
+              dense
+              v-model="dateFormatted"
+              append-icon="mdi-calendar-month-outline"
+              v-bind="attrs"
+              @blur="date = parseDate(dateFormatted)"
+              v-on="on"
+          ></v-text-field>
+        </template>
+        <v-date-picker
+            v-model="date"
+            no-title
+            color="primary"
+            @input="menu1 = false"
+        ></v-date-picker>
+      </v-menu>
+    </v-col>
+
+    <v-col lg="4"></v-col>
     </v-row>
   `
 });
