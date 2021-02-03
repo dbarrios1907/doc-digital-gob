@@ -39,7 +39,10 @@ const Template = (args, {argTypes}) => ({
           max-width="600px">
         <v-card>
           <v-card-title>
-            Suspendisse ultrices ullamcorper ante vel euismod.
+            <h5 class="font-title weight-700">
+              ¿Qué es la ClaveÚnica?
+            </h5>
+            
             <v-spacer></v-spacer>
             <v-btn
                 icon
@@ -79,8 +82,11 @@ const Template = (args, {argTypes}) => ({
                 icon>
               <v-icon>mdi-alert-circle-outline</v-icon>
             </v-btn>
+
+            <h5 class="font-title weight-700">
+              Suspendisse ultrices ullamcorper ante vel euismod.
+            </h5>
             
-            Suspendisse ultrices ullamcorper ante vel euismod.
             <v-spacer></v-spacer>
             <v-btn
                 icon

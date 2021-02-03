@@ -15,9 +15,9 @@ const Template = (args, {argTypes}) => ({
       <v-expansion-panels flat>
         <v-expansion-panel active-class="active-collapse-item">
           <v-expansion-panel-header>
-            <h2 class="h2">
+            <div class="font-title weight-700">
               ¿Qué es la ClaveÚnica?
-            </h2>
+            </div>
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -28,7 +28,7 @@ const Template = (args, {argTypes}) => ({
 
         <v-expansion-panel active-class="active-collapse-item">
           <v-expansion-panel-header>
-            <div>
+            <div class="font-title weight-700">
               ¿Cómo solicito mi Clave?
             </div>
           </v-expansion-panel-header>

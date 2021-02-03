@@ -1,0 +1,11 @@
+@include theme(v-picker) using($material) {
+  border: 1px solid map-get($material, 'colors', 'primary');
+
+  .v-date-picker-table {
+    button {
+      border-radius: 0 !important;
+      text-decoration: underline;
+    }
+  }
+}
+
