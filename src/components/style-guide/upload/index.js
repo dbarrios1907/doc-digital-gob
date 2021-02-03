@@ -1,6 +1,6 @@
 import BUpload from './upload.vue'
 import BFileList from './components/file-list.vue'
-import { pluginFactory } from '../../../lib/utils/plugins'
+import { pluginFactory } from '@/shared/utils/plugins'
 
 const BUploadPlugin = /*#__PURE__*/ pluginFactory({
   components: {
