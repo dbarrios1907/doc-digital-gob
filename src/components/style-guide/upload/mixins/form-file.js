@@ -7,7 +7,7 @@ import { File } from '@/shared/utils/safe-types'
 import { toString } from '@/shared/utils/string'
 import { warn } from '@/shared/utils/warn'
 
-const NAME = 'BFormFile'
+const NAME = 'FormFile'
 
 const VALUE_EMPTY_DEPRECATED_MSG = 'Setting "value"/"v-model" to an empty string for reset is deprecated. Set to "null" instead.'
 
@@ -56,10 +56,6 @@ export default /*#__PURE__*/ Vue.extend({
     placeholder: {
       type: String,
       default: () => getComponentConfig(NAME, 'placeholder'),
-    },
-    dropPlaceholder: {
-      type: String,
-      default: () => getComponentConfig(NAME, 'dropPlaceholder'),
     },
     multiple: {
       type: Boolean,

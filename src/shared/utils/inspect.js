@@ -1,6 +1,7 @@
 import { isArray } from './array'
 import { isObject, isPlainObject } from './object'
 import { File } from './safe-types'
+import {toRawType} from "@vue/shared";
 
 // === DataType check utils ===
 

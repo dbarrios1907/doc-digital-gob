@@ -2,48 +2,55 @@
   <div class="b-upload">
     <Button color="primary" outlined @click="onSelectionClick" class="btn-upload">
       <div class="btn-upload-content">
-        <Icon right regular> mdi-cloud-upload-outline </Icon>
+        <Icon right regular>
+          mdi-cloud-upload-outline
+        </Icon>
         <span class="text-underline">Cargar archivo</span>
       </div>
     </Button>
 
     <input
-      class="b-upload-input"
-      ref="input"
-      type="file"
-      :id="_id"
-      :name="name"
-      :disabled="disabled"
-      :capture="capture || null"
-      :accept="accept || null"
-      :multiple="multiple"
-      :uploadThreads="uploadThreads"
+        class="b-upload-input"
+        ref="input"
+        type="file"
+        :id="_id"
+        :name="name"
+        :disabled="disabled"
+        :capture="capture || null"
+        :accept="accept || null"
+        :multiple="multiple"
+        :uploadThreads="uploadThreads"
     />
 
-    <FileList :files="stackedFiles" :upload-handler="uploadHandler" descriptionProp="name" :upload-threads="uploadThreads"> </FileList>
+    <FileList
+        :files="stackedFiles"
+        :upload-handler="uploadHandler"
+        descriptionProp="name"
+        :upload-threads="uploadThreads">
+    </FileList>
   </div>
 </template>
 
 <script>
-import Button from '../button/Button.vue'
-import Icon from '../icon/Icon.vue'
-import FileList from './components/FileList'
+import Button from '../button/Button.vue';
+import Icon from '../icon/Icon.vue';
+import FileList from './components/FileList';
 
 import FormFileMixin from './mixins/form-file'
 import UploadInputMixing from './mixins/upload-inputs'
-import { isFile } from '@/shared/utils/inspect'
-import { idMixin } from '@/shared/mixin/id'
+import {isFile} from "@/shared/utils/inspect";
+import {idMixin} from "@/shared/mixin/id";
 
 export default {
   name: 'Upload',
   components: {
     Button,
     Icon,
-    FileList,
+    FileList
   },
   provide() {
     return {
-      upload: this,
+      upload: this
     }
   },
   mixins: [FormFileMixin, UploadInputMixing, idMixin],
@@ -51,73 +58,77 @@ export default {
     manualUpload: Boolean,
     fileNameFormatter: {
       type: Function,
-      default: file => {
+      default: (file) => {
         console.log(file)
-      },
+      }
     },
     uploadThreads: {
       type: Number,
-      default: 1,
+      default: 1
     },
     uploadHandler: {
       type: Function,
-      default: null,
+      default: null
     },
     beforeUpload: {
       type: Function,
-      default: () => true,
+      default: () => true
     },
     beforeRemove: {
       type: Function,
-      default: () => true,
+      default: () => true
     },
     onRemove: {
       type: Function,
-      default: null,
+      default: null
     },
     onSuccess: {
       type: Function,
-      default: () => {},
+      default: () => {
+      }
     },
     onError: {
       type: Function,
-      default: () => {},
+      default: () => {
+      }
     },
     onExceed: {
       type: Function,
-      default: () => {},
+      default: () => {
+      }
     },
     onProgress: {
       type: Function,
-      default: () => {},
-    },
+      default: () => {
+      }
+    }
   },
   data() {
     return {
-      stackedFiles: [],
+      stackedFiles: []
     }
   },
   watch: {
     plain() {
-      this.removeListeners()
-      this.addListeners()
+      this.removeListeners();
+      this.addListeners();
     },
     manualUpload() {
-      this.removeListeners()
-      this.addListeners()
+      this.removeListeners();
+      this.addListeners();
     },
     noDrop() {
-      this.removeListeners()
-      this.addListeners()
-    },
+      this.removeListeners();
+      this.addListeners();
+    }
   },
   computed: {
     _id() {
-      return this.safeId()
+      return this.safeId();
     },
   },
   mounted() {
-    this.addListeners()
+    this.addListeners();
   },
   beforeDestroy() {
     this.removeListeners()
@@ -128,13 +139,13 @@ export default {
     },
     detectFileChanges(files) {
       if (Array.isArray(files) && files.length > 0) {
-        this.stackedFiles = files
+        this.stackedFiles = files;
       } else if (isFile(files)) {
-        this.stackedFiles = [files]
+        this.stackedFiles = [files];
       }
-      this.$refs.input.value = ''
+      this.$refs.input.value = "";
 
-      console.log(files)
+      console.log(files);
     },
     addListeners() {
       // listen for new added files
@@ -151,8 +162,8 @@ export default {
       this.$refs.input.removeEventListener('focusin', this.focusHandler)
       this.$refs.input.removeEventListener('focusout', this.focusHandler)
       this.$refs.input.removeEventListener('reset', this.onReset)
-    },
-  },
+    }
+  }
 }
 </script>
 
