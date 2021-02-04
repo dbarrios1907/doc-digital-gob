@@ -3,5 +3,5 @@ export const STATUS = {
   PENDING: 'pending',
   SUCCESS: 'success',
   FAIL: 'fail',
-  ARCHIVED: 'archived'
+  ARCHIVED: 'archived',
 }

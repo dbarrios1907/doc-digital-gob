@@ -1,3 +1,3 @@
-export const id = function() {
-    return Math.floor(Math.random() * 10000);
-};
+export const id = function () {
+  return Math.floor(Math.random() * 10000)
+}

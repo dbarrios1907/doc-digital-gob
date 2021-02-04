@@ -1,21 +1,20 @@
-import Vue from 'vue';
-import Button from '../button/Button';
-import NavTree from './NavTree';
-import Navigation from './Navigation';
+import Vue from 'vue'
+import Button from '../button/Button'
+import NavTree from './NavTree'
+import Navigation from './Navigation'
 
 export default {
   title: 'Style Guide/Navigation',
-  argTypes: {
-  },
-};
+  argTypes: {},
+}
 
-Vue.component('v-button', Button);
-Vue.component('v-nav-tree', NavTree);
-Vue.component('Navigation', Navigation);
+Vue.component('v-button', Button)
+Vue.component('v-nav-tree', NavTree)
+Vue.component('Navigation', Navigation)
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  data () {
+  data() {
     return {
       drawer: true,
       items: [
@@ -27,7 +26,7 @@ const Template = (args, { argTypes }) => ({
         { title: 'Oficina de Partes', icon: 'mdi-office-building' },
         { title: 'Usuarios', icon: 'mdi-file-document-outline' },
         { title: 'Documentos', icon: 'mdi-file-document-outline' },
-        { title: 'Oficina de Partes', icon: 'mdi-office-building' }
+        { title: 'Oficina de Partes', icon: 'mdi-office-building' },
       ],
       admins: [
         ['Management', 'mdi-account-multiple-outline'],
@@ -73,9 +72,9 @@ const Template = (args, { argTypes }) => ({
       <v-divider></v-divider>
       <div class="py-4" style="display: flex; justify-content: center;">
         <v-button large color="primary" outlined v-bind="$props" class="light">
-          <Icon left regular>
+          <dx-icon left regular>
             mdi-send
-          </Icon>
+          </dx-icon>
           <span class="text-underline"> Enviar Documento </span>
         </v-button>
       </div>
@@ -165,8 +164,8 @@ const Template = (args, { argTypes }) => ({
       
     </Navigation>
     </v-card>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

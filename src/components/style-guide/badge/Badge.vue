@@ -1,59 +1,52 @@
 <template>
-  <v-chip
-      :class="className"
-      :text-color="textColor"
-      :color="bgColor"
-      v-bind="$attrs"
-      v-on="$listeners">
-    <slot></slot>
+  <v-chip :class="className" :text-color="textColor" :color="bgColor" v-bind="$attrs" v-on="$listeners">
+    <slot />
   </v-chip>
 </template>
 
 <script>
-
-import './Badge.scss';
-import clsx from 'clsx';
+import './Badge.scss'
+import clsx from 'clsx'
 
 export const Badge = {
-  name: 'Badge',
+  name: 'DxBadge',
   inheritAttrs: false,
   computed: {
-    textColor: function () {
+    textColor() {
       if (this.$props.type === 'tertiary') {
-        return 'tertiary';
+        return 'tertiary'
       }
 
       if (this.$props.type === 'info') {
-        return '#0F69C4';
+        return '#0F69C4'
       }
 
       if (this.$props.type === 'dark') {
-        return 'white';
+        return 'white'
       }
 
-      return null;
+      return null
     },
-    bgColor: function () {
+    bgColor() {
       if (this.$props.type === 'dark') {
-        return 'black';
+        return 'black'
       }
 
       if (this.$props.type === 'info') {
-        return '#CFE1F3';
+        return '#CFE1F3'
       }
 
-      return this.$props.type;
+      return this.$props.type
     },
-    className: function () {
-      return clsx('ma-2', {'badge-link': this.$props.link});
-    }
+    className() {
+      return clsx('ma-2', { 'badge-link': this.$props.link })
+    },
   },
   props: {
     type: String,
     link: Boolean,
-  }
+  },
 }
 
-export default Badge;
-
+export default Badge
 </script>

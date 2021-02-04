@@ -28,36 +28,40 @@
     width: 30px;
   }
 
-  &.success--text, &.success {
-    @include borderAndIcon(#04A398);
+  &.success--text,
+  &.success {
+    @include borderAndIcon(#04a398);
   }
 
   &.success {
-    background: #DBF2F0 !important;
+    background: #dbf2f0 !important;
   }
 
-  &.error--text, &.error {
-    @include borderAndIcon(#E22C2C);
+  &.error--text,
+  &.error {
+    @include borderAndIcon(#e22c2c);
   }
 
   &.error {
-    background: #FDF4F4 !important;
+    background: #fdf4f4 !important;
   }
 
-  &.warning--text, &.warning {
-    @include borderAndIcon(#F56B0F);
+  &.warning--text,
+  &.warning {
+    @include borderAndIcon(#f56b0f);
   }
 
   &.warning {
-    background: #FEF8F2 !important;
+    background: #fef8f2 !important;
   }
 
-  &.info--text, &.info {
-    @include borderAndIcon(#0F69C4);
+  &.info--text,
+  &.info {
+    @include borderAndIcon(#0f69c4);
   }
 
   &.info {
-    background: #F3F7FC !important;
+    background: #f3f7fc !important;
   }
 
   .v-alert__dismissible {
@@ -72,4 +76,3 @@
     }
   }
 }
-

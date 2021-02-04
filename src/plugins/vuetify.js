@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import * as _Vuetify from 'vuetify/lib';
+import Vue from 'vue'
+import * as _Vuetify from 'vuetify/lib'
 
 const Vuetify = _Vuetify.default
 
@@ -12,16 +12,11 @@ const VComponents = Object.keys(_Vuetify).reduce((acc, key) => {
   return acc
 }, {})
 
-import {
-  Button,
-  Badge,
-  Alert,
-  Icon,
-} from '../components/style-guide';
+import { Button, Badge, Alert, Icon } from '../components/style-guide'
 
-import es from 'vuetify/lib/locale/es';
-import {themes} from '@/shared/theme/color-palette';
-import '@mdi/font/css/materialdesignicons.min.css';
+import es from 'vuetify/lib/locale/es'
+import { themes } from '@/shared/theme/color-palette'
+import '@mdi/font/css/materialdesignicons.min.css'
 
 const styleGuideComponents = {
   Button,
@@ -35,21 +30,21 @@ Vue.use(Vuetify, {
     ...VComponents,
     VExpandTransition: _Vuetify.VExpandTransition,
     VSlideXReverseTransition: _Vuetify.VSlideXReverseTransition,
-    ...styleGuideComponents
+    ...styleGuideComponents,
   },
-});
+})
 
 export default new Vuetify({
   treeShake: true,
   customVariables: ['@/assets/styles/main.scss'],
   global: {
-    ripple: false
+    ripple: false,
   },
   theme: {
     options: {
       customProperties: true,
     },
-    themes
+    themes,
   },
   lang: {
     locales: { es },
@@ -57,6 +52,5 @@ export default new Vuetify({
   },
   icons: {
     iconfont: 'mdi',
-
-  }
-});
+  },
+})

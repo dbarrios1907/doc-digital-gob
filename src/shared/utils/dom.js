@@ -12,14 +12,13 @@ const elProto = typeof Element !== 'undefined' ? Element.prototype : {}
 
 // See: https://developer.mozilla.org/en-US/docs/Web/API/Element/matches#Polyfill
 /* istanbul ignore next */
-export const matchesEl =
-  elProto.matches || elProto.msMatchesSelector || elProto.webkitMatchesSelector
+export const matchesEl = elProto.matches || elProto.msMatchesSelector || elProto.webkitMatchesSelector
 
 // See: https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
 /* istanbul ignore next */
 export const closestEl =
   elProto.closest ||
-  function(sel) /* istanbul ignore next */ {
+  function (sel) /* istanbul ignore next */ {
     let el = this
     do {
       // Use our "patched" matches function
@@ -43,8 +42,7 @@ export const requestAF =
   /* istanbul ignore next */
   (cb => setTimeout(cb, 16))
 
-export const MutationObs =
-  w.MutationObserver || w.WebKitMutationObserver || w.MozMutationObserver || null
+export const MutationObs = w.MutationObserver || w.WebKitMutationObserver || w.MozMutationObserver || null
 
 // --- Utils ---
 
@@ -74,8 +72,7 @@ export const isVisible = el => {
 }
 
 // Determine if an element is disabled
-export const isDisabled = el =>
-  !isElement(el) || el.disabled || hasAttr(el, 'disabled') || hasClass(el, 'disabled')
+export const isDisabled = el => !isElement(el) || el.disabled || hasAttr(el, 'disabled') || hasClass(el, 'disabled')
 
 // Cause/wait-for an element to reflow its content (adjusting its height/width)
 export const reflow = el => {
@@ -85,12 +82,10 @@ export const reflow = el => {
 }
 
 // Select all elements matching selector. Returns `[]` if none found
-export const selectAll = (selector, root) =>
-  arrayFrom((isElement(root) ? root : d).querySelectorAll(selector))
+export const selectAll = (selector, root) => arrayFrom((isElement(root) ? root : d).querySelectorAll(selector))
 
 // Select a single element, returns `null` if not found
-export const select = (selector, root) =>
-  (isElement(root) ? root : d).querySelector(selector) || null
+export const select = (selector, root) => (isElement(root) ? root : d).querySelector(selector) || null
 
 // Determine if an element matches a selector
 export const matches = (el, selector) => (isElement(el) ? matchesEl.call(el, selector) : false)
@@ -109,8 +104,7 @@ export const closest = (selector, root, includeRoot = false) => {
 }
 
 // Returns true if the parent element contains the child element
-export const contains = (parent, child) =>
-  parent && isFunction(parent.contains) ? parent.contains(child) : false
+export const contains = (parent, child) => (parent && isFunction(parent.contains) ? parent.contains(child) : false)
 
 // Get an element given an ID
 export const getById = id => d.getElementById(/^#/.test(id) ? id.slice(1) : id) || null
@@ -213,11 +207,7 @@ export const position = el => /* istanbul ignore next: getBoundingClientRect() d
     _offset = offset(el)
     const doc = el.ownerDocument
     let offsetParent = el.offsetParent || doc.documentElement
-    while (
-      offsetParent &&
-      (offsetParent === doc.body || offsetParent === doc.documentElement) &&
-      getCS(offsetParent).position === 'static'
-    ) {
+    while (offsetParent && (offsetParent === doc.body || offsetParent === doc.documentElement) && getCS(offsetParent).position === 'static') {
       offsetParent = offsetParent.parentNode
     }
     if (offsetParent && offsetParent !== el && offsetParent.nodeType === Node.ELEMENT_NODE) {
@@ -229,6 +219,6 @@ export const position = el => /* istanbul ignore next: getBoundingClientRect() d
   }
   return {
     top: _offset.top - parentOffset.top - parseFloat(elStyles.marginTop),
-    left: _offset.left - parentOffset.left - parseFloat(elStyles.marginLeft)
+    left: _offset.left - parentOffset.left - parseFloat(elStyles.marginLeft),
   }
 }

@@ -4,11 +4,11 @@ export default {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  data () {
+  data() {
     return {
       e1: 1,
     }
@@ -98,8 +98,8 @@ const Template = (args, { argTypes }) => ({
       </v-stepper-content>
     </v-stepper-items>
     </v-stepper>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

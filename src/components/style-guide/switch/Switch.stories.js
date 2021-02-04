@@ -1,14 +1,14 @@
-import Vue from 'vue';
-import Switch from './Switch.vue';
+import Vue from 'vue'
+import Switch from './Switch.vue'
 
-Vue.component('doc-switch', Switch);
+Vue.component('doc-switch', Switch)
 export default {
   title: 'Style Guide/Switch',
   argTypes: {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -44,8 +44,8 @@ const Template = (args, { argTypes }) => ({
           :label="'Switch 3: ' + switch3.toString()"
       ></doc-switch>
     </v-sheet>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

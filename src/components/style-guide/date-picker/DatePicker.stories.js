@@ -1,11 +1,11 @@
-import './DatePicker.scss';
+import './DatePicker.scss'
 
 export default {
   title: 'Style Guide/DatePicker',
   argTypes: {},
-};
+}
 
-const Template = (args, {argTypes}) => ({
+const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data: vm => ({
     date: new Date().toISOString(),
@@ -28,7 +28,7 @@ const Template = (args, {argTypes}) => ({
 
   methods: {
     formatHeader(date) {
-      return date;
+      return date
     },
     formatDate(date) {
       if (!date) return null
@@ -84,8 +84,8 @@ const Template = (args, {argTypes}) => ({
 
     <v-col lg="4"></v-col>
     </v-row>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

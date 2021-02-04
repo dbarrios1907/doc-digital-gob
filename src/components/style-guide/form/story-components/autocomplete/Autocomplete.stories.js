@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'
 
 export default {
   title: 'Style Guide/Form/Aucomplete',
@@ -6,7 +6,7 @@ export default {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
-};
+}
 
 const wrapper = {
   template: `
@@ -15,15 +15,14 @@ const wrapper = {
         <slot></slot>
       </v-col>
     </v-row>
-  `
+  `,
 }
 
-Vue.component('wrapper',  wrapper);
-
+Vue.component('w-col', wrapper)
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  data () {
+  data() {
     const srcs = {
       1: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
       2: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
@@ -56,7 +55,7 @@ const Template = (args, { argTypes }) => ({
     }
   },
   watch: {
-    isUpdating (val) {
+    isUpdating(val) {
       if (val) {
         setTimeout(() => (this.isUpdating = false), 3000)
       }
@@ -64,14 +63,14 @@ const Template = (args, { argTypes }) => ({
   },
 
   methods: {
-    remove (item) {
+    remove(item) {
       const index = this.friends.indexOf(item.name)
       if (index >= 0) this.friends.splice(index, 1)
     },
   },
   template: `
     <div>
-      <wrapper>
+      <w-col>
         <v-autocomplete
             :ripple="false"
             v-model="value"
@@ -84,9 +83,9 @@ const Template = (args, { argTypes }) => ({
             flat
             outlined
         ></v-autocomplete>
-      </wrapper>
+      </w-col>
   
-      <wrapper>
+      <w-col>
         <v-autocomplete
             :ripple="false"
             v-model="friends"
@@ -132,16 +131,14 @@ const Template = (args, { argTypes }) => ({
             </template>
           </template>
         </v-autocomplete>
-      </wrapper>
-      
-      <wrapper>
-      </wrapper>
+      </w-col>
+    
     </div>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}
 
 const Template1 = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -154,11 +151,11 @@ const Template1 = (args, { argTypes }) => ({
   }),
 
   watch: {
-    model (val) {
+    model(val) {
       if (val != null) this.tab = 0
       else this.tab = null
     },
-    search (val) {
+    search(val) {
       // Items have already been loaded
       if (this.items.length > 0) return
 
@@ -235,8 +232,8 @@ const Template1 = (args, { argTypes }) => ({
       </template>
     </v-autocomplete>
     </wrapper>
-  `
+  `,
 })
 
-export const CustomAsyncAutocomplete = Template1.bind({});
-CustomAsyncAutocomplete.args = {};
+export const CustomAsyncAutocomplete = Template1.bind({})
+CustomAsyncAutocomplete.args = {}

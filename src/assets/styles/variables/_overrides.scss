@@ -15,14 +15,14 @@ $alert-outline: 2px solid currentColor !default;
 $tooltip-background-color: rgba(map-get($light-colors, 'dark'), 0.9);
 
 $expansion-panel-border-radius: none !default;
-$expansion-panel-header-min-height: 80px !default;
-$expansion-panel-active-header-min-height: 80px !default;
+$expansion-panel-header-min-height: rem-calc(80px);
+$expansion-panel-active-header-min-height: rem-calc(80px);
 $expansion-panel-content-padding: 24px 16px !default;
 $expansion-panel-header-icon-font-size: 40px !default;
 
 $stepper-alt-labels-header-divider: 50px -68px 0;
-$stepper-step-step-height: 48px;
-$stepper-step-step-width: 48px;
+$stepper-step-step-height: rem-calc(48px);
+$stepper-step-step-width: rem-calc(48px);
 $stepper-step-step-icon-font-size: 2rem;
 $stepper-step-step-font-size: 2rem;
 $stepper-step-error-icon-font-size: 2rem;
@@ -38,7 +38,7 @@ $switch-track-dense-inset-width: 40px !default;
 $switch-track-dense-top: calc(50% - 12px) !default;
 $switch-track-dense-width: 32px !default;
 
-//$tabs-bar-background-color: 'cards' !default;
+$tabs-bar-background-color: 'cards';
 //$tabs-bar-height: 48px !default;
 //$tabs-icons-and-text-bar-height: 72px !default;
 //$tabs-icons-and-text-first-tab-margin-bottom: 6px !default;

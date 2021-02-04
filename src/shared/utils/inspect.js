@@ -5,7 +5,11 @@ import { File } from './safe-types'
 // === DataType check utils ===
 
 // Shoutout AngusCroll (https://goo.gl/pxwQGp)
-export const toType = (obj) => ({}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase())
+export const toType = obj =>
+  ({}.toString
+    .call(obj)
+    .match(/\s([a-z]+)/i)[1]
+    .toLowerCase())
 
 export const isUndefined = val => val === undefined
 
@@ -33,10 +37,9 @@ export const isEvent = val => val instanceof Event
 
 export const isFile = val => val instanceof File
 
-export const isRegExp = val => toRawType(val) === 'RegExp'
+// export const isRegExp = val => toRawType(val) === 'RegExp'
 
-export const isPromise = val =>
-  !isUndefinedOrNull(val) && isFunction(val.then) && isFunction(val.catch)
+export const isPromise = val => !isUndefinedOrNull(val) && isFunction(val.then) && isFunction(val.catch)
 
 // === Re-exports imported usefull dataType utils ===
 

@@ -4,7 +4,7 @@ export default {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -48,8 +48,8 @@ const Template = (args, { argTypes }) => ({
         <span>Right tooltip</span>
       </v-tooltip>
     </div>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

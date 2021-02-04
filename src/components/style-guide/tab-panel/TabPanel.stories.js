@@ -1,13 +1,13 @@
 export default {
   title: 'Style Guide/Tab Panel',
   argTypes: {
-    'backgroundColor': { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
+    backgroundColor: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  data () {
+  data() {
     return {
       tab: null,
       items: [
@@ -44,10 +44,10 @@ const Template = (args, { argTypes }) => ({
         </v-tab-item>
       </v-tabs-items>
     </div>
-  `
-});
+  `,
+})
 
-export const Neutral = Template.bind({});
+export const Neutral = Template.bind({})
 Neutral.args = {
-  color: 'neutral'
-};
+  color: 'neutral',
+}

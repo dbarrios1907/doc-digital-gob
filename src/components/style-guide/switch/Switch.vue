@@ -1,11 +1,11 @@
 <template>
-  <v-switch inset dense :ripple="false"v-bind="$attrs" v-on="$listeners"></v-switch>
+  <v-switch inset dense :ripple="false" v-bind="$attrs" v-on="$listeners" />
 </template>
 
 <script>
-import './Switch.scss';
+import './Switch.scss'
 export default {
-  name: 'Switch',
+  name: 'DxSwitch',
   inheritAttrs: false,
 }
 </script>

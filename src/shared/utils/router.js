@@ -16,10 +16,7 @@ const encodeReserveReplacer = c => '%' + c.charCodeAt(0).toString(16)
 // Fixed encodeURIComponent which is more conformant to RFC3986:
 // - escapes [!'()*]
 // - preserve commas
-const encode = str =>
-  encodeURIComponent(toString(str))
-    .replace(encodeReserveRE, encodeReserveReplacer)
-    .replace(commaRE, ',')
+const encode = str => encodeURIComponent(toString(str)).replace(encodeReserveRE, encodeReserveReplacer).replace(commaRE, ',')
 
 const decode = decodeURIComponent
 
@@ -62,9 +59,7 @@ export const stringifyQueryObj = obj => {
 
 export const parseQuery = query => {
   const parsed = {}
-  query = toString(query)
-    .trim()
-    .replace(queryStartRE, '')
+  query = toString(query).trim().replace(queryStartRE, '')
 
   if (!query) {
     return parsed
@@ -90,11 +85,7 @@ export const parseQuery = query => {
 export const isRouterLink = tag => toString(tag).toLowerCase() !== ANCHOR_TAG
 
 export const computeTag = ({ to, disabled } = {}, thisOrParent) => {
-  return thisOrParent.$router && to && !disabled
-    ? thisOrParent.$nuxt
-      ? 'nuxt-link'
-      : 'router-link'
-    : ANCHOR_TAG
+  return thisOrParent.$router && to && !disabled ? (thisOrParent.$nuxt ? 'nuxt-link' : 'router-link') : ANCHOR_TAG
 }
 
 export const computeRel = ({ target, rel } = {}) => {
@@ -104,12 +95,7 @@ export const computeRel = ({ target, rel } = {}) => {
   return rel || null
 }
 
-export const computeHref = (
-  { href, to } = {},
-  tag = ANCHOR_TAG,
-  fallback = '#',
-  toFallback = '/'
-) => {
+export const computeHref = ({ href, to } = {}, tag = ANCHOR_TAG, fallback = '#', toFallback = '/') => {
   // We've already checked the $router in computeTag(), so isRouterLink() indicates a live router.
   // When deferring to Vue Router's router-link, don't use the href attribute at all.
   // We return null, and then remove href from the attributes passed to router-link

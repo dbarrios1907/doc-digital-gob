@@ -1,12 +1,13 @@
 <template>
-  <v-btn elevation="0" retain-focus-on-click :ripple="false" v-bind="$attrs" v-on="$listeners"> <slot></slot> </v-btn>
+  <v-btn elevation="0" retain-focus-on-click :ripple="false" v-bind="$attrs" v-on="$listeners">
+    <slot />
+  </v-btn>
 </template>
 
 <script>
-import './Button.scss';
+import './Button.scss'
 export default {
-  name: 'Button',
+  name: 'DxButton',
   inheritAttrs: false,
 }
 </script>
-

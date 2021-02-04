@@ -1,8 +1,8 @@
-@include theme(v-input) using($material) {
-  &.date-picker-input {
-
-  }
-}
+//@include theme(v-input) using($material) {
+//  &.date-picker-input {
+//
+//  }
+//}
 
 @include theme(v-picker) using($material) {
   border: 1px solid map-get($material, 'colors', 'primary');
@@ -21,7 +21,6 @@
   }
 
   .v-date-picker-header__value {
-    font-size: 18px;
+    font-size: rem-calc(18px);
   }
 }
-

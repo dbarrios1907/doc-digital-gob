@@ -4,7 +4,7 @@ export default {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -54,14 +54,14 @@ const Template = (args, { argTypes }) => ({
             <strong style="flex: 1 auto;" class="px-2 white--text weight-600">
               Error de carga ¿Reintentar?
             </strong>
-            <Icon style="flex: none;" class="px-3 white--text" regular>
+            <dx-icon style="flex: none;" class="px-3 white--text" regular>
               mdi-reload mdi-flip-h
-            </Icon>
+            </dx-icon>
           </div>
         </v-progress-linear>
     </div>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

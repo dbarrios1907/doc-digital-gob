@@ -1,13 +1,13 @@
 @include theme(v-tabs) using ($material) {
   > .v-tabs-bar {
-    background-color: map-get($material, $tabs-bar-background-color)
+    background-color: map-get($material, $tabs-bar-background-color);
   }
 
   .v-tab:not(.v-tab--active),
   .v-tab:not(.v-tab--active) > .v-icon,
   .v-tab:not(.v-tab--active) > .v-btn,
   .v-tab--disabled {
-    color: map-get($material, 'tabs')
+    color: map-get($material, 'tabs');
   }
 
   //.v-tab {

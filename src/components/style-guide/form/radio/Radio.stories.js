@@ -4,11 +4,11 @@ export default {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  data () {
+  data() {
     return {
       column: null,
       row: null,
@@ -48,8 +48,8 @@ const Template = (args, { argTypes }) => ({
         ></v-radio>
       </v-radio-group>
     </v-container>
-  `
-});
+  `,
+})
 
-export const Radio = Template.bind({});
-Radio.args = {};
+export const Radio = Template.bind({})
+Radio.args = {}

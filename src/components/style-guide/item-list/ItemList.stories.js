@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'
 
 export default {
   title: 'Style Guide/ItemList',
@@ -6,7 +6,7 @@ export default {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
-};
+}
 
 const wrapper = {
   template: `
@@ -17,10 +17,10 @@ const wrapper = {
         </v-card>
       </v-col>
     </v-row>
-  `
+  `,
 }
 
-Vue.component('wrapper', wrapper);
+Vue.component('wrapper', wrapper)
 
 const listData = {
   selected: [2],
@@ -60,7 +60,7 @@ const listData = {
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  data: () => (listData),
+  data: () => listData,
   template: `
     <wrapper>
     <v-list three-line flat >
@@ -103,17 +103,16 @@ const Template = (args, { argTypes }) => ({
     </v-list>
     </wrapper>
     
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
-
+export const Default = Template.bind({})
+Default.args = {}
 
 const ListVariantTpl = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  data: () => (listData),
- template: `
+  data: () => listData,
+  template: `
     <wrapper>
       <v-list two-line flat class="py-4 px-4">
         <div class="font-title weight-700 ml-4 pt-3">Lista 1 de visación</div>
@@ -148,8 +147,8 @@ const ListVariantTpl = (args, { argTypes }) => ({
       </v-list-item-group>
     </v-list>
     </wrapper>
- `
-});
+ `,
+})
 
-export const ListVariantFlat = ListVariantTpl.bind({});
-ListVariantFlat.args = {};
+export const ListVariantFlat = ListVariantTpl.bind({})
+ListVariantFlat.args = {}

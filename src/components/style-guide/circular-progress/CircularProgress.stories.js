@@ -1,23 +1,22 @@
 export default {
   title: 'Style Guide/Circular Progress',
   argTypes: {
-    color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
-    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
+    color: { control: { type: 'select', options: ['primary', 'secondary', 'error'] } },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  data () {
+  data() {
     return {
       interval: {},
       value: 0,
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     clearInterval(this.interval)
   },
-  mounted () {
+  mounted() {
     this.interval = setInterval(() => {
       if (this.value === 100) {
         return (this.value = 0)
@@ -27,38 +26,25 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <div class="text-center">
-    <v-progress-circular
-        :rotate="180"
-        :size="70"
-        :width="5"
-        :value="value"
-        color="primary"
-    >
-      <span class="font-large weight-600 darken-4" style="color: #373737;">{{ value }}%</span>
-    </v-progress-circular>
-
-    <v-progress-circular
-        :rotate="180"
-        :size="70"
-        :width="5"
-        :value="value"
-        color="success"
-    >
-      <span class="font-large weight-600 darken-4" style="color: #373737;">{{ value }}%</span>
-    </v-progress-circular>
-
-    <v-progress-circular
-        :rotate="180"
-        :size="70"
-        :width="5"
-        :value="value"
-        color="error"
-    >
-      <span class="font-large weight-600 darken-4" style="color: #373737;">{{ value }}%</span>
-    </v-progress-circular>
+      <v-progress-circular
+          v-bind="$props"
+          :rotate="180"
+          :size="70"
+          :width="5"
+          :value="value"
+      >
+        <span class="font-large weight-600 darken-4" style="color: #373737;">{{ value }}%</span>
+      </v-progress-circular>
     </div>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const PrimaryCircularProgress = Template.bind({})
+PrimaryCircularProgress.args = {
+  color: 'primary',
+}
+
+export const ErrorCircularProgress = Template.bind({})
+ErrorCircularProgress.args = {
+  color: 'error',
+}

@@ -4,13 +4,13 @@ export default {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      selected: []
+      selected: [],
     }
   },
   template: `
@@ -42,8 +42,8 @@ const Template = (args, { argTypes }) => ({
           value="Text4"
       ></v-checkbox>
     </v-container>
-  `
-});
+  `,
+})
 
-export const Checkbox = Template.bind({});
-Checkbox.args = {};
+export const Checkbox = Template.bind({})
+Checkbox.args = {}

@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'
 
 export default {
   title: 'Style Guide/Form/Select',
@@ -6,7 +6,7 @@ export default {
     color: { control: { type: 'select', options: ['primary', 'success', 'warning', 'error'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
   },
-};
+}
 
 const wrapper = {
   template: `
@@ -15,11 +15,10 @@ const wrapper = {
         <slot></slot>
       </v-col>
     </v-row>
-  `
+  `,
 }
 
-Vue.component('wrapper',  wrapper);
-
+Vue.component('wrapper', wrapper)
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -82,10 +81,10 @@ const Template = (args, { argTypes }) => ({
         </v-select>
       </wrapper>
     </div>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  color: 'primary'
-};
+  color: 'primary',
+}

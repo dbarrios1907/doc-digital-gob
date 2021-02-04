@@ -1,11 +1,11 @@
-import './Collapse.scss';
+import './Collapse.scss'
 
 export default {
   title: 'Style Guide/Collapse',
   argTypes: {},
-};
+}
 
-const Template = (args, {argTypes}) => ({
+const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {}
@@ -40,8 +40,8 @@ const Template = (args, {argTypes}) => ({
         </v-expansion-panel>
       </v-expansion-panels>
     </v-row>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

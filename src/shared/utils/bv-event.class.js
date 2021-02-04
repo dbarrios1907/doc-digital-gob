@@ -5,11 +5,7 @@ class BvEvent {
     // Start by emulating native Event constructor
     if (!type) {
       /* istanbul ignore next */
-      throw new TypeError(
-        `Failed to construct '${this.constructor.name}'. 1 argument required, ${
-          arguments.length
-        } given.`
-      )
+      throw new TypeError(`Failed to construct '${this.constructor.name}'. 1 argument required, ${arguments.length} given.`)
     }
 
     // Merge defaults first, the eventInit, and the type last
@@ -24,7 +20,7 @@ class BvEvent {
       target: readonlyDescriptor(),
       relatedTarget: readonlyDescriptor(),
       vueTarget: readonlyDescriptor(),
-      componentId: readonlyDescriptor()
+      componentId: readonlyDescriptor(),
     })
 
     // Create a private variable using closure scoping
@@ -42,7 +38,7 @@ class BvEvent {
       enumerable: true,
       get() {
         return defaultPrevented
-      }
+      },
     })
   }
 
@@ -57,8 +53,8 @@ class BvEvent {
       relatedTarget: '[DOMElement]',
       target: '[DOMElement]',
       type: '[EventType]',
-      vueTarget: '[VueTarget]'
-    };
+      vueTarget: '[VueTarget]',
+    }
   }
 
   static get Defaults() {
@@ -69,7 +65,7 @@ class BvEvent {
       target: null,
       relatedTarget: null,
       vueTarget: null,
-      componentId: null
+      componentId: null,
     }
   }
 }

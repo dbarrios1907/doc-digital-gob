@@ -1,12 +1,12 @@
-import './Modal.scss';
-import Button from '../button/Button.vue';
+import './Modal.scss'
+import Button from '../button/Button.vue'
 
 export default {
   title: 'Style Guide/Modal',
   argTypes: {},
-};
+}
 
-const Template = (args, {argTypes}) => ({
+const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
@@ -118,8 +118,8 @@ const Template = (args, {argTypes}) => ({
       </v-dialog>
     
     </v-row>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

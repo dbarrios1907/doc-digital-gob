@@ -1,13 +1,13 @@
-import Badge from './Badge.vue';
+import Badge from './Badge.vue'
 
 export default {
   title: 'Style Guide/Badge',
   component: Badge,
   argTypes: {},
-};
+}
 
 export const Demo = () => ({
-  components: {Badge},
+  components: { Badge },
   template: `
     <div>
       <h3>Variaciones de color de insignia</h3>
@@ -202,4 +202,4 @@ export const Demo = () => ({
       </div>
     </div>
   `,
-});
+})

@@ -15,13 +15,13 @@ const NO_FADE_PROPS = {
   enterToClass: 'show',
   leaveClass: 'show',
   leaveActiveClass: '',
-  leaveToClass: ''
+  leaveToClass: '',
 }
 
 const FADE_PROPS = {
   ...NO_FADE_PROPS,
   enterActiveClass: 'fade',
-  leaveActiveClass: 'fade'
+  leaveActiveClass: 'fade',
 }
 
 // @vue/component
@@ -33,23 +33,23 @@ export const BVTransition = /*#__PURE__*/ Vue.extend({
       // Only applicable to the built in transition
       // Has no effect if `trans-props` provided
       type: Boolean,
-      default: true
+      default: true,
     },
     appear: {
       // Has no effect if `trans-props` provided
       type: Boolean,
-      default: false
+      default: false,
     },
     mode: {
       // Can be overridden by user supplied trans-props
-      type: String
+      type: String,
       // default: undefined
     },
     // For user supplied transitions (if needed)
     transProps: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   render(h, { children, data, props }) {
     let transProps = props.transProps
@@ -62,7 +62,7 @@ export const BVTransition = /*#__PURE__*/ Vue.extend({
           appear: true,
           appearClass: transProps.enterClass,
           appearActiveClass: transProps.enterActiveClass,
-          appearToClass: transProps.enterToClass
+          appearToClass: transProps.enterToClass,
         }
       }
     }
@@ -70,7 +70,7 @@ export const BVTransition = /*#__PURE__*/ Vue.extend({
       mode: props.mode,
       ...transProps,
       // We always need `css` true
-      css: true
+      css: true,
     }
     return h(
       'transition',
@@ -78,7 +78,7 @@ export const BVTransition = /*#__PURE__*/ Vue.extend({
       mergeData(data, { props: transProps }),
       children
     )
-  }
+  },
 })
 
 export default BVTransition

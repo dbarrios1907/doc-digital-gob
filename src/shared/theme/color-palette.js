@@ -12,7 +12,7 @@ export const themes = {
     light: '#FFFFFF',
     error: '#F56B0F',
     success: '#00ADA2',
-    warning: '#E22C2C'
+    warning: '#E22C2C',
   },
   dark: {
     primary: '#E22C2C',
@@ -23,6 +23,6 @@ export const themes = {
     grayA: '#b5b5b5',
     grayB: '#757575',
     black: '#eee',
-    white: '#000'
-  }
-};
+    white: '#000',
+  },
+}

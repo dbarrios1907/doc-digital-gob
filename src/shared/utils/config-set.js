@@ -51,11 +51,7 @@ class BvConfig {
         // Special case for breakpoints
         const breakpoints = config.breakpoints
         /* istanbul ignore if */
-        if (
-          !isArray(breakpoints) ||
-          breakpoints.length < 2 ||
-          breakpoints.some(b => !isString(b) || b.length === 0)
-        ) {
+        if (!isArray(breakpoints) || breakpoints.length < 2 || breakpoints.some(b => !isString(b) || b.length === 0)) {
           warn('"breakpoints" must be an array of at least 2 breakpoint names', NAME)
         } else {
           this.$_config.breakpoints = cloneDeep(breakpoints)
@@ -100,8 +96,7 @@ class BvConfig {
 export const setConfig = (config = {}, Vue = OurVue) => {
   // Ensure we have a $bvConfig Object on the Vue prototype.
   // We set on Vue and OurVue just in case consumer has not set an alias of `vue`.
-  Vue.prototype[PROP_NAME] = OurVue.prototype[PROP_NAME] =
-    Vue.prototype[PROP_NAME] || OurVue.prototype[PROP_NAME] || new BvConfig()
+  Vue.prototype[PROP_NAME] = OurVue.prototype[PROP_NAME] = Vue.prototype[PROP_NAME] || OurVue.prototype[PROP_NAME] || new BvConfig()
   // Apply the config values
   Vue.prototype[PROP_NAME].setConfig(config)
 }

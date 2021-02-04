@@ -1,1 +1,1 @@
-export const required = v => !!v;
+export const required = v => !!v

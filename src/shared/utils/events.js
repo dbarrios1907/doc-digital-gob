@@ -43,12 +43,12 @@ export const eventOnOff = (on, ...args) => {
 
 // Utility method, listen for a event first call and remove event listener
 /* istanbul ignore next */
-export const eventOnce = function(el, evtName, handler, options) {
-  const listener = function() {
+export const eventOnce = function (el, evtName, handler, options) {
+  const listener = function () {
     if (handler) {
-      handler.apply(this, arguments);
+      handler.apply(this, arguments)
     }
-    eventOff(el, evtName, listener);
-  };
-  eventOn(el, evtName, listener);
-};
+    eventOff(el, evtName, listener)
+  }
+  eventOn(el, evtName, listener)
+}

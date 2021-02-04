@@ -6,7 +6,7 @@ const BUploadPlugin = /*#__PURE__*/ pluginFactory({
   components: {
     BUpload,
     BFileList,
-  }
+  },
 })
 
 export { BUploadPlugin, BUpload, BFileList }

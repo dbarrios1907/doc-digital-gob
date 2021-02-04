@@ -6,7 +6,7 @@ export default {
     data: Object,
     limit: {
       type: Number,
-      default: 100
+      default: 100,
     },
-  }
+  },
 }

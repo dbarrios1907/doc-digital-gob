@@ -13,7 +13,7 @@ export const checkMultipleVue = (() => {
   const MULTIPLE_VUE_WARNING = [
     'Multiple instances of Vue detected!',
     'You may need to set up an alias for Vue in your bundler config.',
-    'See: https://bootstrap-vue.js.org/docs#using-module-bundlers'
+    'See: https://bootstrap-vue.js.org/docs#using-module-bundlers',
   ].join('\n')
 
   return Vue => {
@@ -74,28 +74,30 @@ export const installFactoryNoConfig = ({ components, directives, plugins } = {})
 
 /**
  * Plugin object factory function.
- * @param {object} { components, directives, plugins }
  * @returns {object} plugin install object
+ * @param options
+ * @param extend
  */
 export const pluginFactory = (options = {}, extend = {}) => ({
   ...extend,
-  install: installFactory(options)
+  install: installFactory(options),
 })
 
 /**
  * Plugin object factory function (no config option).
- * @param {object} { components, directives, plugins }
  * @returns {object} plugin install object
+ * @param options
+ * @param extend
  */
 export const pluginFactoryNoConfig = (options = {}, extend = {}) => ({
   ...extend,
-  install: installFactoryNoConfig(options)
+  install: installFactoryNoConfig(options),
 })
 
 /**
  * Load a group of plugins.
  * @param {object} Vue
- * @param {object} Plugin definitions
+ * @param plugins
  */
 export const registerPlugins = (Vue, plugins = {}) => {
   for (const plugin in plugins) {
@@ -108,11 +110,12 @@ export const registerPlugins = (Vue, plugins = {}) => {
 /**
  * Load a component.
  * @param {object} Vue
- * @param {string} Component name
- * @param {object} Component definition
+ * @param name
+ * @param def
  */
 export const registerComponent = (Vue, name, def) => {
   if (Vue && name && def) {
+    console.log(name, def)
     Vue.component(name, def)
   }
 }
@@ -120,7 +123,7 @@ export const registerComponent = (Vue, name, def) => {
 /**
  * Load a group of components.
  * @param {object} Vue
- * @param {object} Object of component definitions
+ * @param components
  */
 export const registerComponents = (Vue, components = {}) => {
   for (const component in components) {
@@ -131,8 +134,8 @@ export const registerComponents = (Vue, components = {}) => {
 /**
  * Load a directive.
  * @param {object} Vue
- * @param {string} Directive name
- * @param {object} Directive definition
+ * @param name
+ * @param def
  */
 export const registerDirective = (Vue, name, def) => {
   if (Vue && name && def) {
@@ -145,7 +148,7 @@ export const registerDirective = (Vue, name, def) => {
 /**
  * Load a group of directives.
  * @param {object} Vue
- * @param {object} Object of directive definitions
+ * @param directives
  */
 export const registerDirectives = (Vue, directives = {}) => {
   for (const directive in directives) {
@@ -155,7 +158,7 @@ export const registerDirectives = (Vue, directives = {}) => {
 
 /**
  * Install plugin if window.Vue available
- * @param {object} Plugin definition
+ * @param VuePlugin
  */
 export const vueUse = VuePlugin => {
   /* istanbul ignore next */
@@ -163,7 +166,7 @@ export const vueUse = VuePlugin => {
     window.Vue.use(VuePlugin)
   }
   /* istanbul ignore next */
-  if (hasWindowSupport && VuePlugin.NAME) {
-    window[VuePlugin.NAME] = VuePlugin
+  if (hasWindowSupport && VuePlugin['NAME']) {
+    window[VuePlugin['NAME']] = VuePlugin
   }
 }

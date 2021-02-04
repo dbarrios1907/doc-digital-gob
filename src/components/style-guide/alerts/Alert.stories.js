@@ -1,13 +1,13 @@
-import Alert from './Alert.vue';
+import Alert from './Alert.vue'
 
 export default {
   title: 'Style Guide/Alert',
   component: Alert,
   argTypes: {},
-};
+}
 
 export const Demo = () => ({
-  components: {Alert},
+  components: { Alert },
   template: `
     <div>
       <Alert v-bind="$props"  type="success">¡Sus cambios se han guardado exitosamente!</Alert>
@@ -20,4 +20,4 @@ export const Demo = () => ({
       <Alert v-bind="$props"  type="info" outlined>Tu sesión terminará en 30 segundos por inactividad, realiza cambios en la página para mantenerte contectado</Alert>
     </div>
   `,
-});
+})

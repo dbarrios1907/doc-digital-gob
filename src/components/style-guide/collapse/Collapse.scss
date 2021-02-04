@@ -1,5 +1,4 @@
 @include theme(v-expansion-panels) using($material) {
-
   .active-collapse-item {
     button {
       border-bottom: 1.25px solid map-get($material, 'colors', 'secondary');
@@ -16,4 +15,3 @@
     }
   }
 }
-

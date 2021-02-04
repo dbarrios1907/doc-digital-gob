@@ -9,8 +9,7 @@ import { warn } from '@/shared/utils/warn'
 
 const NAME = 'BFormFile'
 
-const VALUE_EMPTY_DEPRECATED_MSG =
-  'Setting "value"/"v-model" to an empty string for reset is deprecated. Set to "null" instead.'
+const VALUE_EMPTY_DEPRECATED_MSG = 'Setting "value"/"v-model" to an empty string for reset is deprecated. Set to "null" instead.'
 
 // @vue/component
 export default /*#__PURE__*/ Vue.extend({
@@ -18,20 +17,20 @@ export default /*#__PURE__*/ Vue.extend({
   inheritAttrs: false,
   model: {
     prop: 'value',
-    event: 'input'
+    event: 'input',
   },
   props: {
     limit: {
       type: Number,
-      default: null
+      default: null,
     },
     name: {
       type: String,
-      default: null
+      default: null,
     },
     plain: {
       type: Boolean,
-      default: false
+      default: false,
     },
     value: {
       type: [File, Array],
@@ -42,61 +41,57 @@ export default /*#__PURE__*/ Vue.extend({
           warn(VALUE_EMPTY_DEPRECATED_MSG, NAME)
           return true
         }
-        return (
-          isUndefinedOrNull(val) ||
-          isFile(val) ||
-          (isArray(val) && (val.length === 0 || val.every(isFile)))
-        )
-      }
+        return isUndefinedOrNull(val) || isFile(val) || (isArray(val) && (val.length === 0 || val.every(isFile)))
+      },
     },
     accept: {
       type: String,
-      default: ''
+      default: '',
     },
     // Instruct input to capture from camera
     capture: {
       type: Boolean,
-      default: false
+      default: false,
     },
     placeholder: {
       type: String,
-      default: () => getComponentConfig(NAME, 'placeholder')
+      default: () => getComponentConfig(NAME, 'placeholder'),
     },
     dropPlaceholder: {
       type: String,
-      default: () => getComponentConfig(NAME, 'dropPlaceholder')
+      default: () => getComponentConfig(NAME, 'dropPlaceholder'),
     },
     multiple: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     directory: {
       type: Boolean,
-      default: false
+      default: false,
     },
     noTraverse: {
       type: Boolean,
-      default: false
+      default: false,
     },
     noDrop: {
       type: Boolean,
-      default: false
+      default: false,
     },
     fileNameFormatter: {
       type: Function,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
       selectedFile: null,
       stackedFiles: [],
       dragging: false,
-      hasFocus: false
+      hasFocus: false,
     }
   },
   computed: {
@@ -122,17 +117,14 @@ export default /*#__PURE__*/ Vue.extend({
         return [
           this.normalizeSlot('file-name', {
             files: files,
-            names: files.map(f => f.name)
-          })
+            names: files.map(f => f.name),
+          }),
         ]
       } else {
         // Use the user supplied formatter, or the built in one.
-        return isFunction(this.fileNameFormatter)
-          ? toString(this.fileNameFormatter(files))
-          : files.map(file => file.name).join(', ')
+        return isFunction(this.fileNameFormatter) ? toString(this.fileNameFormatter(files)) : files.map(file => file.name).join(', ')
       }
     },
-
   },
   watch: {
     selectedFile(newVal, oldVal) {
@@ -140,13 +132,7 @@ export default /*#__PURE__*/ Vue.extend({
       // exact same file(s) are selected to prevent an infinite loop.
       // When in `multiple` mode we need to check for two empty arrays or
       // two arrays with identical files
-      if (
-        newVal === oldVal ||
-        (isArray(newVal) &&
-          isArray(oldVal) &&
-          newVal.length === oldVal.length &&
-          newVal.every((v, i) => v === oldVal[i]))
-      ) {
+      if (newVal === oldVal || (isArray(newVal) && isArray(oldVal) && newVal.length === oldVal.length && newVal.every((v, i) => v === oldVal[i]))) {
         return
       }
       if (!newVal && this.multiple) {
@@ -154,13 +140,12 @@ export default /*#__PURE__*/ Vue.extend({
       } else {
         this.$emit('input', newVal)
       }
-
     },
     value(newVal) {
       if (!newVal || (isArray(newVal) && newVal.length === 0)) {
         this.reset()
       }
-    }
+    },
   },
   methods: {
     focusHandler(evt) {
@@ -227,7 +212,6 @@ export default /*#__PURE__*/ Vue.extend({
         // Return single file object
         this.selectedFile = files[0] || null
       }
-
     },
     onReset() {
       // Triggered when the parent form (if any) is reset
@@ -281,6 +265,6 @@ export default /*#__PURE__*/ Vue.extend({
           })
         }
       })
-    }
+    },
   },
 })

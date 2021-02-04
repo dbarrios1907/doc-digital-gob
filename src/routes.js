@@ -1,5 +1,5 @@
-const Foo = {template: '<div>foo</div>'}
-const Bar = {template: '<div>bar</div>'}
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
 
 // 2. Define some routes
 // Each route should map to a component. The "component" can
@@ -7,8 +7,8 @@ const Bar = {template: '<div>bar</div>'}
 // `Vue.extend()`, or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-  {path: '/foo', component: Foo},
-  {path: '/bar', component: Bar}
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar },
 ]
 
-export default routes;
+export default routes

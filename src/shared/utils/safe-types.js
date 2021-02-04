@@ -1,6 +1,6 @@
 /**
-* === SSR safe types ===
-**/
+ * === SSR safe types ===
+ **/
 
 import { hasWindowSupport } from './env'
 

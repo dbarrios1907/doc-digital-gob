@@ -1,16 +1,16 @@
-import Vue from 'vue';
-import Switch from '../switch/Switch';
-import Button from '../button/Button';
+import Vue from 'vue'
+import Switch from '../switch/Switch'
+import Button from '../button/Button'
 
 export default {
   title: 'Style Guide/Popover',
   argTypes: {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'success', 'warning'] } },
   },
-};
+}
 
-Vue.component('doc-switch', Switch);
-Vue.component('doc-button', Button);
+Vue.component('doc-switch', Switch)
+Vue.component('doc-button', Button)
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -111,10 +111,10 @@ const Template = (args, { argTypes }) => ({
       </v-card>
     </v-menu>
     </div>
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  color: 'primary'
-};
+  color: 'primary',
+}

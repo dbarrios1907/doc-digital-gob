@@ -1,4 +1,4 @@
-export const stop = (evt) => {
+export const stop = evt => {
   evt.preventDefault()
   evt.stopPropagation()
-};
+}

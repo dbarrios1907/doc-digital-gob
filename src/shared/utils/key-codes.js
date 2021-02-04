@@ -24,7 +24,7 @@ const KEY_CODES = freeze({
   BREAK: 19,
   INSERT: 45,
   INS: 45,
-  DELETE: 46
+  DELETE: 46,
 })
 
 export default KEY_CODES
