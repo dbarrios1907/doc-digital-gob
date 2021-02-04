@@ -23,10 +23,7 @@ const Template = (args, { argTypes }) => ({
   template: `
     <TwoLinearColor :color1="colorlinea1" :color2="colorlinea2" :width1="widthlinea1" :width2="widthlinea2" :pos="pos" :size="size">
       <IconLogo :color="coloricon" :width="widthicon" :height="heighticon" />
-
-      <!-- test -->
-        <label style="width: 205px; fontSize: 14px; height: 40px; margin-left: 20px; border-left: 2px solid red; padding-left:5px" class="d-flex align-center">Plataforma de Comunicaciones oficiales del Estado</label>
-      <!-- test -->
+      <label style="lineHeight:16px; width: 205px; fontSize: 14px; height: 40px; margin-left: 20px; border-left: 2px solid red; padding-left:5px" class="d-flex align-center">Plataforma de Comunicaciones oficiales del Estado</label>
     </TwoLinearColor>
   `
 });
