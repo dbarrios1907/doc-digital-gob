@@ -1,3 +1,6 @@
+.font-nunito {
+  font-family: 'Nunito', sans-serif;
+}
 
 .font-small {
   font-size: rem-calc(14px);
@@ -27,6 +30,10 @@
   font-weight: 200 !important;
 }
 
+.weight-300 {
+  font-weight: 300 !important;
+}
+
 .weight-400 {
   font-weight: 400 !important;
 }
@@ -41,6 +48,14 @@
 
 .font-icons-regular {
   font-size: rem-calc(24px);
+}
+
+.line-height-16 {
+  line-height: 16px;
+}
+
+.no-line-height {
+  line-height: 0;
 }
 
 .text-underline {

@@ -1,5 +1,5 @@
 export default {
-  title: 'Style Guide/Checkbox',
+  title: 'Style Guide/Form',
   argTypes: {
     color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },

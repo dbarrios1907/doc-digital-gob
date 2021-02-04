@@ -3,10 +3,8 @@ import { addDecorator } from '@storybook/vue'
 import vuetify from '@/plugins/vuetify'
 import '@/plugins/vee-validate'
 import styleGuidePlugin from '@/plugins/style-guide'
-
-import 'vuetify/src/styles/main.sass'
-
 Vue.use(styleGuidePlugin)
+import '@/assets/styles/main.scss'
 
 addDecorator(() => ({
   vuetify,

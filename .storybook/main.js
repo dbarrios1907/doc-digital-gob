@@ -1,45 +1,42 @@
-const VuetifyLoaderPlugin = require('vuetify-loader');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VuetifyLoaderPlugin = require('vuetify-loader')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const path = require('path');
+const path = require('path')
 
 const cssLoaders = [
   'vue-style-loader',
   'style-loader',
   { loader: 'css-loader', options: { sourceMap: true } },
   // { loader: 'postcss-loader', options: { sourceMap: true } }
-];
+]
 
 const sassLoaders = {
   loader: 'sass-loader',
   options: {
     implementation: require('sass'),
-    prependData: `@import '@/assets/styles/main.scss'`,
+    prependData: `@import '@/assets/styles/vuetify-overrides.scss'`,
     sassOptions: {
-      indentedSyntax: true
-    }
-  }
-};
+      indentedSyntax: true,
+    },
+  },
+}
 
 const scssLoaders = {
   loader: 'sass-loader',
   options: {
     implementation: require('sass'),
     prependData: `
-      @import '@/assets/styles/main.scss';
+      @import '@/assets/styles/vuetify-overrides.scss';
     `,
     sassOptions: {
-      indentedSyntax: false
-    }
-  }
-};
+      indentedSyntax: false,
+    },
+  },
+}
 
 module.exports = {
-  'stories': [
-    '../src/**/*.stories.mdx',
-    '../src/**/*.stories.@(js|jsx|ts|tsx)'
-  ],
-  'addons': [
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
     '@storybook/addon-links',
     '@storybook/addon-a11y',
     {
@@ -57,8 +54,8 @@ module.exports = {
     {
       name: '@storybook/addon-essentials',
       options: {
-        docs: false
-      }
+        docs: false,
+      },
     },
   ],
   webpackFinal: config => {
@@ -70,25 +67,19 @@ module.exports = {
           '@': path.resolve(__dirname, '../src'),
         },
       },
-    });
+    })
 
     config.module.rules.push({
       test: /\.sass$/,
       sideEffects: true,
-      use: [
-        ...cssLoaders,
-        sassLoaders,
-      ]
-    });
+      use: [...cssLoaders, sassLoaders],
+    })
 
     config.module.rules.push({
       test: /\.scss$/,
       sideEffects: true,
-      use: [
-        ...cssLoaders,
-        scssLoaders,
-      ]
-    });
-    return config;
+      use: [...cssLoaders, scssLoaders],
+    })
+    return config
   },
-};
+}
