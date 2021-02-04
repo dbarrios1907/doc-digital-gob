@@ -1,0 +1,15 @@
+.bc-container div{
+    float: left;
+}
+.bc-container li.v-breadcrumbs__divider{
+    padding: 0 rem-calc(3px) !important;
+}
+.bc-container li.v-breadcrumbs__item--disabled{
+    color: rgb(0 0 0 / 58%);
+}
+@include theme(v-breadcrumbs) using ($material) {
+    &.v-breadcrumbs{
+      padding-left: rem-calc(10px) !important;
+      padding: rem-calc(3px) rem-calc(3px) !important;
+    }
+}
