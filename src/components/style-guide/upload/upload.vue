@@ -1,11 +1,11 @@
 <template>
   <div class="b-upload">
-    <Button color="primary" outlined @click="onSelectionClick" class="btn-upload">
+    <dx-button color="primary" outlined @click="onSelectionClick" class="btn-upload">
       <div class="btn-upload-content">
-        <Icon right regular> mdi-cloud-upload-outline </Icon>
+        <dx-icon right regular> mdi-cloud-upload-outline </dx-icon>
         <span class="text-underline">Cargar archivo</span>
       </div>
-    </Button>
+    </dx-button>
 
     <input
       class="b-upload-input"
@@ -25,10 +25,7 @@
 </template>
 
 <script>
-import Button from '../button/Button.vue'
-import Icon from '../icon/Icon.vue'
 import FileList from './components/FileList'
-
 import FormFileMixin from './mixins/form-file'
 import UploadInputMixing from './mixins/upload-inputs'
 import { isFile } from '@/shared/utils/inspect'
@@ -37,8 +34,6 @@ import { idMixin } from '@/shared/mixin/id'
 export default {
   name: 'Upload',
   components: {
-    Button,
-    Icon,
     FileList,
   },
   provide() {

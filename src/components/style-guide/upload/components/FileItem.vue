@@ -9,18 +9,16 @@
     </div>
 
     <div class="b-item__bottom">
-      <Icon right regular> mdi-cloud-download-outline </Icon>
-      <Icon right regular> mdi-trash-can-outline </Icon>
+      <dx-icon right regular> mdi-cloud-download-outline </dx-icon>
+      <dx-icon right regular> mdi-trash-can-outline </dx-icon>
     </div>
   </li>
 </template>
 <script>
 import { STATUS } from '../helpers/shared-properties'
-import Icon from '../../icon/Icon.vue'
 
 export default {
   name: 'FileItem',
-  components: { Icon },
   data: () => ({
     thumbnail: null,
   }),
