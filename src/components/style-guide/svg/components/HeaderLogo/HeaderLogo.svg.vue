@@ -79,7 +79,7 @@
   </div>
 </template>
 <script>
-import BrandWatermark from '../BrandWatermark/BrandWatermark'
+import BrandWatermark from '../BrandWatermark/BrandWatermark.svg'
 export default {
   name: 'HeaderLogo',
   components: {
