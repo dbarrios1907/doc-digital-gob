@@ -1,15 +1,20 @@
 <template>
   <div>
-    <dx-button color="#656565" outlined height="38px" min-width="18" width="38" small v-bind="$props" @click="changetheme">
-      <v-icon regular>mdi-dock-left</v-icon>
-    </dx-button>
-
-    <dx-button color="#656565" outlined height="38px" min-width="18" width="38" small v-bind="$props" @click="resize('minus')">
-      <v-icon>mdi-format-annotation-minus</v-icon>
-    </dx-button>
-
-    <dx-button color="#656565" outlined height="38px" min-width="18" width="38" small v-bind="$props" @click="resize('plus')">
-      <v-icon>mdi-format-annotation-plus</v-icon>
+    <dx-button 
+      v-for="elem in items"
+      :aria-label="elem.name"
+      color = "#656565"
+      outlined
+      small
+      height = 38
+      min-width = 18
+      width = 38
+      :key="elem.name"
+      v-bind="$props"
+      class="mr-2"
+      @click="call(elem.func)"
+      >
+      <v-icon regular>{{ elem.name }}</v-icon>
     </dx-button>
  </div>
 </template>
@@ -18,17 +23,22 @@
 export default {
   name: 'DxIconsActions',
   inheritAttrs: false,
+  data() {
+    return { 
+      count: parseFloat(document.body.style.fontSize) || 14,
+      items: [
+        { name: 'mdi-dock-left', func: 'changetheme' },
+        { name: 'mdi-format-annotation-minus', func: 'minus' },
+        { name: 'mdi-format-annotation-plus', func: 'plus'},
+        ]
+      }
+  },
   methods: {
-    resize(action) {
-      var sz = document.body.style.fontSize, size;
-      if (sz =='') sz = 14;
-      if (action == "minus") size = parseFloat(sz) - 1;
-      if (action == "plus") size = parseFloat(sz) + 1;
-      document.body.style.fontSize = size + 'px';
-    },
-    changetheme (){
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-    }
+    minus() { this.count -= 1; this.setfont()},
+    plus() { this.count += 1; this.setfont()},
+    changetheme (){ this.$vuetify.theme.dark = !this.$vuetify.theme.dark },
+    call(name) {this[name]()},
+    setfont(){document.body.style.fontSize = this.count + 'px'},
   }
 }
 </script>
