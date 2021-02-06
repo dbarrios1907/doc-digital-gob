@@ -7,6 +7,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
+      tabs: 'tab-1',
       options: [ '10', '20', '30'],
       breadcrums: [
         {
@@ -46,13 +47,85 @@ const Template = (args, { argTypes }) => ({
       open: [1, 2],
       tree: null,
       caseSensitive: false,
+      page: 1,
+      pageCount: 0,
+      itemsPerPage: 10,
+      headers: [
+        {
+          text: 'Nombre',
+          align: 'start',
+          sortable: true,
+          value: 'name',
+          filterable: true,
+        },
+        { text: 'Rut', value: 'rut', filterable: true },
+        { text: 'Permisos', value: 'access', sortable: true },
+        { text: 'Acciones', value: 'actions', sortable: false },
+      ],
+      values: [
+        {
+          name: 'Frozen Yogurt',
+          rut: '23.266.206-8',
+          access: ['Administrador', 'Jefe de servicios'],
+        },
+        {
+          name: 'Ice cream sandwich',
+          rut: '23.266.206-8',
+          access: ['Jefe de servicios'],
+        },
+        {
+          name: 'Eclair',
+          rut: '23.266.206-8',
+          access: ['Jefe de servicios'],
+        },
+        {
+          name: 'Cupcake',
+          rut: '23.266.206-8',
+          access: ['Operador'],
+        },
+        {
+          name: 'Gingerbread',
+          rut: '23.266.206-8',
+          access: ['Oficina de partes', 'Jefe de servicios'],
+        },
+        {
+          name: 'Jelly bean',
+          rut: '23.266.206-8',
+          access: ['Administrador'],
+        },
+        {
+          name: 'Lollipop',
+          rut: '23.266.206-8',
+          access: ['Administrador', 'Jefe de servicios'],
+        },
+        {
+          name: 'Honeycomb',
+          rut: '23.266.206-8',
+          access: ['Administrador', 'Jefe de servicios'],
+        },
+        {
+          name: 'Donut',
+          rut: '23.266.206-8',
+          access: ['Administrador', 'Jefe de servicios'],
+        },
+        {
+          name: 'KitKat',
+          rut: '23.266.206-8',
+          access: ['Operador', 'Jefe de servicios'],
+        },
+      ],
     }
   },
   template: `
     <dx-layout>
+
+<!-- HEADER -->
+
       <template v-slot:header>
         <Header />
       </template>
+
+<!-- NAVIGATION -->
 
       <template v-slot:nav>
         <Navigation
@@ -172,6 +245,8 @@ const Template = (args, { argTypes }) => ({
         </Navigation>
       </template>
 
+<!-- MAIN -->
+
       <template v-slot:main>
         <v-container class="px-10">
           <dx-breadcrumbs :items="breadcrums" />
@@ -206,8 +281,63 @@ const Template = (args, { argTypes }) => ({
               <a href="#" class="text-underline"> + Agregar Usuario</a>
             </v-col>
           </v-row>
+
+          <v-tabs class="mt-5" v-model="tabs">
+            <v-tab href="#tab-1"> Activos </v-tab>
+            <v-tab href="#tab-2"> Inactivos </v-tab>
+          </v-tabs>
+      
+          <v-tabs-items v-model="tabs">
+            <v-tab-item value="tab-1" transition>
+              <v-card flat>
+                <DataTable
+                    color="primary"
+                    :headers="headers"
+                    :items="values"
+                    :page.sync="page"
+                    :items-per-page="itemsPerPage"
+                    hide-default-footer
+                    class="elevation-1"
+                    show-select
+                    @page-count="pageCount = $event"
+                  >
+                    <template v-slot:item.data-table-select="{ isSelected, select }">
+                      <v-simple-checkbox color="primary" :value="isSelected" @input="select($event)" />
+                    </template>
+              
+                    <template v-slot:item.data-table-select="{ isSelected, select }">
+                      <v-simple-checkbox color="green" dense :value="isSelected" @input="select($event)" />
+                    </template>
+              
+                    <template v-slot:item.access="{ item: { access } }">
+                      <v-chip v-for="v in access" :key="v" class="ml-2" color="primary" small>
+                        {{ v }}
+                      </v-chip>
+                    </template>
+              
+                    <template v-slot:item.actions>
+                      <v-icon dense class="mr-2"> mdi-square-edit-outline </v-icon>
+                      <v-icon dense class="mr-2"> mdi-eye </v-icon>
+                      <v-icon dense> mdi-delete </v-icon>
+                    </template>
+                  </DataTable>
+                  <div class="text-center pt-2">
+                    <v-pagination v-model="page" :length="pageCount" />
+                  </div>
+              </v-card>
+            </v-tab-item>
+
+            <v-tab-item value="tab-2" transition>
+              <v-card flat>
+                <v-card-text>Contenido Inactivos</v-card-text>
+              </v-card>
+            </v-tab-item>
+          </v-tabs-items>
+
         </v-container>
       </template>
+
+<!-- FOOTER -->
 
       <template v-slot:footer>
         <DxFooter color="white" />
