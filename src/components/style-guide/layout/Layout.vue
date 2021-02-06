@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <header>
+    <header class="d-flex">
       <slot name="header">
         <div class="dark light--text text-h3 weight-400 px-4 py-4">header</div>
       </slot>
