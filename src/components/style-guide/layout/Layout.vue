@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <header>
+    <header :class="{'d-flex': hasHeaderSlot}">
       <slot name="header">
         <div class="dark light--text text-h3 weight-400 px-4 py-4">header</div>
       </slot>
@@ -30,6 +30,11 @@
 export default {
   name: 'DxLayout',
   inheritAttrs: false,
+  computed: {
+    hasHeaderSlot() {
+        return !!this.$slots.header
+      }
+  }
 }
 </script>
 

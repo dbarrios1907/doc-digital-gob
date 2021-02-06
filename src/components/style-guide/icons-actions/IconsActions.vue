@@ -11,7 +11,6 @@
       width = 38
       :key="elem.name"
       v-bind="$props"
-      class="mr-2"
       @click="call(elem.func)"
       >
       <v-icon regular>{{ elem.name }}</v-icon>
@@ -42,3 +41,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  button:not(:last-child){
+    margin-right: 8px;
+  }
+</style>
