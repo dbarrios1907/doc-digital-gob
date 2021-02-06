@@ -18,6 +18,8 @@ export default {
   border-radius: 0;
   box-shadow: none;
   outline: none;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .dx-pagination .v-pagination__item:not(.v-pagination__item--active) {
