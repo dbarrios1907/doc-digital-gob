@@ -48,7 +48,7 @@ const Template = (args, { argTypes }) => ({
       tree: null,
       caseSensitive: false,
       page: 1,
-      pageCount: 0,
+      pageCount: 3,
       itemsPerPage: 10,
       headers: [
         {
@@ -321,8 +321,8 @@ const Template = (args, { argTypes }) => ({
                       <v-icon dense> mdi-delete </v-icon>
                     </template>
                   </DataTable>
-                  <div class="text-center pt-2">
-                    <v-pagination v-model="page" :length="pageCount" />
+                  <div class="pt-2 mr-6">
+                    <dx-pagination v-model="page" :length="pageCount" class="float-right" />
                   </div>
               </v-card>
             </v-tab-item>
