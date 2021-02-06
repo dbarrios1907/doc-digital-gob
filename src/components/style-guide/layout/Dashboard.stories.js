@@ -160,7 +160,7 @@ const Template = (args, { argTypes }) => ({
       </template>
 
       <template v-slot:main>
-        <v-container class="px-10">
+        <v-container class="px-10 pr-8">
           <dx-icons-actions class="text-right float-right col-3 mt-4"/>
           <div class="weight-700 text-md-h4 mt-10">Estás en el Módulo de Administración</div>
           <div class="text-md-subtitle-2 font-weight-thin mt-4">Aquí podrás crear o modificar usuarios y revisar los documentos que se tramitan en tu Institución.</div>
