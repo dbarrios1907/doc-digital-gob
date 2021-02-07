@@ -15,6 +15,7 @@ $material-light: (
     ),
     'other-variants': (
       'dark': map-get($light-colors, 'dark'),
+      'regular': map-get($light-colors, 'darken3'),
     )
   ),
   'colors': $light-colors,

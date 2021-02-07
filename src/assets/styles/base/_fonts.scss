@@ -2,6 +2,33 @@
 $fonts-url-prefix: '~@/assets';
 
 @font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('~@/assets/fonts/Roboto-Regular.ttf');
+  src: local(''),
+  url('#{$fonts-url-prefix}/fonts/Roboto-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('~@/assets/fonts/Roboto-Medium.ttf');
+  src: local(''),
+  url('#{$fonts-url-prefix}/fonts/Roboto-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('~@/assets/fonts/Roboto-Bold.ttf');
+  src: local(''),
+  url('#{$fonts-url-prefix}/fonts/Roboto-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 400;

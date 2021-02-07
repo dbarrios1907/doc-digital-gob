@@ -5,9 +5,18 @@ $material-dark: (
     //'focused': rgba(map-get($shades, 'black'), 0.12),
     //'focused-alt': rgba(map-get($shades, 'white'), 0.6),
     //'pressed': rgba(#999, 0.4),
-    'outlines': (
-      'primary': 0 0 0 0.2rem rgba(lighten(map-get($dark-colors, 'primary'), 5%), 0.4)
+    'darken-variants': (
+        'primary': map-get($light-colors, 'primary'),
+        'secondary': map-get($light-colors, 'secondary'),
+        'success': map-get($light-colors, 'success'),
+        'error': map-get($light-colors, 'error'),
+        'warning': map-get($light-colors, 'warning'),
+        'neutral': map-get($light-colors, 'neutral'),
     ),
+    'other-variants': (
+      'dark': map-get($light-colors, 'dark'),
+      'regular': map-get($light-colors, 'darken3'),
+    )
   ),
   'colors': $dark-colors,
   'primary-text-percent': 1,
