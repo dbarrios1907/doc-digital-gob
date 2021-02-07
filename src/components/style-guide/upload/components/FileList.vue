@@ -21,7 +21,7 @@
 import UploadInputMixing from '../mixins/upload-inputs'
 import { STATUS } from '../helpers/shared-properties'
 import { idMixin } from '@/shared/mixin/id'
-import { hash } from '@/shared/utils/common'
+import { hash } from '@/shared/utils/hash'
 import FileItem from './FileItem'
 
 export default {
