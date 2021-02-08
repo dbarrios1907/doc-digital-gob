@@ -15,12 +15,6 @@ export default {
   components: {
     Error,
   },
-  computed: {
-    dcolor() {
-      if (this.color) return this.color
-      return this.$vuetify.theme.isDark ? this.$vuetify.theme.themes.dark.dark : this.$vuetify.theme.themes.light.light
-    },
-  },
   props: {
     color: String,
     width: {
