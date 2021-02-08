@@ -2,7 +2,7 @@
   <div>
     <v-card class="mx-auto px-0 primary--text" elevation="0">
       <div class="font-xxlarge weight-500 line-height-42 my-1 primary--text">{{ textheader }}</div>
-      <v-card-title class="py-2 px-0">
+      <v-card-title class="py-2 px-0 break-word">
         <div class="font-xlarge weight-500 primary--text">{{ titleheader }}</div>
       </v-card-title>
       <div class="py-2 px-1 mt-3 pr-4 col-12">
@@ -37,3 +37,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+  .break-word{
+    word-break: break-word !important;
+  }
+  
+</style>
