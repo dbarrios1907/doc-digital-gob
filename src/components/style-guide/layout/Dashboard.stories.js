@@ -161,29 +161,9 @@ const Template = (args, { argTypes }) => ({
 
       <template v-slot:main>
         <v-container class="px-10 pr-8">
-          <dx-icons-actions class="text-right float-right col-3 mt-4"/>
-          <div class="weight-700 text-md-h4 mt-10">Estás en el Módulo de Administración</div>
-          <div class="text-md-subtitle-2 font-weight-thin mt-4">Aquí podrás crear o modificar usuarios y revisar los documentos que se tramitan en tu Institución.</div>
+          <dx-bodytitle title="Estás en el Módulo de Administración" subtitle="Aquí podrás crear o modificar usuarios y revisar los documentos que se tramitan en tu Institución."></dx-bodytitle>
           <v-container class="px-0 mt-15">
-              <v-row>
-                <v-col cols="3" class="">
-                  <dx-dashbitem style="color:#0B36AA" class="px-3 pl-0" textheader="9.999" titleheader="Usuarios activos" messaje="" />
-                </v-col>
-              </v-row>
-              <v-divider class="mt-5"></v-divider>
-              <v-row class="mt-3">
-                <v-col cols="3" class="mr-auto">
-                  <dx-dashbitem style="color:#0B36AA" class="px-3 pl-0" textheader="9.999" titleheader="Documentos enviados" messaje="" />
-                </v-col>
-                <v-divider inset vertical></v-divider>
-                <v-col cols="3" class="mx-auto">
-                  <dx-dashbitem style="color:#0B36AA" class="px-3" textheader="9.999" titleheader="Documentos recibidos" messaje="15 pendientes de recibir" />
-                </v-col>
-                <v-divider inset vertical></v-divider>
-                <v-col cols="3" class="mx-auto">
-                    <dx-dashbitem style="color:#0B36AA" class="px-3" textheader="9.999" titleheader="Documentos pendientes" messaje="" />
-                </v-col>
-              </v-row>
+            <dx-dashboard></dx-dashboard>
           </v-container>
         </v-container>
       </template>

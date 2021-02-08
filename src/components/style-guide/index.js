@@ -18,3 +18,4 @@ export { default as DashbItem } from './layout/components/dashboard-items/dashbo
 export { default as Dashboard } from './layout/components/dashboard-items/Dashboard'
 export { default as Header } from './header/Header'
 export { default as Pagination } from './pagination/Pagination'
+export { default as Bodytitle } from './layout/components/body-title/Bodytitle'
