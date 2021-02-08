@@ -72,13 +72,14 @@ const Template = (args, { argTypes }) => ({
     <div>
       <w-col>
         <v-autocomplete
-            :ripple="false"
+            
             v-model="value"
             :items="items"
             chips
             small-chips
             label="Solo"
             multiple
+            :ripple="false"
             solo
             flat
             outlined

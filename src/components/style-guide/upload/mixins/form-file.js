@@ -1,7 +1,6 @@
 import Vue from '@/shared/utils/vue'
 import identity from '@/shared/utils/identity'
 import { isArray, concat } from '@/shared/utils/array'
-import { getComponentConfig } from '@/shared/utils/config'
 import { isFile, isFunction, isUndefinedOrNull } from '@/shared/utils/inspect'
 import { File } from '@/shared/utils/safe-types'
 import { toString } from '@/shared/utils/string'
@@ -55,7 +54,7 @@ export default /*#__PURE__*/ Vue.extend({
     },
     placeholder: {
       type: String,
-      default: () => getComponentConfig(NAME, 'placeholder'),
+      default: () => 'placeholder',
     },
     multiple: {
       type: Boolean,
@@ -112,7 +111,7 @@ export default /*#__PURE__*/ Vue.extend({
         // There is a slot for formatting the files/names
         return [
           this.normalizeSlot('file-name', {
-            files: files,
+            files,
             names: files.map(f => f.name),
           }),
         ]
@@ -159,6 +158,7 @@ export default /*#__PURE__*/ Vue.extend({
       try {
         // Wrapped in try in case IE 11 craps out
         this.$refs.input.value = ''
+        // eslint-disable-next-line no-empty
       } catch (e) {}
       // IE 11 doesn't support setting `input.value` to '' or null
       // So we use this little extra hack to reset the value, just in case.

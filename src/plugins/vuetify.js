@@ -30,6 +30,8 @@ Vue.use(Vuetify, {
     ...VComponents,
     VExpandTransition: _Vuetify.VExpandTransition,
     VSlideXReverseTransition: _Vuetify.VSlideXReverseTransition,
+    VSlideYTransition: _Vuetify.VSlideYTransition,
+    VFadeTransition: _Vuetify.VFadeTransition,
     ...styleGuideComponents,
   },
 })

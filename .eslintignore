@@ -2,3 +2,6 @@
 **/*.scss
 **/*.sass
 **/*.css
+src/assets
+public
+dist
