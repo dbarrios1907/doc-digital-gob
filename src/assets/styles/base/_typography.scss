@@ -18,6 +18,10 @@
   font-size: 24px;
 }
 
+.font-25 {
+  font-size: rem-calc(25px);
+}
+
 .font-xxlarge {
   font-size: rem-calc(30px);
 }
@@ -56,6 +60,14 @@
 
 .line-height-16 {
   line-height: rem-calc(16px);
+}
+
+.line-height-32 {
+  line-height: rem-calc(32px);
+}
+
+.line-height-31 {
+  line-height: rem-calc(31px) !important;
 }
 
 .line-height-42 {
