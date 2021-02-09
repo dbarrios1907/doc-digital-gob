@@ -1,12 +1,12 @@
 <template>
-  <div class="dx-alert d-flex justify-content-center mb-4 elevation-8" :class="'dx-type__' + type">
+  <div class="dx-alert d-flex justify-content-center elevation-8" :class="'dx-type__' + type" v-bind="$listeners">
     <div class="dx-alert__wrapper d-inline-flex align-center py-3">
       <span class="d-flex px-5">
         <component :is="iconByType" />
       </span>
 
       <div class="dx-alert__content font-large d-inline flex-fill pr-12">
-        <div v-if="title !== null && title !== undefined && title !== ''" class="dx-alert-title">{{ title }}</div>
+        <div v-if="title !== null && title !== undefined && title !== ''" class="dx-alert-title font-large weight-500">{{ title }}</div>
         <div class="vn-message"><slot /></div>
       </div>
     </div>

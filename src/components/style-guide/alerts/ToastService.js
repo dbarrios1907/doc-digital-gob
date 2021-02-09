@@ -31,7 +31,7 @@ const Message = function (options) {
 
   instance.$mount()
 
-  notifContainerEl.prepend(instance.$el)
+  notifContainerEl.appendChild(instance.$el)
   let verticalOffset = options.offset || 20
   instances.forEach(item => {
     verticalOffset += item.$el.offsetHeight + 16

@@ -8,7 +8,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       tabs: 'tab-1',
-      options: [ '10', '20', '30'],
+      options: ['10', '20', '30'],
       breadcrums: [
         {
           text: 'Administración',
@@ -255,17 +255,17 @@ const Template = (args, { argTypes }) => ({
           <div class="mt-10 weight-400">
             <span>Mostrando hasta</span>
             <v-select
-            class="d-inline-flex min-content"
-            style="width: min-content"
-            :items="options"
-            label="Selección Simple"
-            value="10"
-            solo
-            flat
-            outlined
-            v-bind="$props"
-            ripple="false"
-            single-line
+              class="d-inline-flex min-content"
+              style="width: min-content"
+              :items="options"
+              label="Selección Simple"
+              value="10"
+              solo
+              flat
+              outlined
+              v-bind="$props"
+              ripple="false"
+              single-line
             ></v-select>
             <span>resultados de un total de <b>17 usuarios</b></span>
           </div>
@@ -288,7 +288,7 @@ const Template = (args, { argTypes }) => ({
           </v-tabs>
       
           <v-tabs-items v-model="tabs">
-            <v-tab-item value="tab-1" transition>
+            <v-tab-item value="tab-1" >
               <v-card flat>
                 <DataTable
                     color="primary"
@@ -327,7 +327,7 @@ const Template = (args, { argTypes }) => ({
               </v-card>
             </v-tab-item>
 
-            <v-tab-item value="tab-2" transition>
+            <v-tab-item value="tab-2" >
               <v-card flat>
                 <v-card-text>Contenido Inactivos</v-card-text>
               </v-card>

@@ -12,6 +12,6 @@
 import './DataTable.scss'
 export default {
   name: 'DataTable',
-  inheritAttrs: true,
+  inheritAttrs: false,
 }
 </script>

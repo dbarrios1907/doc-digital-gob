@@ -3,11 +3,6 @@
   position: relative;
   border-width: 2px;
   border-style: solid;
-  z-index: 200;
-}
-
-.dx-alert__wrapper {
-
 }
 
 .dx-alert__closeable {
@@ -17,21 +12,38 @@
   cursor: pointer;
 }
 
+@function bg_color($colorName) {
 
+  @if $colorName == success {
+    @return #DBF2F0;
+  }
+
+  @if $colorName == info {
+    @return #F3F7FC;
+  }
+
+  @if $colorName == error {
+    @return #FDF4F4;
+  }
+
+  @if $colorName == warning {
+    @return #fef8f2;
+  }
+
+  @return #F3F7FC;
+}
 
 @include themeGlobal(dx-alert) using($material) {
-
 
   .dx-alert__content {
     color: map-deep-get($material, 'colors', 'darken3') !important;
   }
 
   @each $name, $color in map-get($material, 'alerts') {
-    @debug dx-type__#{$name};
 
     &.dx-type__#{$name} {
       color: $color;
-      background-color: transparentize($color, .8) !important;
+      background-color: bg_color(#{$name}) !important;
       border-color: $color !important;
     }
   }
