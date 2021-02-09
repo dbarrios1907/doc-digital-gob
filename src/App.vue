@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <div class="notificationCenter" />
     <v-app-bar app color="primary" dark>
       <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
         <span class="mr-2">Latest Release</span>l

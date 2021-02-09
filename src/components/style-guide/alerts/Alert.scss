@@ -1,87 +1,50 @@
-.v-alert {
-  width: 27.37rem;
-  box-sizing: border-box;
-  position: fixed;
-  left: 50%;
-  top: 20px;
-  transform: translateX(-50%);
-  transition: opacity 0.3s, transform .4s, top 0.4s;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
+.dx-alert {
+  max-width: 27.37rem;
+  position: relative;
+  border-width: 2px;
+  border-style: solid;
 }
 
-.v-alert__content {
-  color: black !important;
+.dx-alert__closeable {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
 }
 
-@mixin borderAndIcon($color) {
-  border: 2px solid $color !important;
+@function bg_color($colorName) {
 
-  .v-icon {
-    color: $color !important;
+  @if $colorName == success {
+    @return #DBF2F0;
   }
+
+  @if $colorName == info {
+    @return #F3F7FC;
+  }
+
+  @if $colorName == error {
+    @return #FDF4F4;
+  }
+
+  @if $colorName == warning {
+    @return #fef8f2;
+  }
+
+  @return #F3F7FC;
 }
 
-@include theme(v-alert) using($material) {
-  .v-alert__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@include themeGlobal(dx-alert) using($material) {
+
+  .dx-alert__content {
+    color: map-deep-get($material, 'colors', 'darken3') !important;
   }
 
-  .v-icon {
-    font-size: 2.2rem;
-    display: flex;
-    align-self: center;
-    width: 30px;
-  }
+  @each $name, $color in map-get($material, 'alerts') {
 
-  &.success--text,
-  &.success {
-    @include borderAndIcon(#04a398);
-  }
-
-  &.success {
-    background: #dbf2f0 !important;
-  }
-
-  &.error--text,
-  &.error {
-    @include borderAndIcon(#e22c2c);
-  }
-
-  &.error {
-    background: #fdf4f4 !important;
-  }
-
-  &.warning--text,
-  &.warning {
-    @include borderAndIcon(#f56b0f);
-  }
-
-  &.warning {
-    background: #fef8f2 !important;
-  }
-
-  &.info--text,
-  &.info {
-    @include borderAndIcon(#0f69c4);
-  }
-
-  &.info {
-    background: #f3f7fc !important;
-  }
-
-  .v-alert__dismissible {
-    align-self: flex-start;
-    padding-top: 10px;
-
-    .v-btn__content {
-      .v-icon {
-        color: #373737 !important;
-        font-size: 1.3rem;
-      }
+    &.dx-type__#{$name} {
+      color: $color;
+      background-color: bg_color(#{$name}) !important;
+      border-color: $color !important;
     }
   }
 }

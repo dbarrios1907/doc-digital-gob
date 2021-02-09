@@ -1,14 +1,15 @@
 import Vue from 'vue'
-import Alert from './Alert.vue'
-import { PopupManager } from 'element-ui/src/utils/popup'
-import { isVNode } from 'element-ui/src/utils/vdom'
-const MessageConstructor = Vue.extend(Alert)
+import Toast from './Toast.vue'
+
+const MessageConstructor = Vue.extend(Toast)
 
 let instance
 const instances = []
 let seed = 1
 
+
 const Message = function (options) {
+  const notifContainerEl = document.querySelector('.dx-notification-container');
   if (Vue.prototype.$isServer) return
   options = options || {}
   if (typeof options === 'string') {
@@ -22,38 +23,30 @@ const Message = function (options) {
   options.onClose = function () {
     Message.close(id, userOnClose)
   }
+
   instance = new MessageConstructor({
     data: options,
   })
   instance.id = id
-  if (isVNode(instance.message)) {
-    instance.$slots.default = [instance.message]
-    instance.message = null
-  }
+
   instance.$mount()
-  document.body.appendChild(instance.$el)
+
+  notifContainerEl.appendChild(instance.$el)
   let verticalOffset = options.offset || 20
   instances.forEach(item => {
     verticalOffset += item.$el.offsetHeight + 16
   })
   instance.verticalOffset = verticalOffset
   instance.visible = true
-  instance.$el.style.zIndex = PopupManager.nextZIndex()
   instances.push(instance)
   return instance
 }
 
-;['success', 'warning', 'info', 'error'].forEach(type => {
-  Message[type] = options => {
-    if (typeof options === 'string') {
-      options = {
-        message: options,
-      }
-    }
-    options.type = type
-    return Message(options)
+Message.closeAll = function () {
+  for (let i = instances.length - 1; i >= 0; i--) {
+    instances[i].close()
   }
-})
+}
 
 Message.close = function (id, userOnClose) {
   const len = instances.length
@@ -77,10 +70,44 @@ Message.close = function (id, userOnClose) {
   }
 }
 
-Message.closeAll = function () {
-  for (let i = instances.length - 1; i >= 0; i--) {
-    instances[i].close()
+Message.success = options => {
+  if (typeof options === 'string') {
+    options = {
+      message: options,
+    }
   }
+  options.type = 'success'
+  return Message(options)
+}
+
+Message.warning = options => {
+  if (typeof options === 'string') {
+    options = {
+      message: options,
+    }
+  }
+  options.type = 'warning'
+  return Message(options)
+}
+
+Message.error = options => {
+  if (typeof options === 'string') {
+    options = {
+      message: options,
+    }
+  }
+  options.type = 'error'
+  return Message(options)
+}
+
+Message.info = options => {
+  if (typeof options === 'string') {
+    options = {
+      message: options,
+    }
+  }
+  options.type = 'info'
+  return Message(options)
 }
 
 export default Message

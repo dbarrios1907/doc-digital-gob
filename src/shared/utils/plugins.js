@@ -113,7 +113,6 @@ export const registerPlugins = (Vue, plugins = {}) => {
  */
 export const registerComponent = (Vue, name, def) => {
   if (Vue && name && def) {
-    console.log(name, def)
     Vue.component(name, def)
   }
 }

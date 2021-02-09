@@ -29,7 +29,7 @@ import FileList from './components/FileList'
 import FormFileMixin from './mixins/form-file'
 import UploadInputMixing from './mixins/upload-inputs'
 import { isFile } from '@/shared/utils/inspect'
-import { idMixin } from '@/shared/mixin/id'
+import { idMixin } from '@/shared/mixins/id'
 
 export default {
   name: 'Upload',
