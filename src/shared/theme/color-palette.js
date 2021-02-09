@@ -10,9 +10,9 @@ export const themes = {
     dark: '#001C41',
     black: '#111111',
     light: '#FFFFFF',
-    error: '#F56B0F',
+    warning: '#F56B0F',
     success: '#00ADA2',
-    warning: '#E22C2C',
+    error: '#E22C2C',
   },
   dark: {
     primary: '#E22C2C',

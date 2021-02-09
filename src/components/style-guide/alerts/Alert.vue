@@ -1,117 +1,59 @@
 <template>
-  <transition name="el-message-fade" @after-leave="handleAfterLeave">
-    <div
-      v-show="visible"
-      :class="['el-message', type && !iconClass ? `el-message--${type}` : '', center ? 'is-center' : '', showClose ? 'is-closable' : '', customClass]"
-      :style="positionStyle"
-      role="alert"
-      @mouseenter="clearTimer"
-      @mouseleave="startTimer"
-    >
-      <i v-if="iconClass" :class="iconClass" />
-      <i v-else :class="typeClass" />
-      <slot>
-        <p v-if="!dangerouslyUseHTMLString" class="el-message__content">{{ message }}</p>
-        <p v-else class="el-message__content" v-html="message" />
-      </slot>
-      <i v-if="showClose" class="el-message__closeBtn el-icon-close" @click="close" />
+  <div class="dx-alert d-flex justify-content-center mb-4 elevation-8" :class="'dx-type__' + type">
+    <div class="dx-alert__wrapper d-inline-flex align-center py-3">
+      <span class="d-flex px-5">
+        <component :is="iconByType" />
+      </span>
+
+      <div class="dx-alert__content font-large d-inline flex-fill pr-12">
+        <div v-if="title !== null && title !== undefined && title !== ''" class="dx-alert-title">{{ title }}</div>
+        <div class="vn-message"><slot /></div>
+      </div>
     </div>
-  </transition>
+    <span class="dx-alert__closeable d-flex px-1 py-1" @click="dismiss">
+      <alert-close-icon />
+    </span>
+  </div>
 </template>
 
-<script type="text/babel">
-const typeMap = {
-  success: 'success',
-  info: 'info',
-  warning: 'warning',
-  error: 'error',
-}
+<script>
+import './Alert.scss'
 
 export default {
-  data() {
-    return {
-      visible: false,
-      message: '',
-      duration: 3000,
-      type: 'info',
-      iconClass: '',
-      customClass: '',
-      onClose: null,
-      showClose: false,
-      closed: false,
-      verticalOffset: 20,
-      timer: null,
-      dangerouslyUseHTMLString: false,
-      center: false,
-    }
+  name: 'DxAlert',
+  inheritAttrs: false,
+  props: {
+    message: String,
+    type: String,
+    title: String,
+    showLeftIcon: Boolean,
   },
   computed: {
-    typeClass() {
-      return this.type && !this.iconClass ? `el-message__icon el-icon-${typeMap[this.type]}` : ''
-    },
-    positionStyle() {
-      return {
-        top: `${this.verticalOffset}px`,
+    iconByType() {
+      if (this.$props.type === 'info') {
+        return 'alert-info-icon'
       }
-    },
-  },
 
-  watch: {
-    closed(newVal) {
-      if (newVal) {
-        this.visible = false
+      if (this.$props.type === 'warning') {
+        return 'alert-warning-icon'
       }
+
+      if (this.$props.type === 'success') {
+        return 'alert-success-icon'
+      }
+
+      if (this.$props.type === 'error') {
+        return 'alert-error-icon'
+      }
+
+      return false
     },
   },
-  mounted() {
-    this.startTimer()
-    document.addEventListener('keydown', this.keydown)
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.keydown)
-  },
-
   methods: {
-    handleAfterLeave() {
-      this.$destroy(true)
-      this.$el.parentNode.removeChild(this.$el)
-    },
-
-    close() {
-      this.closed = true
-      if (typeof this.onClose === 'function') {
-        this.onClose(this)
-      }
-    },
-
-    clearTimer() {
-      clearTimeout(this.timer)
-    },
-
-    startTimer() {
-      if (this.duration > 0) {
-        this.timer = setTimeout(() => {
-          if (!this.closed) {
-            this.close()
-          }
-        }, this.duration)
-      }
-    },
-    keydown(e) {
-      if (e.keyCode === 27) {
-        if (!this.closed) {
-          this.close()
-        }
-      }
+    dismiss() {
+      console.log('DISMISS')
+      this.$emit('onDismiss')
     },
   },
 }
 </script>
-
-<style>
-.el-message-fade-enter,
-.el-message-fade-leave-active {
-  opacity: 0;
-  transform: translate(-50%, -100%);
-}
-</style>

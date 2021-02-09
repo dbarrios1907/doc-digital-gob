@@ -20,7 +20,7 @@
 <script>
 import UploadInputMixing from '../mixins/upload-inputs'
 import { STATUS } from '../helpers/shared-properties'
-import { idMixin } from '@/shared/mixin/id'
+import { idMixin } from '@/shared/mixins/id'
 import { hash } from '@/shared/utils/hash'
 import FileItem from './FileItem'
 

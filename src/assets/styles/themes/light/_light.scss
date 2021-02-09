@@ -18,6 +18,12 @@ $material-light: (
       'regular': map-get($light-colors, 'darken3'),
     )
   ),
+  'alerts': (
+    'success': map-get($light-colors, 'success'),
+    'error': map-get($light-colors, 'error'),
+    'warning': map-get($light-colors, 'warning'),
+    'info': map-get($light-colors, 'primary'),
+  ),
   'colors': $light-colors,
   'primary-text-percent': 0.87,
   'secondary-text-percent': 0.6,
