@@ -6,7 +6,7 @@
       </span>
       <v-breadcrumbs class="d-inline pl-1 pr-2" :items="items" v-bind="$attrs" v-on="$listeners">
         <template v-slot:item="{ item }">
-          <v-breadcrumbs-item :to="item.href" class="primary--text" active-class="dark--text">
+          <v-breadcrumbs-item :disabled="item.disabled" :href="item.href" class="primary--text" active-class="dark--text">
             {{ item.text }}
           </v-breadcrumbs-item>
         </template>
