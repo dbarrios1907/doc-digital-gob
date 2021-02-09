@@ -5,7 +5,7 @@
       <span class="span darken3--text"> Lo sentimos, hemos tenido un problema</span>
       <dx-button color="primary" v-bind="$props"> Vuelve a intentarlo</dx-button>
     </div>
-    <span class="link">Si no funciona escríbenos en <a href="https://digital.gob.cl/incidencia">https://digital.gob.cl/incidencia</a> </span>      
+    <span class="link">Si no funciona escríbenos en <a href="https://digital.gob.cl/incidencia">https://digital.gob.cl/incidencia</a> </span>
   </div>
 </template>
 <script>
@@ -32,21 +32,21 @@ export default {
 <style scoped>
   @media screen and (max-width: 600px) {
     .errorpage {
-      width: auto !important;
+      width: auto;
     }
     .errorpage .content {
-      top: 6rem !important;  
-      right: 3rem !important;
-      width: 290px !important;
+      top: 6rem ;
+      right: 3rem;
+      width: 290px;
     }
 
     .errorpage .content .v-btn {
-      min-width: 100% !important;
+      min-width: 100%;
     }
 
     .errorpage .link {
-      bottom: 20px !important;
-      right: 31px !important;
+      bottom: 20px;
+      right: 31px;
       width: 226px;
     }
   }
@@ -60,7 +60,7 @@ export default {
     position: absolute;
     text-align: center;
     top: 12rem;
-    right: 5rem;
+    right: 6.2rem;
     width: 472px;
   }
 

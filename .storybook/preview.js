@@ -2,19 +2,9 @@ import Vue from 'vue'
 import { addDecorator } from '@storybook/vue'
 import vuetify from '@/plugins/vuetify'
 import '@/plugins/vee-validate'
-import ToastNotificationPlugin from '@/plugins/toast-notification'
 import styleGuidePlugin from '@/plugins/style-guide'
 Vue.use(styleGuidePlugin)
-Vue.use(ToastNotificationPlugin)
 import '@/assets/styles/main.scss'
-
-import NotificationVuejs from '../src/components/style-guide/VueNotification'
-
-Vue.use(NotificationVuejs, {
-  timer: 20,
-  title: 'Vue notification',
-  position: 'topRight',
-})
 
 addDecorator(() => ({
   vuetify,

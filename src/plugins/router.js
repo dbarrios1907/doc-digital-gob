@@ -1,15 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import routeOptions from '../routes'
+import { constantRoutes } from '@/routes'
 
 Vue.use(Router)
 
 const configRoutes = () => {
-  return routeOptions.map(route => {
-    return {
-      component: () => import(/* webpackChunkName: "[request]" */ `@/views/${route.name}.vue`),
-      ...route,
+  return constantRoutes.map(route => {
+    if (route.async) {
+      return {
+        component: () => import(/* webpackChunkName: "[request]" */ `@/views/${route.name}.vue`),
+        ...route,
+      }
     }
+
+    return route
   })
 }
 

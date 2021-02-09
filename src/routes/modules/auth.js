@@ -1,8 +1,8 @@
-import Layout from '@/layouts'
+import { AuthLayout } from '@/layouts'
 
 const authRouter = {
   path: '/auth',
-  component: Layout,
+  component: AuthLayout,
   redirect: 'noRedirect',
   name: 'auth',
   children: [

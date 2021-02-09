@@ -1,7 +1,7 @@
 export { default as Button } from './button/Button'
 export { default as Icon } from './icons/Icon'
 export { default as Badge } from './badge/Badge'
-export { default as Alert } from './alerts/Alert'
+export { default as Alert } from '../alerts/Alert'
 export { default as CircularProgress } from './circular-progress/CircularProgress'
 export { default as LinearProgress } from './linear-progress/LinearProgress'
 export { default as Ratings } from './ratings/Ratings'

@@ -1,4 +1,4 @@
-import Toast from '@/components/style-guide/alerts/Toast'
+import Toast from '@/components/alerts/Toast'
 
 const NotificationCenter = {
   install(Vue, options = {}) {

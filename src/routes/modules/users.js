@@ -1,8 +1,8 @@
-import Layout from '@/layouts'
+import { AuthLayout } from '@/layouts'
 
-const chartsRouter = {
+const usersRouter = {
   path: '/usuarios',
-  component: Layout,
+  component: AuthLayout,
   redirect: 'noRedirect',
   name: 'Usuarios',
   meta: {
@@ -12,11 +12,11 @@ const chartsRouter = {
   children: [
     {
       path: 'keyboard',
-      component: () => import('@/views/charts/keyboard'),
-      name: 'KeyboardChart',
-      meta: { title: 'Keyboard Chart', noCache: true },
+      // component: () => import('@/views/usuarios'),
+      name: 'Usuarios',
+      meta: { title: 'Usuarios', noCache: true },
     },
   ],
 }
 
-export default chartsRouter
+export default usersRouter

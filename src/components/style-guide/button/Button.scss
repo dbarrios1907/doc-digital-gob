@@ -5,6 +5,10 @@
 @include theme(v-btn) using ($material) {
   padding: rem-calc(12px) rem-calc(20px);
 
+  &.v-size--default {
+    font-size: 1rem;
+  }
+
   &.v-size--large {
     padding: rem-calc(12px) rem-calc(25px);
   }
