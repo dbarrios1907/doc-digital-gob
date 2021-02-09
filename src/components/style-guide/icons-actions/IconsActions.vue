@@ -1,20 +1,8 @@
 <template>
   <div>
-    <dx-button 
-      v-for="elem in items"
-      :aria-label="elem.name"
-      color = "#656565"
-      outlined
-      small
-      height = 38
-      min-width = 18
-      width = 38
-      :key="elem.name"
-      v-bind="$props"
-      @click="call(elem.func)"
-      >
-      <v-icon regular>{{ elem.name }}</v-icon>
-    </dx-button>
+    <BackgroundChange @click="changetheme" />
+    <MinusText @click="minus" />
+    <PlusText @click="plus" />
  </div>
 </template>
 
@@ -25,11 +13,6 @@ export default {
   data() {
     return { 
       count: parseFloat(document.body.style.fontSize) || 14,
-      items: [
-        { name: 'mdi-dock-left', func: 'changetheme' },
-        { name: 'mdi-format-annotation-minus', func: 'minus' },
-        { name: 'mdi-format-annotation-plus', func: 'plus'},
-        ]
       }
   },
   methods: {
@@ -41,9 +24,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  button:not(:last-child){
-    margin-right: 8px;
-  }
-</style>
