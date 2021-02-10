@@ -33,7 +33,7 @@
   @return #F3F7FC;
 }
 
-@include themeGlobal(dx-alert) using($material) {
+@include theme(dx-alert) using($material) {
 
   .dx-alert__content {
     color: map-deep-get($material, 'colors', 'darken3') !important;

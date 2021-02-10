@@ -102,6 +102,7 @@ export default {
 
 <style>
 .dx-notification-container {
+  position: fixed;
   width: auto;
   max-height: 100%;
 }

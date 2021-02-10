@@ -12,7 +12,7 @@ addDecorator(() => ({
     <v-app>
       <div class="dx-notification-container py-2 px-3" />
       <v-main>
-        <v-container fluid style="height: 80%">
+        <v-container fluid class="px-0 py-0" style="height: calc(100% - 32px); width: calc(100% - 32px); position: fixed">
           <story/>
         </v-container>
       </v-main>

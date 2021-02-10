@@ -24,6 +24,13 @@ $material-light: (
     'warning': map-get($light-colors, 'warning'),
     'info': map-get($light-colors, 'primary'),
   ),
+  'navigation': (
+    'bg-color': #093f75,
+    'states': (
+      hover: 0.12,
+      active: 0.25
+    )
+  ),
   'colors': $light-colors,
   'primary-text-percent': 0.87,
   'secondary-text-percent': 0.6,

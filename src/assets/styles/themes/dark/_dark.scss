@@ -18,13 +18,20 @@ $material-dark: (
       'regular': map-get($dark-colors, 'darken3'),
     )
   ),
-    'alerts': (
-      'success': map-get($dark-colors, 'success'),
-      'error': map-get($dark-colors, 'error'),
-      'warning': map-get($dark-colors, 'warning'),
-      'info': map-get($dark-colors, 'neutral'),
-    ),
-  'colors': $dark-colors,
+  'alerts': (
+    'success': map-get($dark-colors, 'success'),
+    'error': map-get($dark-colors, 'error'),
+    'warning': map-get($dark-colors, 'warning'),
+    'info': map-get($dark-colors, 'neutral'),
+  ),
+  'navigation': (
+    'bg-color': #093f75,
+      'states': (
+        hover: 0.12,
+        active: 0.2
+      )
+  ),
+    'colors': $dark-colors,
   'primary-text-percent': 1,
   'secondary-text-percent': 0.7,
   'disabledORhints-text-percent': 0.5,

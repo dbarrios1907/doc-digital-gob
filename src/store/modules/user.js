@@ -1,6 +1,6 @@
 import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/shared/utils/auth/token-utils'
-import router, { resetRouter } from '@/plugins/vue-router'
+import router, { resetRouter } from '@/plugins/router'
 
 const state = {
   token: getToken(),

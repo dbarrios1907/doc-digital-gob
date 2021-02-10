@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <header :class="{'d-flex': hasHeaderSlot}">
+    <header :class="{ 'd-flex': hasHeaderSlot }">
       <slot name="header">
         <div class="dark light--text text-h3 weight-400 px-4 py-4">header</div>
       </slot>
@@ -32,9 +32,9 @@ export default {
   inheritAttrs: false,
   computed: {
     hasHeaderSlot() {
-        return !!this.$slots.header
-      }
-  }
+      return !!this.$slots.header
+    },
+  },
 }
 </script>
 

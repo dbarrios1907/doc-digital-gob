@@ -1,20 +1,24 @@
 @mixin theme ($component) {
-  .v-application .theme--light.#{$component} {
+  .v-application .theme--light.#{$component},
+  .theme--light .#{$component},
+  .theme--light.#{$component} {
     @content($material-light);
   }
-  .v-application .theme--dark.#{$component} {
+  .v-application .theme--dark.#{$component},
+  .theme--dark .#{$component},
+  .theme--dark.#{$component} {
     @content($material-dark);
   }
 }
 
-@mixin themeGlobal ($component) {
-  .v-application.theme--light .#{$component} {
-    @content($material-light);
-  }
-  .v-application.theme--dark .#{$component} {
-    @content($material-dark);
-  }
-}
+//@mixin themeGlobal ($component) {
+//  .theme--light .#{$component},  .theme--light.#{$component} {
+//    @content($material-light);
+//  }
+//  .theme--dark .#{$component},  .theme--dark.#{$component} {
+//    @content($material-dark);
+//  }
+//}
 
 @mixin themeDark ($component) {
   .v-application .theme--dark.#{$component} {
@@ -34,6 +38,3 @@
   }
   @return $map;
 }
-
-
-
