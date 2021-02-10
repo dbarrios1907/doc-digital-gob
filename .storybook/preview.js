@@ -10,9 +10,9 @@ addDecorator(() => ({
   vuetify,
   template: `
     <v-app>
-      <div class="dx-notification-container py-2 px-3" />
+      <div class="dx-notification-container" style="width: auto; max-height: 100%; position: absolute;"/>
       <v-main>
-        <v-container fluid class="px-0 py-0" style="height: calc(100% - 32px); width: calc(100% - 32px); position: fixed">
+        <v-container fluid class="px-0 py-0" style="height: calc(100% - 32px); width: calc(100% - 32px);">
           <story/>
         </v-container>
       </v-main>

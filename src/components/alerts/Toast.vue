@@ -101,12 +101,6 @@ export default {
 </script>
 
 <style>
-.dx-notification-container {
-  position: fixed;
-  width: auto;
-  max-height: 100%;
-}
-
 .dx-toast {
   position: fixed;
   z-index: 200;
