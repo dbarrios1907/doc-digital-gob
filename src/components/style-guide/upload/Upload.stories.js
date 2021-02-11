@@ -17,10 +17,10 @@ export default {
 export const Demo = () => ({
   components: { Upload },
   template: `
-    <div>
-    <Upload
-        multiple
-        v-bind="$props"/>
-    </div>
+    <v-row>
+      <v-col lg="4" sm="6">
+        <Upload multiple v-bind="$props"/>
+      </v-col>
+    </v-row>
   `,
 })

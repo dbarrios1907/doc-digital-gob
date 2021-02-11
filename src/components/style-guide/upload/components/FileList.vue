@@ -1,8 +1,9 @@
 <template>
-  <div class="b-file-list">
+  <div class="b-file-list py-2">
     <template v-for="file in filesLocal">
       <slot v-bind:file="file">
         <FileItem
+          class="px-2 py-2"
           ref="fileItem"
           :file="file"
           :id="file.id"
@@ -128,10 +129,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.b-file-list {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-</style>

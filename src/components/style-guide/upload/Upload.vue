@@ -1,5 +1,5 @@
 <template>
-  <div class="b-upload">
+  <div class="b-upload font-large">
     <dx-button color="primary" outlined @click="onSelectionClick" class="btn-upload">
       <div class="btn-upload-content">
         <dx-icon right regular> mdi-cloud-upload-outline </dx-icon>
@@ -163,7 +163,6 @@ export default {
 }
 
 .b-upload {
-  width: max-content;
   position: relative;
 }
 

@@ -1,14 +1,14 @@
 <template>
-  <li tabindex="0" class="b-list__item select-text" v-if="file">
-    <div class="b-item__start">
+  <li tabindex="0" class="dx-list__item d-flex align-center select-text" v-if="file">
+    <div class="dx-item__start py-2 px-4 mr-3 rounded-pill secondary">
       {{ file[descriptionProp].split('.').pop() }}
     </div>
 
-    <div class="b-item__body">
+    <div class="b-item__body flex-fill">
       {{ file[descriptionProp] }}
     </div>
 
-    <div class="b-item__bottom">
+    <div class="dx-item__bottom">
       <dx-icon right regular> mdi-cloud-download-outline </dx-icon>
       <dx-icon right regular> mdi-trash-can-outline </dx-icon>
     </div>
@@ -70,24 +70,15 @@ export default {
 </script>
 
 <style lang="scss">
-.b-list__item {
-  display: flex;
-  list-style-type: none;
-  padding: 10px;
-  justify-content: space-between;
-  align-items: center;
+.dx-list__item {
 
-  .b-item__body {
+  .dx-item__body {
     color: black;
     flex: 1 1 auto;
   }
 
-  .b-item__start {
-    background: #cfe1f3;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 100px;
-    margin-right: 10px;
+  .dx-item__start {
+    line-height: normal;
   }
 }
 </style>
