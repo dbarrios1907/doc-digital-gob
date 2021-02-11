@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'DxFooter',
+  name: 'Footer',
   inheritAttrs: false,
   props: {
     color: String,

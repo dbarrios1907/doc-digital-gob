@@ -11,11 +11,9 @@ addDecorator(() => ({
   template: `
     <v-app>
       <div class="dx-notification-container" style="width: auto; max-height: 100%; position: absolute;"/>
-      <v-main>
-        <v-container fluid class="px-0 py-0" style="height: calc(100% - 32px); width: calc(100% - 32px);">
-          <story/>
-        </v-container>
-      </v-main>
+      <v-container fluid class="px-0 py-0 mx-0">
+        <story/>
+      </v-container>
     </v-app>
     `,
 }))

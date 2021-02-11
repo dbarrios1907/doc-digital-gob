@@ -6,17 +6,9 @@
       </slot>
     </header>
 
-    <div class="nav">
-      <slot name="nav">
-        <div class="primary light--text text-h3 weight-200 px-4 py-4">Left Sidebar</div>
-      </slot>
-    </div>
-
-    <main>
-      <slot name="main">
-        <div class="light dark--text text-h2 weight-600 px-4 py-4">Main Content</div>
-      </slot>
-    </main>
+    <slot name="main">
+      <div class="light dark--text text-h2 weight-600 px-4 py-4">Main Content</div>
+    </slot>
 
     <footer>
       <slot name="footer">
@@ -28,7 +20,7 @@
 
 <script>
 export default {
-  name: 'DxLayout',
+  name: 'DxVerticalLayout',
   inheritAttrs: false,
   computed: {
     hasHeaderSlot() {
@@ -50,11 +42,6 @@ export default {
   height: 90px;
 }
 
-.wrapper .nav {
-  grid-column: 1 / 2;
-  width: 325px;
-}
-
 .wrapper main {
   grid-column: 2 / 3;
 }
@@ -64,10 +51,10 @@ export default {
   height: 58px;
 }
 
-.wrapper .nav > div,
 .wrapper main > div,
 .wrapper header > div,
 .wrapper footer > div {
   height: 100%;
+  max-height: 100%;
 }
 </style>

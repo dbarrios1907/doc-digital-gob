@@ -1,24 +1,50 @@
 <template>
   <v-app>
-    <v-navigation-drawer app>
-      <!-- -->
-    </v-navigation-drawer>
+    <VerticaLayout>
+      <template v-slot:header>
+        <Header />
+      </template>
 
-    <v-app-bar app>
-      <!-- -->
-    </v-app-bar>
+      <template v-slot:nav>
+        <Navigation v-model="drawer" :routes="items" />
+      </template>
 
-    <!-- Sizes your content based upon application components -->
-    <v-main>
-      <!-- Provides the application the proper gutter -->
-      <v-container fluid>
-        <!-- If using vue-router -->
-        <router-view></router-view>
-      </v-container>
-    </v-main>
+      <Navigation routes="items" />
 
-    <v-footer app>
-      <!-- -->
-    </v-footer>
+      <template v-slot:main>
+        <v-main>
+          <router-view />
+        </v-main>
+      </template>
+
+      <template v-slot:footer>
+        <Footer color="white" />
+      </template>
+    </VerticaLayout>
   </v-app>
 </template>
+<script>
+import VerticaLayout from './VerticalLayout'
+import Navigation from './components/navigation'
+export default {
+  name: 'DxAuthLayout',
+  components: {
+    VerticaLayout,
+    Navigation,
+  },
+  data() {
+    return {
+      drawer: true,
+      items: [
+        { title: 'Usuarios', icon: 'mdi-account-supervisor-circle' },
+        { title: 'Documentos', icon: 'mdi-file-multiple' },
+        { title: 'Oficina de Partes', icon: 'mdi-bank' },
+      ],
+      right: null,
+      open: [1, 2],
+      tree: null,
+      caseSensitive: false,
+    }
+  },
+}
+</script>

@@ -1,5 +1,7 @@
+import { storyPath } from './_settings'
+
 export default {
-  title: 'Style Guide/Layout',
+  title: storyPath,
   argTypes: {},
 }
 

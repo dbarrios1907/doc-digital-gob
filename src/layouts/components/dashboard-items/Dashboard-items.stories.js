@@ -1,5 +1,5 @@
 export default {
-  title: 'Style Guide/layout/Components/Dashboard Items',
+  title: 'Components/layout/Components/Dashboard Items',
   argTypes: {},
 }
 

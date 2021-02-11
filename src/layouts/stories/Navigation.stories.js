@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import Button from '../button/Button'
-import NavTree from './NavTree'
+import Button from '../../components/style-guide/button/Button'
+import NavTree from '../components/navigation/NavTree'
 import Navigation from './Navigation'
+import { storyPath } from './_settings'
 
 export default {
-  title: 'Style Guide/Navigation',
+  title: storyPath + 'Navigation',
   argTypes: {},
 }
 

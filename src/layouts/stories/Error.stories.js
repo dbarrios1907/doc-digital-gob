@@ -1,8 +1,8 @@
+import { storyPath } from './_settings'
+
 export default {
-  title: 'Style Guide/Layout',
-  argTypes: {
-    color: { control: { type: 'color' } },
-  },
+  title: storyPath,
+  argTypes: {},
 }
 
 const Template = (args, { argTypes }) => ({

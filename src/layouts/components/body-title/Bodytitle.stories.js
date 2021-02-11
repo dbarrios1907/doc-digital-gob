@@ -1,5 +1,5 @@
 export default {
-  title: 'Style Guide/layout/components/Bodytitle',
+  title: 'Components/layout/components/Bodytitle',
   argTypes: {},
 }
 

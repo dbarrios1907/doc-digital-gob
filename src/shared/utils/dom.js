@@ -1,6 +1,6 @@
 import { arrayFrom } from './array'
 import { hasWindowSupport, hasDocumentSupport } from './env'
-import { isFunction, isNull } from '../utils/inspect'
+import { isFunction, isNull } from './inspect'
 
 // --- Constants ---
 
@@ -29,18 +29,6 @@ export const closestEl =
     } while (!isNull(el) && el.nodeType === Node.ELEMENT_NODE)
     return null
   }
-
-// `requestAnimationFrame()` convenience method
-export const requestAF =
-  w.requestAnimationFrame ||
-  w.webkitRequestAnimationFrame ||
-  w.mozRequestAnimationFrame ||
-  w.msRequestAnimationFrame ||
-  w.oRequestAnimationFrame ||
-  // Fallback, but not a true polyfill
-  // Only needed for Opera Mini
-  /* istanbul ignore next */
-  (cb => setTimeout(cb, 16))
 
 export const MutationObs = w.MutationObserver || w.WebKitMutationObserver || w.MozMutationObserver || null
 
