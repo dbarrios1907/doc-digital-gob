@@ -116,7 +116,8 @@ const Template = (args, { argTypes }) => ({
       ],
     }
   },
-  template: `
+  template: //html 
+  `
     <dx-layout>
 
 <!-- HEADER -->
