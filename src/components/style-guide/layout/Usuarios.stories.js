@@ -253,10 +253,10 @@ const Template = (args, { argTypes }) => ({
           <dx-icons-actions class="text-right"/>
           <span class="weight-700 text-md-h4">Usuarios</span>
           <div class="mt-10 weight-400">
-            <span>Mostrando hasta</span>
+            <span class="mr-2">Mostrando hasta</span>
             <v-select
               class="d-inline-flex min-content"
-              style="width: min-content"
+              style="width: 104px"
               :items="options"
               label="Selección Simple"
               value="10"
@@ -267,7 +267,7 @@ const Template = (args, { argTypes }) => ({
               ripple="false"
               single-line
             ></v-select>
-            <span>resultados de un total de <b>17 usuarios</b></span>
+            <span class="ml-3">resultados de un total de <b>17 usuarios</b></span>
           </div>
 
           <v-row>
