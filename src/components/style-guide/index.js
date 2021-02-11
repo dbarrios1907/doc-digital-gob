@@ -21,3 +21,4 @@ export { default as Dashboard } from './layout/components/dashboard-items/Dashbo
 export { default as Header } from './header/Header'
 export { default as Pagination } from './pagination/Pagination'
 export { default as Bodytitle } from './layout/components/body-title/Bodytitle'
+export { default as Collapse } from './collapse/Collapse'

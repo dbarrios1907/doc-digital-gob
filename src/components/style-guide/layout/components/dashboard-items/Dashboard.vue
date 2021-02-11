@@ -1,7 +1,7 @@
 <template>
       <div> 
         <v-row>
-            <dx-dashbitem class="px-10 primary--text col-md-4" textheader="9.999" titleheader="Usuarios activos" messaje="" />
+            <dx-dashbitem hidecontent="true" class="px-10 primary--text col-md-4" textheader="9.999" titleheader="Usuarios activos" messaje="" />
         </v-row>
         <div class="mt-5 px-5 d-none d-sm-flex d-xs-none">
           <v-divider></v-divider>
