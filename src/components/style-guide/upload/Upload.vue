@@ -108,7 +108,7 @@ export default {
   },
   computed: {
     _id() {
-      return this.safeId()
+      return this.safeId
     },
   },
   mounted() {

@@ -25,11 +25,12 @@ $material-dark: (
     'info': map-get($dark-colors, 'neutral'),
   ),
   'navigation': (
-    'bg-color': #093f75,
-      'states': (
-        hover: 0.12,
-        active: 0.2
-      )
+    'bg-color': #2d2b2b,
+     color: map-get($dark-colors, 'black'),
+    'states': (
+      hover: 0.12,
+      active: 0.2
+    )
   ),
     'colors': $dark-colors,
   'primary-text-percent': 1,
