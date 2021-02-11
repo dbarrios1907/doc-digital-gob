@@ -15,7 +15,7 @@
               class="transition-swing pb-4"
               style="display: table"
               v-text="text"
-            ></div>
+            />
 
             <v-expand-transition>
               <v-responsive v-if="active" max-width="350">
@@ -23,25 +23,25 @@
                   <div>
                     <div class="grey--text mb-2">Font</div>
 
-                    <div v-text="font"></div>
+                    <div v-text="font" />
                   </div>
 
                   <div>
                     <div class="grey--text mb-2">Weight</div>
 
-                    <div v-text="weight"></div>
+                    <div v-text="weight" />
                   </div>
 
                   <div>
                     <div class="grey--text mb-2">Size</div>
 
-                    <div v-text="size"></div>
+                    <div v-text="size" />
                   </div>
 
                   <div>
                     <div class="grey--text text-darken-1 mb-2">Letter spacing</div>
 
-                    <div v-text="spacing"></div>
+                    <div v-text="spacing" />
                   </div>
                 </div>
               </v-responsive>

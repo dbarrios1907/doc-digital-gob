@@ -18,7 +18,7 @@ export const Demo = () => ({
   components: { Upload },
   template: `
     <v-row>
-      <v-col lg="4" sm="6">
+      <v-col lg="3" sm="6">
         <Upload multiple v-bind="$props"/>
       </v-col>
     </v-row>

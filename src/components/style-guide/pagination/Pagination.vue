@@ -1,5 +1,5 @@
 <template>
-  <v-pagination v-bind="$attrs" v-on="$listeners" class="dx-pagination"/>
+  <v-pagination v-bind="$attrs" class="dx-pagination" v-on="$listeners" />
 </template>
 
 <script>
@@ -23,8 +23,8 @@ export default {
 }
 
 .dx-pagination .v-pagination__item:not(.v-pagination__item--active) {
-  border-bottom:1px solid #0F69C4;
+  border-bottom: 1px solid #0f69c4;
   margin: 0 3px;
-  color: #0F69C4;
+  color: #0f69c4;
 }
 </style>

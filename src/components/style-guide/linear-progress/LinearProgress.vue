@@ -1,8 +1,8 @@
 <template>
   <v-progress-linear
+    v-model="knowledge"
     color="#0F69C4"
     background-color="#CFE1F3"
-    v-model="knowledge"
     height="25"
     class="neutral--text"
     v-bind="$attrs"

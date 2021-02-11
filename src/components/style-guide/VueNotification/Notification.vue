@@ -30,7 +30,7 @@
 import { TimelineMax, Power3 } from 'gsap'
 import { themes } from '@/shared/theme/color-palette'
 
-const currentColor = (dark = false) => dark ? themes['dark'] : themes['light'];
+const currentColor = (dark = false) => (dark ? themes['dark'] : themes['light'])
 let uuid = 0
 export default {
   name: 'Notification',

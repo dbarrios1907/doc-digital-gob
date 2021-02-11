@@ -1,9 +1,9 @@
 export default {
   title: 'Style Guide/Pagination',
   argTypes: {
-    color: { control: {type: 'color'} },
+    color: { control: { type: 'color' } },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -15,8 +15,8 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <dx-pagination v-model="page" :length="pageCount" />
-  `
-});
+  `,
+})
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = Template.bind({})
+Default.args = {}

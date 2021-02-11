@@ -13,7 +13,7 @@
         </v-btn>
       </dx-nav-list-item>
 
-      <v-divider></v-divider>
+      <v-divider />
 
       <div class="py-4" style="display: flex; justify-content: center">
         <v-button large color="primary" outlined v-bind="$props" class="light">
@@ -48,19 +48,19 @@
             </template>
 
             <dx-nav-list-item v-for="item in routes" :key="item.title" link>
-              <v-list-item-title v-text="item.title"></v-list-item-title>
+              <v-list-item-title v-text="item.title" />
 
               <v-list-item-icon>
-                <v-icon v-text="item.icon"></v-icon>
+                <v-icon v-text="item.icon" />
               </v-list-item-icon>
             </dx-nav-list-item>
           </dx-nav-list-group>
 
-          <dx-nav-list-item link v-for="({ title, icon }, i) in routes" :key="i">
-            <v-list-item-title v-text="title"></v-list-item-title>
+          <dx-nav-list-item v-for="({ title, icon }, i) in routes" :key="i" link>
+            <v-list-item-title v-text="title" />
 
             <v-list-item-icon>
-              <v-icon v-text="icon"></v-icon>
+              <v-icon v-text="icon" />
             </v-list-item-icon>
           </dx-nav-list-item>
         </dx-nav-list-group>

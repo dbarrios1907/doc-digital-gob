@@ -19,8 +19,8 @@ const Template = (args, { argTypes }) => ({
       ],
     }
   },
-  template: //html 
-  `
+  //html
+  template: `
     <div>
       <v-tabs v-model="tab">
         <v-tab v-for="item in items" :key="item.tab" :ripple="false" >

@@ -5,7 +5,7 @@
       <v-card-title class="py-2 px-0 break-word">
         <div class="font-xlarge weight-500 primary--text">{{ titleheader }}</div>
       </v-card-title>
-      <div class="py-2 px-1 mt-3 pr-4 col-12" v-if="!hidecontent">
+      <div v-if="!hidecontent" class="py-2 px-1 mt-3 pr-4 col-12">
         <div v-if="messaje === ''" class="px-1 text-subtitle-2 mt-5" />
         <div v-else class="px-1 text-subtitle-2 red white--text text-caption text-center font-weight-thin rounded-xl">{{ messaje }}</div>
       </div>
@@ -22,29 +22,28 @@
 <script>
 export default {
   name: 'DxDashbitem',
-  computed: {
-    textColor() {
-      const isDark = this.$vuetify.theme.dark
-      return this.$vuetify.theme.themes[isDark ? 'dark' : 'light'].darken3
-    },
-  },
   props: {
     color: String,
     textheader: String,
     titleheader: String,
     messaje: String,
     href: String,
-    hidecontent : Boolean,
+    hidecontent: Boolean,
+  },
+  computed: {
+    textColor() {
+      const isDark = this.$vuetify.theme.dark
+      return this.$vuetify.theme.themes[isDark ? 'dark' : 'light'].darken3
+    },
   },
 }
 </script>
 
 <style scoped>
-  .break-word{
-    word-break: break-word !important;
-  }
-  .deepblue{
-    color: #001C41 !important
-  }
-  
+.break-word {
+  word-break: break-word !important;
+}
+.deepblue {
+  color: #001c41 !important;
+}
 </style>

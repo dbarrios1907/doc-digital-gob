@@ -1,5 +1,5 @@
 <template>
-  <ValidationProvider :name="name" :rules="rules" v-slot="v">
+  <ValidationProvider v-slot="v" :name="name" :rules="rules">
     <v-text-field label="Text Label" outlined dense v-bind="$attrs" v-on="$listeners">
       <template v-slot:prepend>
         <v-tooltip bottom>
@@ -14,9 +14,9 @@
           <v-icon
             :key="`icon-${isEditing}`"
             :color="isEditing ? 'success' : 'info'"
-            v-text="isEditing ? 'mdi-check' : 'mdi-circle-edit-outline'"
             @click="log(v)"
-          ></v-icon>
+            v-text="isEditing ? 'mdi-check' : 'mdi-circle-edit-outline'"
+          />
         </v-slide-x-reverse-transition>
       </template>
     </v-text-field>
@@ -26,14 +26,8 @@
 
 <script>
 export default {
-  name: 'doc-text-field',
+  name: 'DocTextField',
   inheritAttrs: false,
-  data() {
-    return {
-      isEditing: false,
-      isLoading: false,
-    }
-  },
   props: {
     name: {
       type: String,
@@ -41,6 +35,12 @@ export default {
     rules: {
       type: String,
     },
+  },
+  data() {
+    return {
+      isEditing: false,
+      isLoading: false,
+    }
   },
   methods: {
     log(v) {

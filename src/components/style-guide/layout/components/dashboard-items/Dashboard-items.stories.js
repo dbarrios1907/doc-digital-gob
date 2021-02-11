@@ -7,8 +7,8 @@ export const Demo = () => ({
   data: () => ({
     itemClasses: 'px-10 primary--text col-md-4',
   }),
-  template: //html
-  `
+  //html
+  template: `
     <div>
       <v-container> 
         <dx-dashboard></dx-dashboard>

@@ -1,6 +1,6 @@
 <template>
-  <li tabindex="0" class="dx-list__item d-flex align-center select-text" v-if="file">
-    <div class="dx-item__start py-2 px-4 mr-3 rounded-pill secondary">
+  <li v-if="file" tabindex="0" class="dx-list__item d-flex align-center select-text">
+    <div class="dx-item__start py-2 px-4 mr-3 rounded-pill secondary primary--text">
       {{ file[descriptionProp].split('.').pop() }}
     </div>
 
@@ -9,8 +9,8 @@
     </div>
 
     <div class="dx-item__bottom">
-      <dx-icon right regular> mdi-cloud-download-outline </dx-icon>
-      <dx-icon right regular> mdi-trash-can-outline </dx-icon>
+      <dx-icon right color="primary" medium> mdi-download </dx-icon>
+      <dx-icon right color="primary" medium> mdi-trash-can-outline </dx-icon>
     </div>
   </li>
 </template>
@@ -19,9 +19,6 @@ import { STATUS } from '../helpers/shared-properties'
 
 export default {
   name: 'FileItem',
-  data: () => ({
-    thumbnail: null,
-  }),
   model: {
     prop: 'file',
     event: 'change',
@@ -47,16 +44,19 @@ export default {
       default: STATUS.PENDING,
     },
   },
+  data: () => ({
+    thumbnail: null,
+  }),
+  computed: {
+    showProgress() {
+      return this.status === STATUS.PENDING || this.status === STATUS.IN_PROGRESS
+    },
+  },
   mounted() {
     this.thumbnail = URL.createObjectURL(this.file)
   },
   beforeUpdate() {
     this.thumbnail = URL.createObjectURL(this.file)
-  },
-  computed: {
-    showProgress() {
-      return this.status === STATUS.PENDING || this.status === STATUS.IN_PROGRESS
-    },
   },
   methods: {
     isSuccess(status) {
@@ -71,7 +71,6 @@ export default {
 
 <style lang="scss">
 .dx-list__item {
-
   .dx-item__body {
     color: black;
     flex: 1 1 auto;

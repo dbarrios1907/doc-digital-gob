@@ -1,18 +1,17 @@
 <template>
   <div class="b-file-list py-2">
     <template v-for="file in filesLocal">
-      <slot v-bind:file="file">
+      <slot :file="file">
         <FileItem
-          class="px-2 py-2"
-          ref="fileItem"
-          :file="file"
           :id="file.id"
+          ref="fileItem"
+          class="px-2 py-2"
+          :file="file"
           :status="file.status"
-          :removeEnabled="removeEnabled"
-          :descriptionProp="descriptionProp"
+          :remove-enabled="removeEnabled"
+          :description-prop="descriptionProp"
           @onRemove="onRemove"
-        >
-        </FileItem>
+        />
       </slot>
     </template>
   </div>
@@ -30,15 +29,6 @@ export default {
     FileItem,
   },
   mixins: [idMixin, UploadInputMixing],
-  data() {
-    return {
-      // eslint-disable-next-line vue/no-reserved-keys
-      _status: STATUS,
-      fileName: 'file',
-      filesLocal: [],
-      reqs: {},
-    }
-  },
   props: {
     removeEnabled: {
       type: Boolean,
@@ -56,21 +46,30 @@ export default {
       default: 1,
     },
   },
-  beforeMount() {
-    this._status = STATUS
+  data() {
+    return {
+      // eslint-disable-next-line vue/no-reserved-keys
+      _status: STATUS,
+      fileName: 'file',
+      filesLocal: [],
+      reqs: {},
+    }
   },
-  mounted() {
-    this.initialize(this.files)
+  computed: {
+    _limit() {
+      return this.limit
+    },
   },
   watch: {
     files(newFiles) {
       this.initialize(newFiles)
     },
   },
-  computed: {
-    _limit() {
-      return this.limit
-    },
+  beforeMount() {
+    this._status = STATUS
+  },
+  mounted() {
+    this.initialize(this.files)
   },
   methods: {
     genFileId(file) {

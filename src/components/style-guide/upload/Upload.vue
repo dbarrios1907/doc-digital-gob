@@ -1,6 +1,6 @@
 <template>
   <div class="b-upload font-large">
-    <dx-button color="primary" outlined @click="onSelectionClick" class="btn-upload">
+    <dx-button color="primary" outlined class="btn-upload" @click="onSelectionClick">
       <div class="btn-upload-content">
         <dx-icon right regular> mdi-cloud-upload-outline </dx-icon>
         <span class="text-underline">Cargar archivo</span>
@@ -8,10 +8,10 @@
     </dx-button>
 
     <input
-      class="b-upload-input"
-      ref="input"
-      type="file"
       :id="_id"
+      ref="input"
+      class="b-upload-input"
+      type="file"
       :name="name"
       :disabled="disabled"
       :capture="capture || null"
@@ -20,7 +20,7 @@
       :uploadThreads="uploadThreads"
     />
 
-    <FileList :files="stackedFiles" :upload-handler="uploadHandler" descriptionProp="name" :upload-threads="uploadThreads"> </FileList>
+    <FileList :files="stackedFiles" :upload-handler="uploadHandler" description-prop="name" :upload-threads="uploadThreads" />
   </div>
 </template>
 
@@ -92,6 +92,11 @@ export default {
       stackedFiles: [],
     }
   },
+  computed: {
+    _id() {
+      return this.safeId
+    },
+  },
   watch: {
     plain() {
       this.removeListeners()
@@ -104,11 +109,6 @@ export default {
     noDrop() {
       this.removeListeners()
       this.addListeners()
-    },
-  },
-  computed: {
-    _id() {
-      return this.safeId
     },
   },
   mounted() {

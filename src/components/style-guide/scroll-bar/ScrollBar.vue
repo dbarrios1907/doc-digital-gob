@@ -1,7 +1,7 @@
 <template>
-  <div class="scroll-container" ref="scrollContainer" @wheel.prevent="handleScroll">
-    <div class="scroll-wrapper" ref="scrollWrapper" :style="{ top: top + 'px' }">
-      <slot></slot>
+  <div ref="scrollContainer" class="scroll-container" @wheel.prevent="handleScroll">
+    <div ref="scrollWrapper" class="scroll-wrapper" :style="{ top: top + 'px' }">
+      <slot />
     </div>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 const delta = 15
 export default {
-  name: 'scrollBar',
+  name: 'ScrollBar',
   data() {
     return {
       top: 0,
