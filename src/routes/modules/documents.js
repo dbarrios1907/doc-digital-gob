@@ -5,6 +5,10 @@ const documentsRouter = {
   component: AuthLayout,
   redirect: 'noRedirect',
   name: 'auth',
+  meta: {
+    title: 'Usuarios',
+    icon: 'chart',
+  },
   children: [
     // {
     //   path: '',

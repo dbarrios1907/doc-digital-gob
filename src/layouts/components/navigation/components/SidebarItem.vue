@@ -1,49 +1,42 @@
 <template>
   <div v-if="!item.hidden">
     <template v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow">
-      <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
-        <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{ 'submenu-title-noDropdown': !isNest }">
-          <item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" :title="onlyOneChild.meta.title" />
-        </el-menu-item>
-      </app-link>
+      <NavListItem v-if="onlyOneChild.meta" link :to="resolvePath(onlyOneChild.path)">
+        <v-list-item-icon>
+          <v-icon v-text="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" />
+        </v-list-item-icon>
+
+        <v-list-item-title v-text="onlyOneChild.meta.title" />
+      </NavListItem>
     </template>
 
-    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
-      <template slot="title">
-        <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" />
+    <NavListGroup v-else :ripple="false" active-class="light--text" :prepend-icon="item.meta && item.meta.icon" no-action>
+      <template v-slot:activator>
+        <v-list-item-title>Users</v-list-item-title>
       </template>
-      <sidebar-item
-        v-for="child in item.children"
-        :key="child.path"
-        :is-nest="true"
-        :item="child"
-        :base-path="resolvePath(child.path)"
-        class="nest-menu"
-      />
-    </el-submenu>
+
+      <dx-sidebar-item v-for="child in item.children" :key="child.path" :item="child" :base-path="resolvePath(child.path)" />
+    </NavListGroup>
   </div>
 </template>
 
 <script>
 import path from 'path'
-import { isExternal } from '@/utils/validate'
-import Item from './Item'
-import AppLink from './Link'
-import FixiOSBug from './FixiOSBug'
+import NavListGroup from './NavListGroup'
+import NavListItem from './NavListItem'
+import { isExternal } from '@/shared/utils/router'
 
 export default {
-  name: 'SidebarItem',
-  components: { Item, AppLink },
-  mixins: [FixiOSBug],
+  name: 'DxSidebarItem',
+  components: {
+    NavListGroup,
+    NavListItem,
+  },
   props: {
     // route object
     item: {
       type: Object,
       required: true,
-    },
-    isNest: {
-      type: Boolean,
-      default: false,
     },
     basePath: {
       type: String,

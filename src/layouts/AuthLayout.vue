@@ -1,49 +1,46 @@
 <template>
   <v-app>
-    <VerticaLayout>
+    <MainLayout>
       <template v-slot:header>
         <Header />
       </template>
 
-      <template v-slot:nav>
-        <Navigation v-model="drawer" :routes="items" />
-      </template>
-
-      <Navigation routes="items" />
-
       <template v-slot:main>
-        <v-main>
-          <router-view />
-        </v-main>
+        <ContentLayout>
+          <template v-slot:navbar>
+            <Navigation v-model="drawer" :routes="routes" />
+          </template>
+          <template v-slot:content>
+            <perfect-scrollbar>
+              <router-view />
+            </perfect-scrollbar>
+          </template>
+        </ContentLayout>
       </template>
 
       <template v-slot:footer>
         <Footer color="white" />
       </template>
-    </VerticaLayout>
+    </MainLayout>
   </v-app>
 </template>
 <script>
-import VerticaLayout from './VerticalLayout'
+import MainLayout from './MainLayout'
+import ContentLayout from './ContentLayout'
 import Navigation from './components/navigation'
+import { constantRoutes } from '../routes'
+
 export default {
   name: 'DxAuthLayout',
   components: {
-    VerticaLayout,
+    MainLayout,
+    ContentLayout,
     Navigation,
   },
   data() {
     return {
       drawer: true,
-      items: [
-        { title: 'Usuarios', icon: 'mdi-account-supervisor-circle' },
-        { title: 'Documentos', icon: 'mdi-file-multiple' },
-        { title: 'Oficina de Partes', icon: 'mdi-bank' },
-      ],
-      right: null,
-      open: [1, 2],
-      tree: null,
-      caseSensitive: false,
+      routes: constantRoutes,
     }
   },
 }

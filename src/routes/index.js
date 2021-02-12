@@ -43,6 +43,49 @@ export const constantRoutes = [
       },
     ],
   },
+  {
+    path: '/usuarios',
+    component: AuthLayout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Usuarios',
+        meta: { title: 'Usuarios', icon: 'mdi-account-supervisor-circle', affix: true },
+      },
+    ],
+  },
+
+  {
+    path: '/documentos',
+    component: AuthLayout,
+    redirect: 'noRedirect',
+    name: 'ComponentDemo',
+    meta: {
+      title: 'Documentos',
+      icon: 'mdi-file-multiple',
+    },
+    children: [
+      {
+        path: 'enviados',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Enviados',
+        meta: { title: 'Enviados' },
+      },
+      {
+        path: 'recibidos',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Recibidos',
+        meta: { title: 'Recibidos' },
+      },
+      {
+        path: 'por-firmar',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Por Firmar',
+        meta: { title: 'Por Firmar' },
+      },
+    ],
+  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true },

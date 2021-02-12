@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="main-layout">
     <header :class="{ 'd-flex': hasHeaderSlot }">
       <slot name="header">
         <div class="dark light--text text-h3 weight-400 px-4 py-4">header</div>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'DxVerticalLayout',
+  name: 'DxMainLayout',
   inheritAttrs: false,
   computed: {
     hasHeaderSlot() {
@@ -31,29 +31,30 @@ export default {
 </script>
 
 <style>
-.wrapper {
+.main-layout {
   height: 100%;
-  display: grid;
-  grid-template: auto 1fr auto / auto 1fr auto;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  left: 0;
 }
 
-.wrapper header {
-  grid-column: 1 / 4;
+.main-layout header {
   height: 90px;
 }
 
-.wrapper main {
-  grid-column: 2 / 3;
+.main-layout main {
+  flex: 1 1 auto;
 }
 
-.wrapper footer {
-  grid-column: 1 / 4;
+.main-layout footer {
   height: 58px;
 }
 
-.wrapper main > div,
-.wrapper header > div,
-.wrapper footer > div {
+.main-layout main > div,
+.main-layout header > div,
+.main-layout footer > div {
   height: 100%;
   max-height: 100%;
 }

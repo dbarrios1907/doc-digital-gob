@@ -127,3 +127,11 @@ export const computeHref = ({ href, to } = {}, tag = ANCHOR_TAG, fallback = '#',
   // If nothing is provided return the fallback
   return fallback
 }
+
+/**
+ * @param {string} path
+ * @returns {Boolean}
+ */
+export function isExternal(path) {
+  return /^(https?:|mailto:|tel:)/.test(path)
+}

@@ -23,6 +23,10 @@ export default {
       color: $color !important;
     }
 
+    &.v-list-item--active {
+      color: $color;
+    }
+
     .v-icon {
       color: $color;
     }
