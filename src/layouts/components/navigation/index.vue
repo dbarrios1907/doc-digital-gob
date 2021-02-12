@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer ref="navbar" color="#093F75" width="100%" permanent :mini-variant.sync="mini" v-bind="$attrs" v-on="$listeners">
+  <v-navigation-drawer ref="navbar" color="#093F75" width="100%" permanent v-bind="$attrs" v-on="$listeners">
     <perfect-scrollbar :style="{ height: scrollHeight }">
       <slot :slot-scope="{}" name="top-section">
         <NavListItem class="px-3">

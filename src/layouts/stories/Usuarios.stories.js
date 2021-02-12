@@ -1,4 +1,5 @@
 import { storyPath } from './_settings'
+import { constantRoutes } from '../../routes'
 
 export default {
   title: storyPath,
@@ -24,27 +25,7 @@ const Template = (args, { argTypes }) => ({
         },
       ],
       drawer: true,
-      items: [
-        { title: 'Usuarios', icon: 'mdi-file-document-outline' },
-        { title: 'Documentos', icon: 'mdi-file-document-outline' },
-        { title: 'Oficina de Partes', icon: 'mdi-office-building' },
-        { title: 'Usuarios', icon: 'mdi-file-document-outline' },
-        { title: 'Documentos', icon: 'mdi-file-document-outline' },
-        { title: 'Oficina de Partes', icon: 'mdi-office-building' },
-        { title: 'Usuarios', icon: 'mdi-file-document-outline' },
-        { title: 'Documentos', icon: 'mdi-file-document-outline' },
-        { title: 'Oficina de Partes', icon: 'mdi-office-building' },
-      ],
-      admins: [
-        ['Management', 'mdi-account-multiple-outline'],
-        ['Settings', 'mdi-cog-outline'],
-      ],
-      cruds: [
-        ['Create', 'mdi-plus-outline'],
-        ['Read', 'mdi-file-outline'],
-        ['Update', 'mdi-update'],
-        ['Delete', 'mdi-delete'],
-      ],
+      items: constantRoutes,
       right: null,
       open: [1, 2],
       tree: null,

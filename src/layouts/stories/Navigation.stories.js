@@ -1,40 +1,134 @@
-import Vue from 'vue'
-import Button from '../../components/style-guide/button/Button'
-import NavTree from '../components/navigation/NavTree'
 import Navigation from '../components/navigation/index'
 import { storyPath } from './_settings'
 
 export default {
-  title: storyPath + 'Navigation',
+  title: storyPath,
   argTypes: {},
 }
 
-Vue.component('v-button', Button)
-Vue.component('v-nav-tree', NavTree)
-Vue.component('Navigation', Navigation)
-
 const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+  components: {
+    Navigation,
+  },
   data() {
     return {
       drawer: true,
-      items: [
-        { title: 'Usuarios', icon: 'mdi-account-supervisor-circle' },
-        { title: 'Documentos', icon: 'mdi-file-multiple' },
-        { title: 'Oficina de Partes', icon: 'mdi-bank' },
+      routes: [
+        {
+          path: '/',
+          redirect: '/dashboard',
+          children: [
+            {
+              path: 'dashboard',
+              name: 'dashboard',
+              meta: { title: 'Dashboard', icon: 'dashboard' },
+            },
+          ],
+        },
+        {
+          path: '/usuarios',
+          children: [
+            {
+              path: 'index',
+              name: 'Usuarios',
+              meta: { title: 'Usuarios', icon: 'mdi-account-supervisor-circle', affix: true },
+            },
+          ],
+        },
+
+        {
+          path: '/documentos',
+          redirect: 'noRedirect',
+          name: 'ComponentDemo',
+          meta: {
+            title: 'Documentos',
+            icon: 'mdi-file-multiple',
+          },
+          children: [
+            {
+              path: 'enviados',
+
+              name: 'Enviados',
+              meta: { title: 'Enviados' },
+            },
+            {
+              path: 'recibidos',
+
+              name: 'Recibidos',
+              meta: { title: 'Recibidos' },
+            },
+            {
+              path: 'por-firmar',
+
+              name: 'Por Firmar',
+              meta: { title: 'Por Firmar' },
+            },
+          ],
+        },
+
+        {
+          path: '/oficina-de-partes',
+          redirect: 'noRedirect',
+          name: 'root-oficina-partes',
+          meta: {
+            title: 'Documentos',
+            icon: 'mdi-file-multiple',
+          },
+          children: [
+            {
+              path: 'enviados',
+              name: 'Enviados',
+              meta: { title: 'Enviados' },
+            },
+            {
+              path: 'recibidos',
+              name: 'Recibidos',
+              meta: { title: 'Recibidos' },
+            },
+          ],
+        },
+
+        {
+          path: '/administracion',
+          redirect: 'noRedirect',
+          name: 'ComponentDemo',
+          meta: {
+            title: 'Administración',
+            icon: 'mdi-file-multiple',
+          },
+          children: [
+            {
+              path: 'usuarios',
+              name: 'Usuarios',
+              meta: { title: 'Usuarios', icon: 'mdi-account-supervisor-circle' },
+            },
+            {
+              path: 'documentos',
+
+              name: 'Documentos',
+              meta: { title: 'Documentos', icon: 'mdi-file-multiple' },
+            },
+            {
+              path: 'entidades',
+
+              name: 'Entidades',
+              meta: { title: 'Entidades', icon: 'mdi-file-multiple' },
+            },
+            {
+              path: 'correos-de-notificacion',
+
+              name: 'correos-de-notificacion',
+              meta: { title: 'Correos de Notificación', icon: 'mdi-file-multiple' },
+            },
+          ],
+        },
       ],
-      right: null,
-      open: [1, 2],
-      tree: null,
-      caseSensitive: false,
     }
   },
   template: `
-    <v-card>
-      <Navigation v-model="drawer" :routes="items"/>
-    </v-card>
+    <Navigation :routes="routes"/>
   `,
 })
 
-export const Default = Template.bind({})
-Default.args = {}
+export const NavigationSample = Template.bind({})
+NavigationSample.args = {}

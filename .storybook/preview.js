@@ -5,7 +5,10 @@ import '@/plugins/vee-validate'
 import styleGuidePlugin from '@/plugins/style-guide'
 Vue.use(styleGuidePlugin)
 import '@/assets/styles/main.scss'
+import PerfectScrollbar from 'vue2-perfect-scrollbar'
+import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
 
+Vue.use(PerfectScrollbar)
 addDecorator(() => ({
   vuetify,
   template: `

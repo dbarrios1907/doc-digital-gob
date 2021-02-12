@@ -10,15 +10,15 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       items: [
-          /*{ 
+        /*{
             name: 'Visar',
             count: 22
           },
-          { 
+          {
             name: 'Firmar',
             count: 4
           },
-          { 
+          {
             name: 'Recibir',
             count: 8
           }*/
@@ -67,7 +67,6 @@ const Template = (args, { argTypes }) => ({
                         </template>
                     </doc-upload-card> 
                 </div>
-            </div>
         </template>
 
         <template v-slot:footer>

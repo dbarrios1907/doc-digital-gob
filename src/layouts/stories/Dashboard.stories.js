@@ -1,4 +1,7 @@
 import { storyPath } from './_settings'
+import { Navigation, Dashboard, Bodytitle } from '../components'
+import MainLayout from '../MainLayout'
+import { constantRoutes } from '../../routes'
 
 export default {
   title: storyPath,
@@ -7,44 +10,41 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
+  components: {
+    Navigation,
+    Dashboard,
+    MainLayout,
+  },
   data() {
     return {
       drawer: true,
-      items: [
-        { title: 'Usuarios', icon: 'mdi-account-supervisor-circle' },
-        { title: 'Documentos', icon: 'mdi-file-multiple' },
-        { title: 'Oficina de Partes', icon: 'mdi-bank' },
-      ],
-      right: null,
-      open: [1, 2],
-      tree: null,
-      caseSensitive: false,
+      routes: constantRoutes,
     }
   },
   template: `
-    <dx-layout>
+    <MainLayout>
       <template v-slot:header>
         <Header />
       </template>
 
       <template v-slot:nav>
-        <Navigation v-model="drawer" :routes="items"/>
+        <Navigation v-model="drawer" :routes="routes"/>
       </template>
 
       <template v-slot:main>
         <v-container class="px-10 pr-8">
-          <dx-bodytitle title="Estás en el Módulo de Administración" subtitle="Aquí podrás crear o modificar usuarios y revisar los documentos que se tramitan en tu Institución."></dx-bodytitle>
+          <Bodytitle title="Estás en el Módulo de Administración" subtitle="Aquí podrás crear o modificar usuarios y revisar los documentos que se tramitan en tu Institución."></Bodytitle>
           <v-container class="px-0 mt-15">
-            <dx-dashboard></dx-dashboard>
+            <Dashboard />
           </v-container>
         </v-container>
       </template>
       <template v-slot:footer>
         <DxFooter color="white" />
       </template>
-    </dx-layout>
+    </MainLayout>
   `,
 })
 
-export const Dashboard = Template.bind({})
-Dashboard.args = {}
+export const DashboardSample = Template.bind({})
+DashboardSample.args = {}

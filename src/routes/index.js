@@ -60,7 +60,7 @@ export const constantRoutes = [
     path: '/documentos',
     component: AuthLayout,
     redirect: 'noRedirect',
-    name: 'ComponentDemo',
+    name: 'Documentos',
     meta: {
       title: 'Documentos',
       icon: 'mdi-file-multiple',
@@ -83,6 +83,68 @@ export const constantRoutes = [
         component: () => import('@/views/dashboard/index'),
         name: 'Por Firmar',
         meta: { title: 'Por Firmar' },
+      },
+    ],
+  },
+
+  {
+    path: '/oficina-de-partes',
+    component: AuthLayout,
+    redirect: 'noRedirect',
+    name: 'root-oficina-partes',
+    meta: {
+      title: 'Oficina de Partes',
+      icon: 'mdi-file-multiple',
+    },
+    children: [
+      {
+        path: 'enviados',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Enviados',
+        meta: { title: 'Enviados' },
+      },
+      {
+        path: 'recibidos',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Recibidos',
+        meta: { title: 'Recibidos' },
+      },
+    ],
+  },
+
+  {
+    path: '/administracion',
+    component: AuthLayout,
+    redirect: 'noRedirect',
+    name: 'Administracion',
+    meta: {
+      title: 'Administración',
+      icon: 'mdi-file-multiple',
+    },
+    children: [
+      {
+        path: 'usuarios',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Usuarios',
+        meta: { title: 'Usuarios', icon: 'mdi-account-supervisor-circle' },
+      },
+      {
+        path: 'documentos',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Documentos',
+        meta: { title: 'Documentos', icon: 'mdi-file-multiple' },
+      },
+      {
+        path: 'entidades',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Entidades',
+        meta: { title: 'Entidades', icon: 'mdi-file-multiple' },
+      },
+      {
+        path: 'correos-de-notificacion',
+        component: () => import('@/views/dashboard/index'),
+        name: 'correos-de-notificacion',
+        meta: { title: 'Correos de Notificación', icon: 'mdi-file-multiple' },
       },
     ],
   },

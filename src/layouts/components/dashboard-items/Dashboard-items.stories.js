@@ -1,9 +1,14 @@
+import Dashboard from './Dashboard'
+
 export default {
-  title: 'Components/layout/Components/Dashboard Items',
+  title: 'Layouts',
   argTypes: {},
 }
 
 export const Demo = () => ({
+  components: {
+    Dashboard,
+  },
   data: () => ({
     itemClasses: 'px-10 primary--text col-md-4',
   }),
@@ -11,7 +16,7 @@ export const Demo = () => ({
   template: `
     <div>
       <v-container> 
-        <dx-dashboard></dx-dashboard>
+        <Dashboard />
       </v-container>
     </div>
   `,

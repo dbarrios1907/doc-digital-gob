@@ -12,7 +12,7 @@
 
     <NavListGroup v-else :ripple="false" active-class="light--text" :prepend-icon="item.meta && item.meta.icon" no-action>
       <template v-slot:activator>
-        <v-list-item-title>Users</v-list-item-title>
+        <v-list-item-title>{{ item.meta.title }}</v-list-item-title>
       </template>
 
       <dx-sidebar-item v-for="child in item.children" :key="child.path" :item="child" :base-path="resolvePath(child.path)" />
