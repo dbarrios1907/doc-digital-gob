@@ -1,14 +1,14 @@
 export default {
-    title: 'Style Guide/DocUploadCard',
-    argTypes: {
-      color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
-      size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
-    },
-  }
-  
-  const Template = (args, { argTypes }) => ({
-    props: Object.keys(argTypes),
-    template: `
+  title: 'Style Guide/DocUploadCard',
+  argTypes: {
+    color: { control: { type: 'select', options: ['primary', 'secondary', 'neutral'] } },
+    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
+  },
+}
+
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `
       <div>
       <doc-upload-card class="d-inline-flex">
         <template v-slot:header>
@@ -39,8 +39,7 @@ export default {
       </doc-upload-card>
       </div>
     `,
-  })
-  
-  export const Default = Template.bind({})
-  Default.args = {}
-  
+})
+
+export const Default = Template.bind({})
+Default.args = {}
