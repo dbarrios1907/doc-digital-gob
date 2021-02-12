@@ -26,7 +26,7 @@ const Template = (args, { argTypes }) => ({
     }
   },
   template: `
-    <dx-vertical-layout>
+    <dx-main-layout>
         <template v-slot:header>
             <Header />
         </template>
@@ -73,7 +73,7 @@ const Template = (args, { argTypes }) => ({
         <template v-slot:footer>
             <Footer />
         </template>
-    </dx-vertical-layout>
+    </dx-main-layout>
   `,
 })
 

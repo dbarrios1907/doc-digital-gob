@@ -21,3 +21,4 @@ export { default as Bodytitle } from '../../layouts/components/body-title/Bodyti
 export { default as Collapse } from './collapse/Collapse'
 export { default as DocUploadCard } from './doc-upload-card/DocUploadCard'
 export { default as PendingDocs } from './pending-docs/Pendingdocs'
+export { default as MainLayout } from '../../layouts/MainLayout'
