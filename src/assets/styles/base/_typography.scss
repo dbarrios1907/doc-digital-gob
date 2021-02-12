@@ -2,6 +2,10 @@
   font-family: 'Nunito', sans-serif;
 }
 
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
 .font-small {
   font-size: rem-calc(14px);
 }
@@ -65,12 +69,16 @@
   line-height: rem-calc(24px);
 }
 
-.line-height-32 {
-  line-height: rem-calc(32px);
+.line-height-30 {
+  line-height: rem-calc(30px);
 }
 
 .line-height-31 {
   line-height: rem-calc(31px) !important;
+}
+
+.line-height-32 {
+  line-height: rem-calc(32px);
 }
 
 .line-height-42 {
