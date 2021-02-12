@@ -33,8 +33,9 @@ export default {
 <style>
 .wrapper {
   height: 100%;
-  display: grid;
+  /*display: grid;
   grid-template: auto 1fr auto / auto 1fr auto;
+  */
 }
 
 .wrapper header {
