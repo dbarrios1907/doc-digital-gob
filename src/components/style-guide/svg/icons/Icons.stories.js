@@ -14,6 +14,9 @@ const Template = (args, { argTypes }) => ({
       <alert-warning-icon color="warning" />
       <alert-success-icon color="success" />
       <alert-info-icon color="primary" />
+      <doc-sign-icon fill="white" color="primary" />
+      <doc-signed-icon fill="white" color="primary" />
+      <doc-digital-icon color="primary"/>
     </div>
   `,
 })

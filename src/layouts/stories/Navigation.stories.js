@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Button from '../../components/style-guide/button/Button'
 import NavTree from '../components/navigation/NavTree'
-// import Navigation from './Navigation'
 import Navigation from '../components/navigation/index'
 import { storyPath } from './_settings'
 
