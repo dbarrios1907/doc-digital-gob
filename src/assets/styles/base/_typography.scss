@@ -84,3 +84,7 @@
 .text-underline {
   text-decoration: underline !important; /* stylelint-disable-line */
 }
+
+.font-20 {
+  font-size: rem-calc(20px);
+}
