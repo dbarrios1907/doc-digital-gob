@@ -1,5 +1,5 @@
 <template>
-  <div class="dx-icons-actions">
+  <div class="dx-icons-actions d-inline-flex">
     <BackgroundChange class="mr-1" @click="changetheme" />
     <MinusText class="mr-1" @click="minus" />
     <PlusText @click="plus" />
