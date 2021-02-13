@@ -10,7 +10,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       items: [
-          /*{ 
+        /*{ 
             name: 'Visar',
             count: 22
           },

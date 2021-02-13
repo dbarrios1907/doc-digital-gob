@@ -1,7 +1,7 @@
 <template>
   <div class="content-layout d-flex fill-height overflow-hidden">
     <nav class="dx-navbar">
-      <slot v-if="some" class="dx-content-navbar" name="navbar" />
+      <slot v-if="navbar" class="dx-content-navbar" name="navbar" />
     </nav>
 
     <section class="content-wrapper flex-col flex-fill px-8 pt-2 pb-4 overflow-hidden">
@@ -25,7 +25,7 @@ export default {
   name: 'DxContentLayout',
   inheritAttrs: false,
   props: {
-    some: {
+    navbar: {
       type: Boolean,
       default: true,
     },

@@ -30,6 +30,13 @@ export const constantRoutes = [
     component: () => import('@/views/error-page/404'),
     hidden: true,
   },
+
+  {
+    path: '/pendientes',
+    component: () => import('@/views/pendientes/index'),
+    hidden: true,
+  },
+
   {
     path: '/',
     component: AuthLayout,
@@ -55,7 +62,6 @@ export const constantRoutes = [
       },
     ],
   },
-
   {
     path: '/documentos',
     component: AuthLayout,

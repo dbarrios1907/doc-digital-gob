@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <BackgroundChange @click="changetheme" />
-    <MinusText @click="minus" />
+  <div class="dx-icons-actions">
+    <BackgroundChange class="mr-1" @click="changetheme" />
+    <MinusText class="mr-1" @click="minus" />
     <PlusText @click="plus" />
   </div>
 </template>
