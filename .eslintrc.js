@@ -22,7 +22,7 @@ module.exports = {
   ],
   rules: {
     // override/add rules settings here, such as:
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'consistent-return': 0,
