@@ -1,5 +1,5 @@
 <template>
-  <v-row class="mt-6 px-7">
+  <v-row class="mt-6">
     <div :class="{ 'col-12': isMovileScreen, 'col-9': !isMovileScreen }">
       <slot name="title" />
       <slot name="subtitle" />
