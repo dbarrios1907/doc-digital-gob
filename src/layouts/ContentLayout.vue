@@ -4,11 +4,11 @@
       <slot v-if="navbar" class="dx-content-navbar" name="navbar" />
     </nav>
 
-    <section class="content-wrapper flex-col flex-fill px-8 pt-2 pb-4 overflow-hidden">
+    <section class="content-wrapper flex-col flex-fill px-8 pt-2 pb-4 overflow-hidden fill-height">
       <transition name="fade-transform" mode="out-in">
         <keep-alive :include="cachedViews">
           <slot name="content">
-            <div class="px-2 py-2 fill-height">
+            <div class="px-2 py-2">
               <router-view :key="key" />
             </div>
           </slot>
@@ -53,6 +53,9 @@ export default {
 $navbar-width: 325px;
 $min-navbar-width: 280px;
 
+.ps {
+  height: inherit;
+}
 .dx-navbar {
   display: flex;
   flex-direction: column;

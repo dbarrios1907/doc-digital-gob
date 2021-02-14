@@ -1,8 +1,11 @@
 <template>
   <v-container class="px-10">
     <dx-breadcrumbs :items="breadcrums" />
-    <dx-icons-actions class="text-right" />
-    <span class="weight-700 text-md-h4">Usuarios</span>
+    <dx-bodytitle>
+      <template v-slot:title>
+        <div class="weight-700 text-md-h4 mt-3 line-height-31">Usuarios</div>
+      </template>
+    </dx-bodytitle>
     <div class="mt-10 weight-400">
       <span class="mr-2">Mostrando hasta</span>
       <v-select
@@ -176,3 +179,8 @@ export default {
   },
 }
 </script>
+<style scoped>
+.ps {
+  height: inherit;
+}
+</style>
