@@ -56,7 +56,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/usuarios/index'),
         name: 'Usuarios',
         meta: { title: 'Usuarios', icon: 'mdi-account-supervisor-circle', affix: true },
       },
