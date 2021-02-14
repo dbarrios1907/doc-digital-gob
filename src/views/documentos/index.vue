@@ -182,10 +182,3 @@ export default {
   },
 }
 </script>
-<style scoped>
-.table-container {
-  background-color: #f5f5f5;
-  display: grid;
-  padding: 0px 41px 29px 41px;
-}
-</style>
