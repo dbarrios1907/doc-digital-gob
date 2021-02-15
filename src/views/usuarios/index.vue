@@ -9,7 +9,7 @@
     <div class="mt-10 weight-400">
       <span class="mr-2">Mostrando hasta</span>
       <v-select
-        class="d-inline-flex min-content"
+        class="d-inline-flex min-content select"
         style="width: 104px"
         :items="options"
         label="Selección Simple"
@@ -31,7 +31,7 @@
         </dx-button>
       </v-col>
       <v-col sm="6" class="text-right">
-        <a href="#" class="text-underline"> + Agregar Usuario</a>
+        <a href="#" class="text-underline weight-700 font-title"> + Agregar Usuario</a>
       </v-col>
     </v-row>
     <v-tabs v-model="tabs" class="mt-5">
@@ -55,9 +55,6 @@
             <template v-slot:[`item.data-table-select`]="{ isSelected, select }">
               <v-simple-checkbox color="primary" :value="isSelected" @input="select($event)" />
             </template>
-            <!--<template v-slot:item.data-table-select="{ isSelected, select }">
-                  <v-simple-checkbox color="green" dense :value="isSelected" @input="select($event)" />
-                </template>-->
             <template v-slot:[`item.access`]="{ item: { access } }">
               <v-chip v-for="v in access" :key="v" class="ml-2" color="primary" small>
                 {{ v }}
@@ -76,7 +73,34 @@
       </v-tab-item>
       <v-tab-item value="tab-2">
         <v-card flat>
-          <v-card-text>Contenido Inactivos</v-card-text>
+          <DataTable
+            color="primary"
+            :headers="headers"
+            :items="values"
+            :page.sync="page"
+            :items-per-page="itemsPerPage"
+            hide-default-footer
+            class="elevation-1"
+            show-select
+            @page-count="pageCount = $event"
+          >
+            <template v-slot:[`item.data-table-select`]="{ isSelected, select }">
+              <v-simple-checkbox color="primary" :value="isSelected" @input="select($event)" />
+            </template>
+            <template v-slot:[`item.access`]="{ item: { access } }">
+              <v-chip v-for="v in access" :key="v" class="ml-2" color="primary" small>
+                {{ v }}
+              </v-chip>
+            </template>
+            <template v-slot:[`item.actions`]>
+              <v-icon dense class="mr-2"> mdi-square-edit-outline </v-icon>
+              <v-icon dense class="mr-2"> mdi-eye </v-icon>
+              <v-icon dense> mdi-delete </v-icon>
+            </template>
+          </DataTable>
+          <div class="pt-2 mr-6">
+            <dx-pagination v-model="page" :length="pageCount" class="float-right" />
+          </div>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -179,8 +203,8 @@ export default {
   },
 }
 </script>
-<style scoped>
-.ps {
-  height: inherit;
+<style>
+.v-select .v-input__slot {
+  min-height: 48px !important;
 }
 </style>

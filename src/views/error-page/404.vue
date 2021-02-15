@@ -1,5 +1,7 @@
 <template>
-  <ErrorPage />
+  <div class="v-application v-application--is-ltr">
+    <ErrorPage />
+  </div>
 </template>
 
 <script>

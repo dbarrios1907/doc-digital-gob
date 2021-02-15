@@ -3,7 +3,7 @@
     <Error />
     <div class="content">
       <span class="span darken3--text"> Lo sentimos, hemos tenido un problema</span>
-      <dx-button color="primary" v-bind="$props"> Vuelve a intentarlo</dx-button>
+      <dx-button color="primary"> Vuelve a intentarlo</dx-button>
     </div>
     <span class="link">Si no funciona escríbenos en <a href="https://digital.gob.cl/incidencia">https://digital.gob.cl/incidencia</a> </span>
   </div>
