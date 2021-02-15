@@ -74,19 +74,19 @@ export const constantRoutes = [
     children: [
       {
         path: 'enviados',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/documentos/index'),
         name: 'Enviados',
         meta: { title: 'Enviados' },
       },
       {
         path: 'recibidos',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/documentos/index'),
         name: 'Recibidos',
         meta: { title: 'Recibidos' },
       },
       {
         path: 'por-firmar',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/documentos/index'),
         name: 'Por Firmar',
         meta: { title: 'Por Firmar' },
       },
