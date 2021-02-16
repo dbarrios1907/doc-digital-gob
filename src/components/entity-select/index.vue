@@ -12,7 +12,6 @@ export default {
 <style lang="scss">
 @include theme(v-overflow-btn) using ($material) {
   &[dx-entity-overflow] {
-
   }
 }
 </style>
