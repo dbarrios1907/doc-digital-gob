@@ -2,8 +2,9 @@
   <div v-bind="$attrs" v-on="$listeners" class="errorpage">
     <Error />
     <div class="content">
-      <span class="span darken3--text"> Lo sentimos, hemos tenido un problema</span>
-      <dx-button color="primary"> Vuelve a intentarlo</dx-button>
+      <div class="mb-3 span darken3--text font-robotoslab"> Lo sentimos,</div>
+      <div class="span darken3--text font-robotoslab"> hemos tenido un problema</div>
+      <dx-button color="primary" class="text-underline"> Vuelve a intentarlo</dx-button>
     </div>
     <span class="link">Si no funciona escríbenos en <a href="https://digital.gob.cl/incidencia">https://digital.gob.cl/incidencia</a> </span>
   </div>
@@ -59,9 +60,9 @@ export default {
   .errorpage .content {
     position: absolute;
     text-align: center;
-    top: 12rem;
-    right: 6.2rem;
-    width: 472px;
+    top: 8rem;
+    right: 10rem;
+    width: 316px;
   }
 
   .errorpage .content .span {
@@ -72,12 +73,12 @@ export default {
   }
 
   .errorpage .content .v-btn {
-    margin: 37px 0 30px;
+    margin: 35px 0 30px;
   }
 
   .errorpage .link {
     position: absolute;
-    bottom: 60px;
+    bottom: 103px;
     text-align: center;
     right: 7rem;
     line-height: 30px;
