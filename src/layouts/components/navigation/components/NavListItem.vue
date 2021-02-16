@@ -1,13 +1,21 @@
 <template>
-  <v-list-item dx-list-item :ripple="false" v-bind="$attrs" v-on="$listeners">
+  <v-list-item :class="_nested" dx-list-item :ripple="false" v-bind="$attrs" v-on="$listeners">
     <slot />
   </v-list-item>
 </template>
 
 <script>
 export default {
-  name: 'DxNavListItem', // inherits from vuetify v-list-item
-  inheritAttrs: true,
+  name: 'DxNavListItem',
+  inheritAttrs: true, // inherits from vuetify v-list-item
+  props: {
+    nested: Boolean,
+  },
+  computed: {
+    _nested() {
+      return this.nested ? 'dx-item-nested' : ''
+    },
+  },
 }
 </script>
 
@@ -17,10 +25,19 @@ export default {
   $color: map-deep-get($material, 'colors', 'light');
   $active-opacity: map-deep-get($material, 'navigation', 'states', 'active');
   $hover-opacity: map-deep-get($material, 'navigation', 'states', 'hover');
+  padding: 0 16px 0 24px;
 
   &[dx-list-item] {
     &.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
       color: $color !important;
+    }
+
+    .v-list-item__icon:first-child {
+      margin-right: 12px;
+    }
+
+    &.dx-item-nested {
+      padding-left: 44px;
     }
 
     &.v-list-item--active {

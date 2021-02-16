@@ -7,7 +7,6 @@ export const colorMixin = Vue.extend({
   },
   computed: {
     _color() {
-      console.log(_get(this, `$vuetify.theme.currentTheme.${this.color}`, this.color), this)
       return _get(this, `$vuetify.theme.currentTheme.${this.color}`, this.color)
     },
   },
