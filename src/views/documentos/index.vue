@@ -1,5 +1,5 @@
 <template>
-  <v-container class="px-10">
+  <div>
     <dx-breadcrumbs :items="breadcrums" />
     <dx-bodytitle>
       <template v-slot:title>
@@ -70,7 +70,7 @@
         </div>
       </div>
     </div>
-  </v-container>
+  </div>
 </template>
 <script>
 import { constantRoutes } from '../../routes'
