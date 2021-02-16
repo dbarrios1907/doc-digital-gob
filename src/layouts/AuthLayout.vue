@@ -11,9 +11,7 @@
             <Navigation v-model="drawer" :routes="routes" />
           </template>
           <template v-slot:content>
-            <perfect-scrollbar>
-              <router-view />
-            </perfect-scrollbar>
+            <router-view />
           </template>
         </ContentLayout>
       </template>

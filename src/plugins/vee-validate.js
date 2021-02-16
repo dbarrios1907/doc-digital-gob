@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate'
-import { required, email, required_if, digits, min, max } from 'vee-validate/dist/rules'
+import { required, email } from 'vee-validate/dist/rules'
 
 // Register it globally
 Vue.component('ValidationProvider', ValidationProvider)

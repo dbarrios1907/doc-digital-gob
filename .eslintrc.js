@@ -23,8 +23,8 @@ module.exports = {
   rules: {
     // override/add rules settings here, such as:
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-unused-vars': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'consistent-return': 0,
     quotes: [2, 'single', { avoidEscape: true, allowTemplateLiterals: true }],
     'max-classes-per-file': 'off',
