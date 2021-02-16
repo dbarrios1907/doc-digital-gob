@@ -61,6 +61,13 @@ $material-dark: (
     'tabs-bar-text-color': map-get($dark-colors, 'light'),
     'tabs-bar-text-dissable-color': map-get($dark-colors, 'dark'),
   ),
+  'v_breadcrumbs': (
+    'dark': map-get($dark-colors, 'dark'),
+    'light': map-get($dark-colors, 'light'),
+    'primary': map-get($dark-colors, 'primary'),
+    'darken3': map-get($dark-colors, 'darken3'),
+    'darken2': map-get($dark-colors, 'darken2'),
+  ),
       //'status-bar': (
       //  'regular': map-get($shades, 'black'),
       //  'lights-out': rgba(map-get($shades, 'black'), 0.2)
