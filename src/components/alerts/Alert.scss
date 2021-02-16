@@ -1,3 +1,4 @@
+
 .dx-alert {
   max-width: 27.37rem;
   position: relative;
@@ -35,8 +36,10 @@
 
 @include theme(dx-alert) using($material) {
 
+  $dx-alert-color: map-deep-get($material, 'colors', 'darken3') !important;
+
   .dx-alert__content {
-    color: map-deep-get($material, 'colors', 'darken3') !important;
+    color: $dx-alert-color;
   }
 
   @each $name, $color in map-get($material, 'alerts') {

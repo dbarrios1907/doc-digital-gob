@@ -1,7 +1,7 @@
 <template>
   <div v-if="!item.hidden">
     <template v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow">
-      <NavListItem v-if="onlyOneChild.meta" link :to="resolvePath(onlyOneChild.path)">
+      <NavListItem v-if="onlyOneChild.meta" link :to="resolvePath(onlyOneChild.path)" :nested="nested">
         <v-list-item-icon>
           <v-icon v-text="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" />
         </v-list-item-icon>
@@ -10,12 +10,12 @@
       </NavListItem>
     </template>
 
-    <NavListGroup v-else :ripple="false" active-class="light--text" :prepend-icon="item.meta && item.meta.icon" no-action>
+    <NavListGroup v-else :ripple="false" active-class="light--text" :prepend-icon="item.meta && item.meta.icon" no-action :sub-group="nested">
       <template v-slot:activator>
         <v-list-item-title>{{ item.meta.title }}</v-list-item-title>
       </template>
 
-      <dx-sidebar-item v-for="child in item.children" :key="child.path" :item="child" :base-path="resolvePath(child.path)" />
+      <dx-sidebar-item v-for="child in item.children" :key="child.path" :item="child" :base-path="resolvePath(child.path)" nested />
     </NavListGroup>
   </div>
 </template>
@@ -42,6 +42,7 @@ export default {
       type: String,
       default: '',
     },
+    nested: Boolean,
   },
   data() {
     // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237

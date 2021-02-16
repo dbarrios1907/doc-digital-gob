@@ -1,4 +1,5 @@
 $material-light: (
+  'font-color': map-get($light-colors, 'darken3'),
   'outline': 1px dashed #000,
   'buttons': (
     //'disabled': rgba(map-get($shades, 'black'), 0.26),

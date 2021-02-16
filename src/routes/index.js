@@ -73,22 +73,34 @@ export const constantRoutes = [
     },
     children: [
       {
-        path: 'enviados',
+        path: 'visar',
         component: () => import('@/views/documentos/index'),
-        name: 'Enviados',
-        meta: { title: 'Enviados' },
+        name: 'Visar',
+        meta: { title: 'Visar', icon: 'mdi-eye' },
       },
       {
-        path: 'recibidos',
+        path: 'firmar',
         component: () => import('@/views/documentos/index'),
-        name: 'Recibidos',
-        meta: { title: 'Recibidos' },
+        name: 'Firmar',
+        meta: { title: 'Firmar', icon: 'mdi-pencil' },
       },
       {
-        path: 'por-firmar',
+        path: 'editar-borradores',
         component: () => import('@/views/documentos/index'),
-        name: 'Por Firmar',
-        meta: { title: 'Por Firmar' },
+        name: 'editar-borradores',
+        meta: { title: 'Editar Borradores', icon: 'mdi-file-multiple' },
+      },
+      {
+        path: 'revisar-devueltos',
+        component: () => import('@/views/documentos/index'),
+        name: 'revisar-devueltos',
+        meta: { title: 'Revisar Devueltos', icon: 'mdi-clipboard-arrow-down' },
+      },
+      {
+        path: 'historial',
+        component: () => import('@/views/documentos/index'),
+        name: 'historial',
+        meta: { title: 'Historial', icon: 'mdi-folder-outline' },
       },
     ],
   },
@@ -100,20 +112,20 @@ export const constantRoutes = [
     name: 'root-oficina-partes',
     meta: {
       title: 'Oficina de Partes',
-      icon: 'mdi-file-multiple',
+      icon: 'mdi-bank',
     },
     children: [
       {
         path: 'enviados',
         component: () => import('@/views/dashboard/index'),
         name: 'Enviados',
-        meta: { title: 'Enviados' },
+        meta: { title: 'Enviados', icon: 'mdi-send' },
       },
       {
         path: 'recibidos',
         component: () => import('@/views/dashboard/index'),
         name: 'Recibidos',
-        meta: { title: 'Recibidos' },
+        meta: { title: 'Recibidos', icon: 'mdi-inbox-arrow-down' },
       },
     ],
   },
@@ -125,7 +137,7 @@ export const constantRoutes = [
     name: 'Administracion',
     meta: {
       title: 'Administración',
-      icon: 'mdi-file-multiple',
+      icon: 'mdi-settings',
     },
     children: [
       {
@@ -144,13 +156,13 @@ export const constantRoutes = [
         path: 'entidades',
         component: () => import('@/views/dashboard/index'),
         name: 'Entidades',
-        meta: { title: 'Entidades', icon: 'mdi-file-multiple' },
+        meta: { title: 'Entidades', icon: 'mdi-bank' },
       },
       {
         path: 'correos-de-notificacion',
         component: () => import('@/views/dashboard/index'),
         name: 'correos-de-notificacion',
-        meta: { title: 'Correos de Notificación', icon: 'mdi-file-multiple' },
+        meta: { title: 'Correos de Notificación', icon: 'mdi-email' },
       },
     ],
   },
