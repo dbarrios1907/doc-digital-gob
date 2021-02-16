@@ -38,6 +38,10 @@ export default {
     color: map-deep-get($material, 'colors', 'darken3') !important;
   }
 
+  .v-pagination__navigation--disabled i {
+    color: map-deep-get($material, 'colors', 'darken1') !important;
+  }
+
   li:first-child .v-pagination__navigation,
   li:last-child .v-pagination__navigation {
     margin: 0;
