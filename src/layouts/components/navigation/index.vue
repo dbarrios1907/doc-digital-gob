@@ -31,7 +31,6 @@
 <script>
 import NavListItem from './components/NavListItem.vue'
 import SidebarItem from './components/SidebarItem.vue'
-import { colorMixin } from '@/shared/mixins/colorMixin'
 import _get from '@/shared/utils/get'
 
 export default {
