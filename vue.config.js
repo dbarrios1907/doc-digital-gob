@@ -20,6 +20,13 @@ module.exports = {
       },
     },
   },
+  devServer: {
+    disableHostCheck: true,
+    // watchOptions: {
+    //   ignored: ['public/docs/**', 'public/media/**']
+    // },
+    // public: 'progress.localhost:80',
+  },
   css: {
     loaderOptions: {
       sass: {
