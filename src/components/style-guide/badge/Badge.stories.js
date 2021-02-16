@@ -10,6 +10,21 @@ export const Demo = () => ({
   components: { Badge },
   template: `
     <div>
+      <h3>Ejemplo de insginias en notificaciones</h3>
+      <div>
+        <Badge type="notification" label>            
+            <div class="badge-text">Type something</div>
+            <div class="badge-number">1</div>
+        </Badge>
+        <Badge type="notification" label small>            
+            <div class="badge-text">Type something</div>
+            <div class="badge-number">1</div>
+        </Badge>        
+        <Badge type="notification" label x-small>            
+            <div class="badge-text">Type something</div>
+            <div class="badge-number">1</div>
+        </Badge>
+      </div>
       <h3>Variaciones de color de insignia</h3>
       <div>
         <Badge type="primary" label>
