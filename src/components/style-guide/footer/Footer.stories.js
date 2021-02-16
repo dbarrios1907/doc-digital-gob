@@ -1,5 +1,3 @@
-import Footer from './Footer'
-
 export default {
   title: 'Style Guide/Footer',
   argTypes: {
@@ -10,7 +8,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
-    <dx-footer :color="color"/>
+    <Footer :color="color" />
   `,
 })
 

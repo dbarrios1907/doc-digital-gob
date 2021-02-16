@@ -35,11 +35,13 @@ const Template = (args, { argTypes }) => ({
       </v-btn>
 
       <v-dialog
+          overlay-opacity="0.55"
+          overlay-color="#001C41"
           v-model="dialog"
           max-width="600px">
         <v-card>
           <v-card-title>
-            <h5 class="font-title weight-700">
+            <h5 class="font-title weight-700 darken3--text">
               ¿Qué es la ClaveÚnica?
             </h5>
             
@@ -65,15 +67,17 @@ const Template = (args, { argTypes }) => ({
               <Button color="primary" plain v-bind="$props">
                 <span class="text-underline"> Terciaria </span>
               </Button>
-              <Button color="primary" v-bind="$props">
+              <dx-button color="primary" outlined v-bind="$props">
                 <span class="text-underline"> Terciaria </span>
-              </Button>
+              </dx-button>
             </v-row>
           </v-card-actions>
         </v-card>
       </v-dialog>
 
       <v-dialog
+          overlay-opacity="0.55"
+          overlay-color="#001C41"
           v-model="dialog1"
           max-width="700px">
         <v-card>
@@ -83,7 +87,7 @@ const Template = (args, { argTypes }) => ({
               <v-icon>mdi-alert-circle-outline</v-icon>
             </v-btn>
 
-            <h5 class="font-title weight-700">
+            <h5 class="font-title weight-700 darken3--text">
               Suspendisse ultrices ullamcorper ante vel euismod.
             </h5>
             
@@ -109,9 +113,9 @@ const Template = (args, { argTypes }) => ({
               <Button color="primary" plain v-bind="$props">
                 <span class="text-underline"> Terciaria </span>
               </Button>
-              <Button color="primary" v-bind="$props">
+              <dx-button color="primary" outlined v-bind="$props">
                 <span class="text-underline"> Terciaria </span>
-              </Button>
+              </dx-button>
             </v-row>
           </v-card-actions>
         </v-card>
