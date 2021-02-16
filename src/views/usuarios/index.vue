@@ -1,5 +1,5 @@
 <template>
-  <v-container class="px-10">
+  <div class="fill-height">
     <dx-breadcrumbs :items="breadcrums" />
     <dx-bodytitle>
       <template v-slot:title>
@@ -40,71 +40,67 @@
     </v-tabs>
     <v-tabs-items v-model="tabs">
       <v-tab-item value="tab-1">
-        <v-card flat>
-          <DataTable
-            color="primary"
-            :headers="headers"
-            :items="values"
-            :page.sync="page"
-            :items-per-page="itemsPerPage"
-            hide-default-footer
-            class="elevation-1"
-            show-select
-            @page-count="pageCount = $event"
-          >
-            <template v-slot:[`item.data-table-select`]="{ isSelected, select }">
-              <v-simple-checkbox color="primary" :value="isSelected" @input="select($event)" />
-            </template>
-            <template v-slot:[`item.access`]="{ item: { access } }">
-              <v-chip v-for="v in access" :key="v" class="ml-2" color="primary" small>
-                {{ v }}
-              </v-chip>
-            </template>
-            <template v-slot:[`item.actions`]>
-              <v-icon dense class="mr-2"> mdi-square-edit-outline </v-icon>
-              <v-icon dense class="mr-2"> mdi-eye </v-icon>
-              <v-icon dense> mdi-delete </v-icon>
-            </template>
-          </DataTable>
-          <div class="pt-2 mr-6">
-            <dx-pagination v-model="page" :length="pageCount" class="float-right" />
-          </div>
-        </v-card>
+        <DataTable
+          color="primary"
+          :headers="headers"
+          :items="values"
+          :page.sync="page"
+          :items-per-page="itemsPerPage"
+          hide-default-footer
+          class="elevation-1"
+          show-select
+          @page-count="pageCount = $event"
+        >
+          <template v-slot:[`item.data-table-select`]="{ isSelected, select }">
+            <v-simple-checkbox color="primary" :value="isSelected" @input="select($event)" />
+          </template>
+          <template v-slot:[`item.access`]="{ item: { access } }">
+            <v-chip v-for="v in access" :key="v" class="ml-2" color="primary" small>
+              {{ v }}
+            </v-chip>
+          </template>
+          <template v-slot:[`item.actions`]>
+            <v-icon dense class="mr-2"> mdi-square-edit-outline </v-icon>
+            <v-icon dense class="mr-2"> mdi-eye </v-icon>
+            <v-icon dense> mdi-delete </v-icon>
+          </template>
+        </DataTable>
+        <div class="pt-2 mr-6">
+          <dx-pagination v-model="page" :length="pageCount" class="float-right" />
+        </div>
       </v-tab-item>
       <v-tab-item value="tab-2">
-        <v-card flat>
-          <DataTable
-            color="primary"
-            :headers="headers"
-            :items="values"
-            :page.sync="page"
-            :items-per-page="itemsPerPage"
-            hide-default-footer
-            class="elevation-1"
-            show-select
-            @page-count="pageCount = $event"
-          >
-            <template v-slot:[`item.data-table-select`]="{ isSelected, select }">
-              <v-simple-checkbox color="primary" :value="isSelected" @input="select($event)" />
-            </template>
-            <template v-slot:[`item.access`]="{ item: { access } }">
-              <v-chip v-for="v in access" :key="v" class="ml-2" color="primary" small>
-                {{ v }}
-              </v-chip>
-            </template>
-            <template v-slot:[`item.actions`]>
-              <v-icon dense class="mr-2"> mdi-square-edit-outline </v-icon>
-              <v-icon dense class="mr-2"> mdi-eye </v-icon>
-              <v-icon dense> mdi-delete </v-icon>
-            </template>
-          </DataTable>
-          <div class="pt-2 mr-6">
-            <dx-pagination v-model="page" :length="pageCount" class="float-right" />
-          </div>
-        </v-card>
+        <DataTable
+          color="primary"
+          :headers="headers"
+          :items="values"
+          :page.sync="page"
+          :items-per-page="itemsPerPage"
+          hide-default-footer
+          class="elevation-1"
+          show-select
+          @page-count="pageCount = $event"
+        >
+          <template v-slot:[`item.data-table-select`]="{ isSelected, select }">
+            <v-simple-checkbox color="primary" :value="isSelected" @input="select($event)" />
+          </template>
+          <template v-slot:[`item.access`]="{ item: { access } }">
+            <v-chip v-for="v in access" :key="v" class="ml-2" color="primary" small>
+              {{ v }}
+            </v-chip>
+          </template>
+          <template v-slot:[`item.actions`]>
+            <v-icon dense class="mr-2"> mdi-square-edit-outline </v-icon>
+            <v-icon dense class="mr-2"> mdi-eye </v-icon>
+            <v-icon dense> mdi-delete </v-icon>
+          </template>
+        </DataTable>
+        <div class="pt-2 mr-6">
+          <dx-pagination v-model="page" :length="pageCount" class="float-right" />
+        </div>
       </v-tab-item>
     </v-tabs-items>
-  </v-container>
+  </div>
 </template>
 <script>
 import { constantRoutes } from '../../routes'
@@ -182,21 +178,6 @@ export default {
           name: 'Lollipop',
           rut: '23.266.206-8',
           access: ['Administrador', 'Jefe de servicios'],
-        },
-        {
-          name: 'Honeycomb',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-        },
-        {
-          name: 'Donut',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-        },
-        {
-          name: 'KitKat',
-          rut: '23.266.206-8',
-          access: ['Operador', 'Jefe de servicios'],
         },
       ],
     }

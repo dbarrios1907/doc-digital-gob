@@ -29,6 +29,11 @@ export default {
         color: $color !important;
       }
     }
+
+    .v-list-item__icon:first-child {
+      margin-right: 12px;
+    }
+
     &.v-list-group--active {
       position: relative;
       &::before {

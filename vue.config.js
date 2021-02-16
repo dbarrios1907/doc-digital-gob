@@ -10,6 +10,11 @@ const name = 'Doc.Digital' // page title
 
 module.exports = {
   transpileDependencies: ['vuetify'],
+  pwa: {
+    workboxOptions: {
+      exclude: [/_redirects/],
+    },
+  },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
@@ -19,6 +24,13 @@ module.exports = {
         '@': resolve('src'),
       },
     },
+  },
+  devServer: {
+    disableHostCheck: true,
+    // watchOptions: {
+    //   ignored: ['public/docs/**', 'public/media/**']
+    // },
+    // public: 'progress.localhost:80',
   },
   css: {
     loaderOptions: {

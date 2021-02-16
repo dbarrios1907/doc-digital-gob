@@ -4,11 +4,11 @@
       <slot v-if="navbar" class="dx-content-navbar" name="navbar" />
     </nav>
 
-    <section class="content-wrapper flex-col flex-fill px-8 pt-2 pb-4 overflow-hidden fill-height">
+    <section class="content-wrapper flex-col flex-fill px-12 pt-12 pb-10 overflow-hidden fill-height">
       <transition name="fade-transform" mode="out-in">
         <keep-alive :include="cachedViews">
           <slot name="content">
-            <div class="px-2 py-2">
+            <div class="px-5 py-4">
               <router-view :key="key" />
             </div>
           </slot>

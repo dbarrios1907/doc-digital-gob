@@ -1,25 +1,21 @@
 <template>
-  <v-navigation-drawer ref="navbar" color="#093F75" width="100%" permanent v-bind="$attrs" v-on="$listeners">
+  <v-navigation-drawer ref="navbar" :color="_color" width="100%" permanent v-bind="$attrs" v-on="$listeners">
     <perfect-scrollbar :style="{ height: scrollHeight }">
       <slot :slot-scope="{}" name="top-section">
-        <NavListItem class="px-3">
+        <NavListItem class="px-5">
           <v-list-item-icon>
-            <v-icon large class="light--text"> mdi-account </v-icon>
+            <v-icon large class="light--text mr-1"> mdi-account </v-icon>
           </v-list-item-icon>
 
-          <v-list-item-title>Entidad Seleccionada</v-list-item-title>
-
-          <v-btn icon @click.stop="mini = !mini">
-            <v-icon>mdi-chevron-left</v-icon>
-          </v-btn>
+          <v-list-item-title>Trinidad Swinburn Correa</v-list-item-title>
         </NavListItem>
 
         <v-divider />
 
         <div class="py-4" style="display: flex; justify-content: center">
           <dx-button large color="primary" outlined v-bind="$props" class="light">
-            <dx-icon left regular> mdi-send </dx-icon>
-            <span class="text-underline"> Enviar Documento </span>
+            <span class="text-underline font-large"> Nuevo Documento </span>
+            <dx-icon right large> mdi-chevron-down </dx-icon>
           </dx-button>
         </div>
       </slot>
@@ -35,6 +31,8 @@
 <script>
 import NavListItem from './components/NavListItem.vue'
 import SidebarItem from './components/SidebarItem.vue'
+import _get from '@/shared/utils/get'
+
 export default {
   name: 'DxNavigation',
   components: {
@@ -51,6 +49,12 @@ export default {
   data: () => ({
     scrollHeight: '100%',
   }),
+  computed: {
+    _color() {
+      const isDark = _get(this, `$vuetify.theme.isDark.`)
+      return isDark ? '#093F76' : '#093F75'
+    },
+  },
   watch: {
     '$refs.navbar.scrollHeight'() {
       this.scrollHeight = this.$refs.navbar.scrollHeight + 'px'

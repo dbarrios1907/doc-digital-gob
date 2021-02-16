@@ -1,16 +1,16 @@
 <template>
   <v-footer class="dark" padless>
-    <v-col class="text-left py-0" cols="4">
-      <div class="pl-4 pt-3 pb-3">
-        <span :style="{ color: dcolor }" class="line-height-16 font-nunito font-small weight-300"> Versión 2.1.11 </span>
+    <v-col class="text-left py-0 px-0" cols="4">
+      <div class="title">
+        <span class="font-roboto weight-400 font-small line-height-29" :style="{ color: dcolor }"> Versión 2.1.11 </span>
       </div>
       <BrandWatermark />
     </v-col>
 
-    <v-col class="text-right" cols="8">
-      <span :style="{ color: dcolor }" class="line-height-16 font-nunito font-small weight-300">
+    <v-col class="text-right title2" cols="8">
+      <span :style="{ color: dcolor }" class="font-roboto font-small line-height-29 weight-400">
         Para conocer el detalle de la versión actual y actualizaciones anteriores
-        <a href="#" class="weight-600" :style="{ color: dcolor }">revise aquí</a>
+        <a href="#" class="weight-700" :style="{ color: dcolor }">revise aquí</a>
       </span>
     </v-col>
   </v-footer>
@@ -31,3 +31,12 @@ export default {
   },
 }
 </script>
+<style scoped>
+.title {
+  padding: 8px 0 8px 15px;
+}
+
+.title2 {
+  padding: 9px 15px 18px 0;
+}
+</style>
