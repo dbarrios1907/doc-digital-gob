@@ -2,10 +2,13 @@
   <div v-bind="$attrs" v-on="$listeners" class="errorpage">
     <Error />
     <div class="content">
-      <span class="span darken3--text"> Lo sentimos, hemos tenido un problema</span>
-      <dx-button color="primary"> Vuelve a intentarlo</dx-button>
+      <div class="subcontent">
+        <div class="mb-3 span darken3--text font-robotoslab"> Lo sentimos,</div>
+        <div class="span darken3--text font-robotoslab"> hemos tenido un problema</div>
+        <dx-button color="primary" class="text-underline"> Vuelve a intentarlo</dx-button>
+      </div>
+      <span class="link">Si no funciona escríbenos en <a href="https://digital.gob.cl/incidencia">https://digital.gob.cl/incidencia</a> </span>
     </div>
-    <span class="link">Si no funciona escríbenos en <a href="https://digital.gob.cl/incidencia">https://digital.gob.cl/incidencia</a> </span>
   </div>
 </template>
 <script>
@@ -35,19 +38,23 @@ export default {
       width: auto;
     }
     .errorpage .content {
-      top: 6rem ;
-      right: 3rem;
-      width: 290px;
+      top: 6rem !important;
+      left: 0 !important;
+      right: 50% !important;
     }
 
+    .errorpage .subcontent {
+      margin-bottom: 130px !important;
+    }
     .errorpage .content .v-btn {
       min-width: 100%;
     }
 
     .errorpage .link {
       bottom: 20px;
-      right: 31px;
       width: 226px;
+      position: relative;
+      left: 45px;
     }
   }
   .errorpage {
@@ -59,11 +66,14 @@ export default {
   .errorpage .content {
     position: absolute;
     text-align: center;
-    top: 12rem;
-    right: 6.2rem;
-    width: 472px;
+    top: 8rem;
+    right: 7rem;
   }
 
+  .errorpage .content > div.subcontent {
+    width: 316px;
+    margin: 0 auto;
+  }
   .errorpage .content .span {
     display: block;
     font-size: 25px;
@@ -72,14 +82,6 @@ export default {
   }
 
   .errorpage .content .v-btn {
-    margin: 37px 0 30px;
-  }
-
-  .errorpage .link {
-    position: absolute;
-    bottom: 60px;
-    text-align: center;
-    right: 7rem;
-    line-height: 30px;
+    margin: 35px 0 30px;
   }
 </style>

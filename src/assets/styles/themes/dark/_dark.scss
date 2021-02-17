@@ -13,11 +13,17 @@ $material-dark: (
         'error': map-get($dark-colors, 'error'),
         'warning': map-get($dark-colors, 'warning'),
         'neutral': map-get($dark-colors, 'neutral'),
+        'light': map-get($dark-colors, 'light'),
     ),
     'other-variants': (
       'dark': map-get($dark-colors, 'dark'),
       'regular': map-get($dark-colors, 'darken3'),
     )
+  ),  
+  'v_chip': (
+    'dark': map-get($dark-colors, 'dark'),
+    'light': map-get($dark-colors, 'light'),
+    'primary': map-get($dark-colors, 'primary'),
   ),
   'alerts': (
     'success': map-get($dark-colors, 'success'),
@@ -54,6 +60,13 @@ $material-dark: (
     'tabs-bar-background-color': map-get($dark-colors, 'primary'),
     'tabs-bar-text-color': map-get($dark-colors, 'light'),
     'tabs-bar-text-dissable-color': map-get($dark-colors, 'dark'),
+  ),
+  'v_breadcrumbs': (
+    'dark': map-get($dark-colors, 'dark'),
+    'light': map-get($dark-colors, 'light'),
+    'primary': map-get($dark-colors, 'primary'),
+    'darken3': map-get($dark-colors, 'darken3'),
+    'darken2': map-get($dark-colors, 'darken2'),
   ),
       //'status-bar': (
       //  'regular': map-get($shades, 'black'),

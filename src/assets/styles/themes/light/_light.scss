@@ -12,12 +12,18 @@ $material-light: (
       'success': map-get($light-colors, 'success'),
       'error': map-get($light-colors, 'error'),
       'warning': map-get($light-colors, 'warning'),
-      'neutral': map-get($light-colors, 'neutral'),
+      'neutral': map-get($light-colors, 'neutral'),  
     ),
     'other-variants': (
       'dark': map-get($light-colors, 'dark'),
-      'regular': map-get($light-colors, 'darken3'),
+      'regular': map-get($light-colors, 'darken3'),    
+      'light': map-get($light-colors, 'light'),
     )
+  ),  
+  'v_chip': (
+    'dark': map-get($light-colors, 'dark'),
+    'light': map-get($light-colors, 'light'),
+    'primary': map-get($light-colors, 'primary'),
   ),
   'alerts': (
     'success': map-get($light-colors, 'success'),
@@ -53,6 +59,13 @@ $material-light: (
     'tabs-bar-background-color':map-get($light-colors, 'primary'),
     'tabs-bar-text-color': map-get($light-colors, 'light'),
     'tabs-bar-text-dissable-color': map-get($light-colors, 'dark'),
+  ),
+  'v_breadcrumbs': (
+    'dark': map-get($light-colors, 'dark'),
+    'light': map-get($light-colors, 'light'),
+    'primary': map-get($light-colors, 'primary'),
+    'darken3': map-get($light-colors, 'darken3'),
+    'darken2': map-get($light-colors, 'darken2'),
   ),
       //'status-bar': (
       //  'regular': map-get($grey, 'lighten-2'),
