@@ -1,31 +1,30 @@
 ARG nodeVersion=lts
 ARG nodeOptions=""
-ARG appPath="./"
+ARG appPath="."
 
-FROM node:${nodeVersion}-alpine
+FROM node:${nodeVersion}-alpine as builder
 
 ARG appPath
-ENV HOME=/home/app
-
-RUN mkdir -p $HOME
-
+ENV HOME=/app
+# Set working directory
 WORKDIR ${HOME}
-
-ADD --chown=node:node ${appPath} ${HOME}/
-ADD --chown=node:node ${modules} ${HOME}/
-
-
-ENV HOME=/home/app
-ENV APP_DIR=/home/app
+# Copy all files from current directory to working dir in image
+COPY . .
 ENV NODE_OPTIONS=${nodeOptions}
+
 WORKDIR ${HOME}
-
 RUN chown node:node ${HOME} && chown node:node ${HOME}/
-USER 1000
+# install node modules and build assets
+RUN yarn && yarn build
 
-RUN npm install -g yarn
-RUN yarn
-RUN yarn build
 
-EXPOSE 2992 3000
-CMD ["yarn", "start"]
+# nginx state for serving content
+FROM nginx:alpine
+# Set working directory to nginx asset directory
+WORKDIR /usr/share/nginx/html
+# Remove default nginx static assets
+RUN rm -rf ./*
+# Copy static assets from builder stage
+COPY --from=builder /app/dist .
+# Containers run nginx with global directives and daemon off
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
