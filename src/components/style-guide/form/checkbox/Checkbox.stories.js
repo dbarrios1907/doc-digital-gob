@@ -15,32 +15,30 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <v-container fluid>
-      <p>{{ selected }}</p>
-      <v-checkbox
+      <dx-checkbox
           v-model="selected"
           :ripple="false"
-          indeterminate
           label="Text de Ejemplo 1"
           value="Text1"
-      ></v-checkbox>
-      <v-checkbox
+      ></dx-checkbox>
+      <dx-checkbox
           v-model="selected"
           :ripple="false"
           label="Text de Ejemplo 2"
           value="Text2"
-      ></v-checkbox>
-      <v-checkbox
-          v-model="selected"
-          :ripple="false"
-          label="Text de Ejemplo 3"
-          value="Text3"
-      ></v-checkbox>
-      <v-checkbox
-          v-model="selected"
-          :ripple="false"
-          label="Text de Ejemplo 4"
-          value="Text4"
-      ></v-checkbox>
+      ></dx-checkbox>
+      <dx-checkbox
+        v-model="selected"
+        :ripple="false"
+        label="Text de Ejemplo 3"
+        value="Text3"
+      ></dx-checkbox>
+      <dx-checkbox
+        v-model="selected"
+        :ripple="false"
+        label="Text de Ejemplo 4"
+        value="Text4"
+      ></dx-checkbox>
     </v-container>
   `,
 })
