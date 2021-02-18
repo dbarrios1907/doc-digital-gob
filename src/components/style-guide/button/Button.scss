@@ -4,17 +4,86 @@
 
 @include theme(v-btn) using ($material) {
   padding: rem-calc(12px) rem-calc(20px);
+  font-weight: 500;
+  height: auto;
+  min-width: auto;
+  letter-spacing: 0;
+  border: thin solid currentColor;
+
+  &.v-btn--text {
+    border: none;
+  }
 
   &.v-size--default {
     font-size: 1rem;
+    .v-btn__content {
+      line-height: rem-calc(24px);
+
+      .v-icon--left, .v-icon--right {
+        font-size: rem-calc(24px);
+      }
+
+      .v-icon--left {
+        margin-left: 0;
+        margin-right: rem-calc(5px);
+      }
+
+      .v-icon--right {
+        margin-right: 0;
+        margin-left: rem-calc(5px);
+      }
+
+      i[chevron] {
+        font-size: rem-calc(35px) !important;
+        line-height: rem-calc(20px);
+
+        &.v-icon--left {
+          margin-left: 0;
+          margin-right: rem-calc(11px);
+        }
+
+        &.v-icon--right {
+          margin-right: 0;
+          margin-left: rem-calc(11px);
+        }
+      }
+    }
   }
 
   &.v-size--large {
-    padding: rem-calc(12px) rem-calc(25px);
+    padding: rem-calc(13px) rem-calc(25px);
+    .v-btn__content {
+      line-height: rem-calc(28px);
+      font-size: rem-calc(20px);
+      letter-spacing: 0;
+
+      i[chevron] {
+        font-size: rem-calc(38px) !important;
+        line-height: rem-calc(22px);
+
+        &.v-icon--left {
+          margin-left: 0;
+          margin-right: rem-calc(16px);
+        }
+
+        &.v-icon--right {
+          margin-right: 0;
+          margin-left: rem-calc(16px);
+        }
+      }
+    }
   }
 
   &.v-size--small {
+    font-size: rem-calc(16px);
     padding: rem-calc(8px) rem-calc(15px);
+    .v-btn__content {
+      line-height: rem-calc(22px);
+    }
+  }
+
+  &.v-btn--fab {
+    height: 56px;
   }
 
   @each $name, $color in map-get(map-get($material, 'buttons'), 'darken-variants') {
