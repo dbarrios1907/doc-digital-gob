@@ -14,6 +14,7 @@ export const themes = {
     warning: '#F56B0F',
     success: '#00ADA2',
     error: '#E22C2C',
+    greylight: '#DADADA',
   },
   dark: {
     primary: '#E22C2C',
