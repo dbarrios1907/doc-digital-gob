@@ -9,8 +9,10 @@
 </template>
 
 <script>
+import './Select.scss'
 export default {
   name: 'DxSelect',
   inheritAttrs: true,
+  props: {},
 }
 </script>

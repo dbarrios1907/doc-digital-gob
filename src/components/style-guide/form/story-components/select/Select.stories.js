@@ -26,10 +26,17 @@ const Template = (args, { argTypes }) => ({
     value: ['Option 1'],
     items: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
   }),
+  methods: {
+    removeItem(item){
+      this.value = this.value.filter(function(val) {
+        return item !== val
+    })
+    }
+  },
   template: `
     <div>
       <wrapper>
-        <v-select
+        <dx-select
             :items="items"
             label="Selección Simple"
             solo
@@ -37,22 +44,31 @@ const Template = (args, { argTypes }) => ({
             outlined
             v-bind="$props"
             ripple="false"
-        ></v-select>
+        ></dx-select>
       </wrapper>
   
       <wrapper>
-        <v-select
+        <dx-select
             :ripple="false"
             v-bind="props"
             v-model="value"
             :items="items"
             chips
             label="Multi Selección"
+            persistent-hint
             multiple
-            solo
+            persistent-hint
             flat
             outlined
-        ></v-select>
+            :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
+        >
+          <template v-slot:selection="{ item, index }">
+            <Badge type="tertiary" label outlined class="ma-0">
+              <div class="darken3--text font-16 line-height-22 weight-400">{{item}}</div>
+              <dx-icon left class="darken3--text ml-2 mr-0" @click.prevent="removeItem(item)">  mdi-close </dx-icon>
+            </Badge>
+          </template>
+        </dx-select>
       </wrapper>
       
       <wrapper>
@@ -61,23 +77,18 @@ const Template = (args, { argTypes }) => ({
             v-bind="$props"
             v-model="value"
             :items="items"
-            label="Personalizado"
+            label="Filtro"
             solo
             flat
             outlined
             multiple
+            :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
         >
-          <template v-slot:selection="{ item, index }">
-            <v-chip v-if="index === 0">
-              <span>{{ item }}</span>
-            </v-chip>
-            <span
-                v-if="index === 1"
-                class="grey--text caption"
-            >
-          (+ otros {{ value.length - 1 }})
-        </span>
-          </template>
+        <template v-slot:selection="{ item, index }">
+          <span v-if="index === 0" >Filro<span>
+          <span v-else-if="index === 1" >Filro<span>
+        </template>
+       
         </v-select>
       </wrapper>
     </div>
