@@ -12,41 +12,17 @@ const Template = (args, { argTypes }) => ({
     return {
       column: null,
       row: null,
+      items:[
+        { label:"Option 1", value: "radio-1" },
+        { label:"Option 2", value: "radio-2" },
+      ]
     }
   },
   template: `
     <v-container fluid>
-      <v-radio-group
-          v-model="column"
-          column
-      >
-        <v-radio
-            label="Option 1"
-            value="radio-1"
-            :ripple="false"
-        ></v-radio>
-        <v-radio
-            label="Option 2"
-            value="radio-2"
-            :ripple="false"
-        ></v-radio>
-      </v-radio-group>
+      <dx-radio :v-model="column" column :items="items" />
       <hr>
-      <v-radio-group
-          v-model="row"
-          row
-      >
-        <v-radio
-            label="Option 1"
-            value="radio-1"
-            :ripple="false"
-        ></v-radio>
-        <v-radio
-            label="Option 2"
-            value="radio-2"
-            :ripple="false"
-        ></v-radio>
-      </v-radio-group>
+      <dx-radio :v-model="row" row :items="items" />
     </v-container>
   `,
 })
