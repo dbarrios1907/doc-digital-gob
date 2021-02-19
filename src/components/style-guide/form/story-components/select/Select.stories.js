@@ -18,14 +18,17 @@ const wrapper = {
   `,
 }
 
-Vue.component('wrapper', wrapper)
-
 const Template = (args, { argTypes }) => ({
+  components:{
+    wrapper
+  },
   props: Object.keys(argTypes),
-  data: () => ({
-    value: ['Option 1'],
-    items: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-  }),
+  data () {
+    return {
+      value: ['Option 1'],
+      items: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    }
+  },
   methods: {
     removeItem(item){
       this.value = this.value.filter(function(val) {
@@ -44,6 +47,7 @@ const Template = (args, { argTypes }) => ({
             outlined
             v-bind="$props"
             ripple="false"
+            :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
         ></dx-select>
       </wrapper>
   
@@ -72,7 +76,7 @@ const Template = (args, { argTypes }) => ({
       </wrapper>
       
       <wrapper>
-        <v-select
+        <dx-select
             :ripple="false"
             v-bind="$props"
             v-model="value"
@@ -85,11 +89,10 @@ const Template = (args, { argTypes }) => ({
             :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
         >
         <template v-slot:selection="{ item, index }">
-          <span v-if="index === 0" >Filro<span>
-          <span v-else-if="index === 1" >Filro<span>
+            <v-chip> <span>{{ item }}</span> </v-chip>
         </template>
        
-        </v-select>
+        </dx-select>
       </wrapper>
     </div>
   `,

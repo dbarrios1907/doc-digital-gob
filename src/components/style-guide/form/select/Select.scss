@@ -1,8 +1,0 @@
-@include theme(v-select) using($material) {
-    &.v-menu__content {
-        margin-top: 65px !important;
-     }
-    &.v-text-field--outlined > .v-input__control > .v-input__slot {
-        min-height: 48px !important;
-    }
-}
