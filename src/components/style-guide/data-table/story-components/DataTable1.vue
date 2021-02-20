@@ -1,9 +1,5 @@
 <template>
   <div>
-    <v-tabs class="mt-5" v-model="tabs">
-      <v-tab href="#tab-1"> Activos </v-tab>
-      <v-tab href="#tab-2"> Inactivos </v-tab>
-    </v-tabs>
     <DataTable
       :headers="headers"
       :items="valuess"
@@ -22,12 +18,12 @@
         <v-icon class="float-right" :key="h.value" @click="openFilter(header, $event)" v-if="h.filterable">mdi-filter</v-icon>
       </template>
 
-      <template v-slot:top v-if="searchname || searchrut || filtered">
-        <v-container fluid>
+      <template v-slot:top>
+        <v-container fluid v-if="searchname || searchrut || filtered">
           <v-row>
-            <v-col cols="2" v-if="searchname"><v-text-field type="text" v-model="filterValue" label="Nombre" /></v-col>
-            <v-col cols="2" v-if="searchrut"><v-text-field type="text" v-model="filterRut" label="Rut" /></v-col>
-            <v-col cols="4" v-if="filtered">
+            <v-col cols="2" v-if="searchname"><v-text-field hide-details type="text" v-model="filterValue" label="Nombre" /></v-col>
+            <v-col cols="2" v-if="searchrut"><v-text-field hide-details type="text" v-model="filterRut" label="Rut" /></v-col>
+            <v-col cols="8" v-if="filtered">
               <dx-select
                 :ripple="false"
                 v-model="permiso"
@@ -51,6 +47,10 @@
             </v-col>
           </v-row>
         </v-container>
+        <v-tabs class="mt-5" v-model="tabs">
+          <v-tab href="#tab-1"> Activos </v-tab>
+          <v-tab href="#tab-2"> Inactivos </v-tab>
+        </v-tabs>
       </template>
 
       <template v-slot:[`item.access`]="{ item: { access } }">
