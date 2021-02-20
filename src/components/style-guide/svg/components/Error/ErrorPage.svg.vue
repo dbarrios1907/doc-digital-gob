@@ -2,11 +2,13 @@
   <div v-bind="$attrs" v-on="$listeners" class="errorpage">
     <Error />
     <div class="content">
-      <div class="mb-3 span darken3--text font-robotoslab"> Lo sentimos,</div>
-      <div class="span darken3--text font-robotoslab"> hemos tenido un problema</div>
-      <dx-button color="primary" class="text-underline"> Vuelve a intentarlo</dx-button>
+      <div class="subcontent">
+        <div class="mb-3 span darken3--text font-robotoslab"> Lo sentimos,</div>
+        <div class="span darken3--text font-robotoslab"> hemos tenido un problema</div>
+        <dx-button color="primary" class="text-underline"> Vuelve a intentarlo</dx-button>
+      </div>
+      <span class="link">Si no funciona escríbenos en <a href="https://digital.gob.cl/incidencia">https://digital.gob.cl/incidencia</a> </span>
     </div>
-    <span class="link">Si no funciona escríbenos en <a href="https://digital.gob.cl/incidencia">https://digital.gob.cl/incidencia</a> </span>
   </div>
 </template>
 <script>
@@ -36,19 +38,23 @@ export default {
       width: auto;
     }
     .errorpage .content {
-      top: 6rem ;
-      right: 3rem;
-      width: 290px;
+      top: 6rem !important;
+      left: 0 !important;
+      right: 50% !important;
     }
 
+    .errorpage .subcontent {
+      margin-bottom: 130px !important;
+    }
     .errorpage .content .v-btn {
       min-width: 100%;
     }
 
     .errorpage .link {
       bottom: 20px;
-      right: 31px;
       width: 226px;
+      position: relative;
+      left: 45px;
     }
   }
   .errorpage {
@@ -61,10 +67,13 @@ export default {
     position: absolute;
     text-align: center;
     top: 8rem;
-    right: 10rem;
-    width: 316px;
+    right: 7rem;
   }
 
+  .errorpage .content > div.subcontent {
+    width: 316px;
+    margin: 0 auto;
+  }
   .errorpage .content .span {
     display: block;
     font-size: 25px;
@@ -74,13 +83,5 @@ export default {
 
   .errorpage .content .v-btn {
     margin: 35px 0 30px;
-  }
-
-  .errorpage .link {
-    position: absolute;
-    bottom: 103px;
-    text-align: center;
-    right: 7rem;
-    line-height: 30px;
   }
 </style>

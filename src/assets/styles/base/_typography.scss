@@ -15,7 +15,7 @@
 }
 
 .font-regular {
-  font-size: rem-calc(16px);
+  font-size: rem-calc(16px) !important;
 }
 
 .font-large {
@@ -212,4 +212,10 @@
 
 .font-16 {
   font-size: rem-calc(16px);
+}
+
+.underline-text {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 1px;
 }

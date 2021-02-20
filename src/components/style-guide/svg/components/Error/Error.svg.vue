@@ -40,7 +40,8 @@ export default {
   }
 
   svg {
-    margin: 80% 0 !important;
+    max-width: 50%;
+    margin-top: 35% !important;
   }
 }
 

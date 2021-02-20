@@ -7,6 +7,7 @@ export const themes = {
     darken1: '#BBBBBB',
     darken2: '#656565',
     darken3: '#373737',
+    darken4: '#676767',
     dark: '#092039', //'#001C41',
     deepdark: '#001C41',
     black: '#111111',
@@ -14,6 +15,7 @@ export const themes = {
     warning: '#F56B0F',
     success: '#00ADA2',
     error: '#E22C2C',
+    greylight: '#DADADA',
   },
   dark: {
     primary: '#E22C2C',
