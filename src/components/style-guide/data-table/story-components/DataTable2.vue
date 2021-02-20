@@ -1,15 +1,15 @@
 <template>
   <div>
-    <data-table
+    <DataTable
       color="primary"
       :headers="headers"
-      :items="values"
+      :items="valuess"
       :page.sync="page"
       :items-per-page="itemsPerPage"
       hide-default-footer
       :class="['table-xl', { 'icon-sort-left': isleft }]"
       show-select
-      item-key="name"
+      item-key="tema"
       @page-count="pageCount = $event"
     >
       <template v-slot:[`item.tema`]="{ item: { tema, href } }" class="column">
@@ -27,7 +27,7 @@
         <v-icon dense class="mr-2"> mdi-eye </v-icon>
         <v-icon dense> mdi-delete </v-icon>
       </template>
-    </data-table>
+    </DataTable>
   </div>
 </template>
 
@@ -39,21 +39,7 @@ export default {
       page: 1,
       pageCount: 0,
       itemsPerPage: 10,
-      headers: [
-        {
-          text: 'Tema',
-          align: 'start',
-          value: 'tema',
-          sortable: true,
-        },
-        { text: 'Tipo', value: 'tipo', sortable: true },
-        { text: 'Folio', value: 'folio', sortable: true },
-        { text: 'Creación', value: 'creacion', sortable: true },
-        { text: 'Entidad emisora', value: 'entidad', sortable: true },
-        { text: 'Actualización', value: 'actualizacion', sortable: true },
-        { text: 'Acciones', value: 'actions', sortable: false },
-      ],
-      values: [
+      valuess: [
         {
           tema: 'Instructivo de Modernización',
           tipo: 'Oficio',
@@ -84,27 +70,22 @@ export default {
       ],
     }
   },
-  methods: {
-    toggleAll() {
-      if (this.selected.length) this.selected = []
-      else this.selected = this.desserts.slice()
-    },
-    changeSort(column) {
-      if (this.pagination.sortBy === column) {
-        this.pagination.descending = !this.pagination.descending
-      } else {
-        this.pagination.sortBy = column
-        this.pagination.descending = false
-      }
-    },
-    getColor(calories) {
-      if (calories > 400) return 'red'
-      else if (calories > 200) return 'orange'
-      else return 'green'
-    },
-    openFilter(header, event) {
-      event.stopPropagation()
-      alert('test')
+  computed: {
+    headers() {
+      return [
+        {
+          text: 'Tema',
+          align: 'start',
+          value: 'tema',
+          sortable: true,
+        },
+        { text: 'Tipo', value: 'tipo', sortable: true },
+        { text: 'Folio', value: 'folio', sortable: true },
+        { text: 'Creación', value: 'creacion', sortable: true },
+        { text: 'Entidad emisora', value: 'entidad', sortable: true },
+        { text: 'Actualización', value: 'actualizacion', sortable: true },
+        { text: 'Acciones', value: 'actions', sortable: false },
+      ]
     },
   },
 }
