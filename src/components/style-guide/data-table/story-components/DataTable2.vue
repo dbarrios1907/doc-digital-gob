@@ -1,14 +1,15 @@
 <template>
   <div>
-    <DataTable
+    <data-table
       color="primary"
-      :headers="headers1"
-      :items="values1"
+      :headers="headers"
+      :items="values"
       :page.sync="page"
       :items-per-page="itemsPerPage"
       hide-default-footer
       :class="['table-xl', { 'icon-sort-left': isleft }]"
       show-select
+      item-key="name"
       @page-count="pageCount = $event"
     >
       <template v-slot:[`item.tema`]="{ item: { tema, href } }" class="column">
@@ -26,7 +27,7 @@
         <v-icon dense class="mr-2"> mdi-eye </v-icon>
         <v-icon dense> mdi-delete </v-icon>
       </template>
-    </DataTable>
+    </data-table>
   </div>
 </template>
 
@@ -40,83 +41,10 @@ export default {
       itemsPerPage: 10,
       headers: [
         {
-          text: 'Nombre',
-          align: 'start',
-          sortable: true,
-          value: 'name',
-          filterable: true,
-        },
-        { text: 'Rut', value: 'rut', filterable: true },
-        { text: 'Permisos', value: 'access', sortable: true },
-        { text: 'Acciones', value: 'actions', sortable: false },
-      ],
-      values: [
-        {
-          name: 'Frozen Yogurt',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-          href: '#',
-        },
-        {
-          name: 'Ice cream sandwich',
-          rut: '23.266.206-8',
-          access: ['Jefe de servicios'],
-          href: '#',
-        },
-        {
-          name: 'Eclair',
-          rut: '23.266.206-8',
-          access: ['Jefe de servicios'],
-          href: '#',
-        },
-        {
-          name: 'Cupcake',
-          rut: '23.266.206-8',
-          access: ['Operador'],
-          href: '#',
-        },
-        {
-          name: 'Gingerbread',
-          rut: '23.266.206-8',
-          access: ['Oficina de partes', 'Jefe de servicios'],
-          href: '#',
-        },
-        {
-          name: 'Jelly bean',
-          rut: '23.266.206-8',
-          access: ['Administrador'],
-          href: '#',
-        },
-        {
-          name: 'Lollipop',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-          href: '#',
-        },
-        {
-          name: 'Honeycomb',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-          href: '#',
-        },
-        {
-          name: 'Donut',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-          href: '#',
-        },
-        {
-          name: 'KitKat',
-          rut: '23.266.206-8',
-          access: ['Operador', 'Jefe de servicios'],
-          href: '#',
-        },
-      ],
-      headers1: [
-        {
           text: 'Tema',
           align: 'start',
           value: 'tema',
+          sortable: true,
         },
         { text: 'Tipo', value: 'tipo', sortable: true },
         { text: 'Folio', value: 'folio', sortable: true },
@@ -125,7 +53,7 @@ export default {
         { text: 'Actualización', value: 'actualizacion', sortable: true },
         { text: 'Acciones', value: 'actions', sortable: false },
       ],
-      values1: [
+      values: [
         {
           tema: 'Instructivo de Modernización',
           tipo: 'Oficio',

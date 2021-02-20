@@ -1,9 +1,7 @@
 import Vue from 'vue'
-import DataTable from './DataTable.vue'
-import TableStory from './story-components/DataTable.vue'
+import TableStory2 from './story-components/DataTable2.vue'
 
-Vue.component('DataTable', DataTable)
-Vue.component('table-story', TableStory)
+Vue.component('table-story-2', TableStory2)
 
 export default {
   title: 'Style Guide/DataTable',
@@ -16,9 +14,9 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
-    <table-story />
+      <table-story-2 />
   `,
 })
 
-export const UsersTable = Template.bind({})
-UsersTable.args = {}
+export const Table2 = Template.bind({})
+Table2.args = {}
