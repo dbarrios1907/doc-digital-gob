@@ -48,7 +48,13 @@ const Template = (args, { argTypes }) => ({
             v-bind="$props"
             ripple="false"
             :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
-        ></dx-select>
+        >
+        <template slot="item" slot-scope="data" >
+          <div :class="simple-select">
+              {{data.item}}
+          </div>
+        </template>
+        </dx-select>
       </wrapper>
   
       <wrapper>
@@ -67,7 +73,7 @@ const Template = (args, { argTypes }) => ({
             :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
         >
           <template v-slot:selection="{ item, index }">
-            <Badge type="tertiary" label outlined class="ma-0">
+            <Badge type="tertiary" label outlined class="mx-1 my-1">
               <div class="darken3--text font-16 line-height-22 weight-400">{{item}}</div>
               <dx-icon left class="darken3--text ml-2 mr-0" @click.prevent="removeItem(item)">  mdi-close </dx-icon>
             </Badge>

@@ -20,21 +20,27 @@ export default {
   border-radius: 0px !important;
 }
 @include theme(v-select) using($material) {
-  &.v-text-field--outlined > .v-input__control > .v-input__slot {
-    min-height: rem-calc(48px) !important;
+  $darken3: map-deep-get($material, 'colors', 'darken3');
+  &.v-text-field--outlined {
+    & > .v-input__control {
+      padding: 0;
+      & > .v-input__slot {
+        min-height: rem-calc(48px) !important;
+      }
+      i.v-icon.v-icon {
+        font-size: rem-calc(32px) !important;
+        color: $darken3;
+      }
+    }
   }
   &.v-text-field--outlined.v-input--is-focused fieldset {
     border: 1px solid !important;
   }
   &.v-select.v-select--chips .v-select__selections {
     margin-left: rem-calc(-12px) !important;
+    padding: 4px !important;
   }
-  .v-input__control i.v-icon.v-icon {
-    font-size: rem-calc(32px) !important;
-  }
-  .v-input__control {
-    // height: 48px !important;
-    padding: 0;
+  &.v-select__selections {
   }
 }
 @include theme(v-menu__content) using($material) {
@@ -53,14 +59,6 @@ export default {
     padding: 0px !important;
     margin: 0px 8px !important;
   }
-  // .v-list-item[aria-selected='true'] {
-  //   background-color: $primarycolor !important;
-  //   color: $text-color !important;
-  // }
-  // .v-list-item[aria-selected='true']:hover {
-  //   color: $primarycolor !important;
-  //   background-color: $text-color !important;
-  // }
 
   &.v-menu__content {
     border: 1px solid $primarycolor !important;
