@@ -37,7 +37,7 @@ const Template = (args, { argTypes }) => ({
         >
           <template v-slot:default="{ value }">
             <div style="flex: 1; justify-content: flex-start;">
-              <strong class="px-2 white--text weight-600">{{ Math.ceil(value) }}%</strong>
+              <strong class="px-2 white--text weight-700">{{ Math.ceil(value) }}%</strong>
             </div>
           </template>
         </v-progress-linear>
@@ -51,12 +51,12 @@ const Template = (args, { argTypes }) => ({
         >
 
           <div style="display: flex; flex: 1; justify-content: flex-start; align-items: center;">
-            <strong style="flex: 1 auto;" class="px-2 white--text weight-600">
+            <strong style="flex: 1 auto;" class="px-2 white--text weight-400 underline-text">
               Error de carga ¿Reintentar?
-            </strong>
-            <dx-icon style="flex: none;" class="px-3 white--text" regular>
-              mdi-reload mdi-flip-h
-            </dx-icon>
+            </strong>           
+            <div style="flex: none;" class="px-3 mt-1">
+              <Reload />
+            </div>
           </div>
         </v-progress-linear>
     </div>
