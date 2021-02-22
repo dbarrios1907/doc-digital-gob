@@ -20,7 +20,7 @@ const Template = (args, { argTypes }) => ({
   //html
   template: `
   <div>
-      <dx-tabs :items="items" tabtype="default">
+      <dx-tabs :items="items" defaultTab>
         <template v-slot:tab-item>
           <v-tab-item v-for="item in items" :key="item.tab">
             <table-story-1 />

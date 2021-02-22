@@ -1,10 +1,10 @@
 <template>
-  <div :items="items" :tabtype="tabtype" class="v-tabs" :class="tabTypeClass(tabtype)">
+  <div :items="items" :class="['v-tabs', { 'tab-default': defaultTab }, { 'tab-primary': !defaultTab }]">
     <v-tabs v-model="tab">
       <v-tab v-for="item in items" :key="item.tab" :ripple="false" v-bind="$attrs" v-on="$listeners">
         <div class="tab-header-content">
           <span class="tab-title">{{ item.tab }}</span>
-          <div class="tab-number" v-if="item.number > 0 && tabtype == 'primary'">{{ item.number }}</div>
+          <div class="tab-number" v-if="item.number > 0 && !defaultTab">{{ item.number }}</div>
         </div>
       </v-tab>
     </v-tabs>
@@ -22,6 +22,10 @@ export default {
   props: {
     tabtype: String,
     items: Array,
+    defaultTab: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
