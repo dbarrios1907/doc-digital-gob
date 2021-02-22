@@ -1,5 +1,7 @@
 <template>
   <div :items="items" class="dx-filtermenu">
+    <Badge type="tertiary" label outlined small link class="dx-filemenu ml-0 my-1" v-for="sel in selected" :key="sel"> {{ sel }} </Badge>
+    <br />
     <dx-button color="darken3" outlined @click="toogleOptions">
       <div class="text-underline float-left">Filtro</div>
       <dx-icon right regular class="text-right float-right"> mdi-filter </dx-icon>
@@ -48,40 +50,49 @@ export default {
 <style lang="scss">
 @include theme(v-application--wrap) using($material) {
   $text-color: map-deep-get($material, 'v_filtermenu', 'darken3');
-  .dx-filtermenu,
-  .dx-filtermenu .v-btn {
+  $light: map-deep-get($material, 'v_filtermenu', 'light');
+  .dx-filtermenu {
     width: 100% !important;
-  }
-  .dx-filtermenu .v-btn {
-    height: 48px !important;
-  }
-  .dx-filtermenu .v-btn__content {
-    justify-content: normal !important;
-  }
-  .dx-filtermenu .v-btn > .v-btn__content i.v-icon {
-    font-size: rem-calc(24px) !important;
-    position: absolute;
-    right: 0;
-    top: 1px;
-  }
-  .dx-filtermenu .list-items-content {
-    border: 1px solid !important;
-    padding: 0px 12px !important;
-    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.2);
-  }
-  .dx-filtermenu .v-input--selection-controls {
-    margin-top: 12px !important;
-  }
-  .dx-filtermenu .v-input {
-    padding: 0px 0px 0 0 !important;
-    height: 36px !important;
-  }
-  .dx-filtermenu .v-label {
-    // .dx-filtermenu .theme--light.v-icon {
-    color: $text-color !important;
-  }
-  .dx-filtermenu .theme--light.v-icon {
-    color: $text-color;
+    position: relative;
+    .v-btn {
+      width: 100% !important;
+      height: 48px !important;
+    }
+    .v-btn__content {
+      justify-content: normal !important;
+    }
+    .v-btn > .v-btn__content i.v-icon {
+      font-size: rem-calc(24px) !important;
+      position: absolute;
+      right: 0;
+      top: 3px;
+    }
+    .list-items-content {
+      border: 1px solid !important;
+      padding: 0px 12px !important;
+      box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.2);
+      position: absolute;
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      contain: content;
+      will-change: transform;
+      background-color: $light;
+      z-index: 1;
+    }
+    .v-input--selection-controls {
+      margin-top: 12px !important;
+    }
+    .v-input {
+      padding: 0px 0px 0 0 !important;
+      height: 36px !important;
+    }
+    .v-label {
+      color: $text-color !important;
+    }
+    .theme--light.v-icon {
+      color: $text-color;
+    }
   }
   .dx-filemenu.v-chip.tertiary {
     padding: 13px 20px !important;

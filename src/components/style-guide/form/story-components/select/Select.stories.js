@@ -25,16 +25,15 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data () {
     return {
-      value: ['Option 1'],
+      valueSelected: [],
       items: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
     }
   },
   methods: {
-    removeItem(item){
-      this.value = this.value.filter(function(val) {
-        return item !== val
-    })
-    }
+      get_selected(sel){
+          this.valueSelected = sel;
+          console.log(this.valueSelected);
+      }
   },
   template: `
     <div>
@@ -42,62 +41,18 @@ const Template = (args, { argTypes }) => ({
         <dx-select
             :items="items"
             label="Selección Simple"
-            solo
-            flat
-            outlined
-            v-bind="$props"
-            ripple="false"
-            :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
+            @get-selected="get_selected"
         >
-        <template slot="item" slot-scope="data" >
-          <div :class="simple-select">
-              {{data.item}}
-          </div>
-        </template>
         </dx-select>
       </wrapper>
   
       <wrapper>
         <dx-select
-            :ripple="false"
-            v-bind="props"
-            v-model="value"
-            :items="items"
-            chips
-            label="Multi Selección"
-            persistent-hint
-            multiple
-            persistent-hint
-            flat
-            outlined
-            :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
+          :items="items"
+          label="Multi Selección"
+          multiple
+          @get-selected="get_selected"
         >
-          <template v-slot:selection="{ item, index }">
-            <Badge type="tertiary" label outlined class="mx-1 my-1">
-              <div class="darken3--text font-16 line-height-22 weight-400">{{item}}</div>
-              <dx-icon left class="darken3--text ml-2 mr-0" @click.prevent="removeItem(item)">  mdi-close </dx-icon>
-            </Badge>
-          </template>
-        </dx-select>
-      </wrapper>
-      
-      <wrapper>
-        <dx-select
-            :ripple="false"
-            v-bind="$props"
-            v-model="value"
-            :items="items"
-            label="Filtro"
-            solo
-            flat
-            outlined
-            multiple
-            :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
-        >
-        <template v-slot:selection="{ item, index }">
-            <v-chip> <span>{{ item }}</span> </v-chip>
-        </template>
-       
         </dx-select>
       </wrapper>
     </div>
