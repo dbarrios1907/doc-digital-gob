@@ -1,6 +1,6 @@
 .v-dialog {
-  max-height: 100% !important;
-
+  //max-height: 100% !important;
+  overflow: hidden;
   .v-card {
     border-radius: 0 !important;
 
@@ -17,7 +17,7 @@
     }
 
     .v-card__text {
-      padding: 50px 30px !important;
+      padding: 40px !important;
 
       .v-input__control > .v-input__slot {
         min-height: 48px !important;    
