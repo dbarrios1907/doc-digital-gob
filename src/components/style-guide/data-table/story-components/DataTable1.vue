@@ -5,19 +5,18 @@
       :items="valuess"
       :page.sync="page"
       :items-per-page="itemsPerPage"
-      hide-default-footer
       class="table-sm"
       show-select
       dense
       item-key="name"
       @page-count="pageCount = $event"
+      hide-default-footer
     >
       <template v-for="h in headers" v-slot:[`header.${h.value}`]="{ header }" class="column">
         {{ h.text }}
         <v-icon :class="[{ iconsearch: h.search }]" :key="h.value" @click="activeSearch(header, $event)" v-if="h.search">mdi-magnify</v-icon>
         <v-icon class="float-right" :key="h.value" @click="openFilter(header, $event)" v-if="h.filterable">mdi-filter</v-icon>
       </template>
-
       <template slot="body.prepend">
         <tr class="body-prepend">
           <td colspan="2" v-if="searchname">
@@ -52,10 +51,10 @@
       </template>
 
       <template v-slot:top>
-        <v-tabs class="mt-5" v-model="tabs" hide-on-leave>
-          <v-tab href="#tab-1"> Activos </v-tab>
-          <v-tab href="#tab-2"> Inactivos </v-tab>
-        </v-tabs>
+        <dx-tabs class="mt-5" :items="items" hide-on-leave tabtype="default">
+          <!--<dx-tab href="#tab-1"> Activos </dx-tab>
+          <dx-tab href="#tab-2"> Inactivos </dx-tab>-->
+        </dx-tabs>
       </template>
 
       <template v-slot:[`item.access`]="{ item: { access } }">
@@ -69,6 +68,12 @@
         <v-icon dense class="mr-4"> mdi-eye </v-icon>
         <v-icon dense> mdi-delete </v-icon>
       </template>
+
+      <template v-slot:footer>
+        <div class="pt-2 mr-6 v-data-footer">
+          <dx-pagination v-model="page" :length="pageCount" />
+        </div>
+      </template>
     </DataTable>
   </div>
 </template>
@@ -77,6 +82,10 @@
 export default {
   data() {
     return {
+      items: [
+        { tab: 'Activos', number: 0 },
+        { tab: 'Inactivos', number: 0 },
+      ],
       searchname: false,
       searchrut: false,
       filtered: false,
@@ -84,8 +93,8 @@ export default {
       filterRut: '',
       isleft: true,
       page: 1,
-      pageCount: 0,
-      itemsPerPage: 10,
+      pageCount: 3,
+      itemsPerPage: 5,
       permiso: [],
       permisosValues: ['Administrador', 'Jefe de servicio', 'Operador', 'Oficina de partes'],
       valuess: [

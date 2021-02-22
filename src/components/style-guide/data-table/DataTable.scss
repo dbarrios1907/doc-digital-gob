@@ -8,6 +8,10 @@
       //opacity: 1;
       font-size: rem-calc(24px) !important;
     }
+
+    & > :last-child{
+      width: rem-calc(130px);
+    }
   }
 
   &.table-xl thead > tr {
@@ -81,7 +85,7 @@
 
   &.table-sm {
     & > .v-data-table__wrapper > table {
-      & > tbody tr:nth-child(odd):not(.body-prepend) {
+      & > tbody tr:nth-child(odd):not(.body-prepend):not(.body-append) {
           background-color: map-deep-get($material, 'colors', 'secondary');
       }
       & > thead > tr {
