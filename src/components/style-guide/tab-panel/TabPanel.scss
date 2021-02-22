@@ -1,16 +1,11 @@
 @include theme(v-tabs) using ($material) {
   $bg-color: map-deep-get($material, 'v_tabs', 'tabs-bar-background-color');
-  $tx-color: map-deep-get($material, 'v_tabs', 'tabs-bar-text-color');
+  $tx-color: map-deep-get($material, 'v_tabs', 'light');
   $tx-dissable-color: map-deep-get($material, 'v_tabs', 'tabs-bar-text-dissable-color');
   .v-tab{
     font-size: rem-calc(16px);
     line-height: rem-calc(24px);
     text-transform: none !important;
-  }
-
-  .v-tab--active {
-    background-color: $bg-color;
-    color :  $tx-color;
   }
 
   .v-tab:not(.v-tab--active){
@@ -62,4 +57,36 @@
 }
 div.v-item-group.v-tabs-items{
   margin-top: 1px !important;
+}
+@include theme(tab-primary) using ($material) {
+  $bg-color: map-deep-get($material, 'v_tabs', 'tabs-bar-background-color');
+  $tx-color: map-deep-get($material, 'v_tabs', 'light');
+  $tx-dissable-color: map-deep-get($material, 'v_tabs', 'tabs-bar-text-dissable-color');
+
+  .v-tab--active {
+    background-color: $bg-color;
+    color :  $tx-color;
+  } 
+}
+@include theme(tab-default) using ($material) {
+  $bg-color: map-get($material, 'v_tabs', 'light');
+  $tx-color: map-deep-get($material, 'v_tabs', 'primary');
+  $tx-dissable-color: map-deep-get($material, 'v_tabs', 'tabs-bar-text-dissable-color');
+
+  .v-tab--active {
+    background-color: $bg-color;
+    color :  $tx-color;
+    border-bottom: 7px solid;
+    .tab-header-content{
+      margin-top: 7px;
+    } 
+  } 
+  .tab-header-content {
+    font-weight: 400 !important;
+  } 
+
+  
+  .v-tab:not(.v-tab--active){
+    font-weight: 400px !important;
+  }
 }
