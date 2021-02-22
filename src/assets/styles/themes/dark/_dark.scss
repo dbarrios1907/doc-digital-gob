@@ -58,7 +58,7 @@ $material-dark: (
   'tabs': rgba(#ffffff, 0.6),
   'v_tabs': (
     'tabs-bar-background-color': map-get($dark-colors, 'primary'),
-    'tabs-bar-text-color': map-get($dark-colors, 'light'),
+    'light': map-get($dark-colors, 'light'),
     'tabs-bar-text-dissable-color': map-get($dark-colors, 'dark'),
   ),
   'v_breadcrumbs': (

@@ -33,9 +33,7 @@ export default {
     template: `
         <wrapper>
             <dx-icons-actions /> 
-            <dx-filtermenu :items="items" @get-selected="get_selected"></dx-filtermenu>
-            <br>            
-            <Badge type="tertiary" label outlined small link class="dx-filemenu" v-for="sel in selected" :key="sel"> {{sel}} </Badge>             
+            <dx-filtermenu :items="items" @get-selected="get_selected"></dx-filtermenu>         
         </wrapper>
     `,
   })
