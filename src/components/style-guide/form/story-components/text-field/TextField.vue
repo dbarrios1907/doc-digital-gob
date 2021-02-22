@@ -49,3 +49,14 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+@include theme(v-text-field) using ($material) {
+  &--outlined {
+    &:not(.v-input--is-focused) {
+      &:not(.v-input--has-state) > .v-input__control > .v-input__slot fieldset {
+        color: map-deep-get($material, 'colors', 'darken3') !important;
+      }
+    }
+  }
+}
+</style>

@@ -30,78 +30,134 @@ const Template = (args, { argTypes }) => ({
       open: [1, 2],
       tree: null,
       caseSensitive: false,
+      itemstab: [
+        { tab: 'Activos', number: 0 },
+        { tab: 'Inactivos', number: 0 },
+      ],
+      searchname: false,
+      searchrut: false,
+      filtered: false,
+      filterValue: '',
+      filterRut: '',
+      isleft: true,
       page: 1,
-      pageCount: 3,
+      pageCount: 0,
       itemsPerPage: 10,
-      headers: [
+      permiso: [],
+      permisosValues: ['Administrador', 'Jefe de servicio', 'Operador', 'Oficina de partes'],
+      valuess: [
+        {
+          name: 'Nombre Nombre Apellido Apellido',
+          rut: '23.266.206-8',
+          access: ['Administrador', 'Jefe de servicio'],
+        },
+        {
+          name: 'Nombre2 Nombre Apellido Apellido',
+          rut: '21.266.206-8',
+          access: ['Administrador'],
+        },
+        {
+          name: 'Nombre3 Nombre Apellido Apellido',
+          rut: '21.256.206-8',
+          access: ['Jefe de servicio'],
+        },
+        {
+          name: 'Nombre4 Nombre Apellido Apellido',
+          rut: '20.266.206-8',
+          access: ['Operador'],
+        },
+        {
+          name: 'Nombre5 Nombre Apellido Apellido',
+          rut: '20.200.206-8',
+          access: ['Jefe de servicio'],
+        },
+        {
+          name: 'Nombre6 Nombre Apellido Apellido',
+          rut: '24.266.206-8',
+          access: ['Oficina de partes'],
+        },
+        {
+          name: 'Nombre7 Nombre Apellido Apellido',
+          rut: '25.266.206-8',
+          access: ['Administrador'],
+        },
+        {
+          name: 'Nombre8 Nombre Apellido Apellido',
+          rut: '25.366.206-8',
+          access: ['Operador'],
+        },
+        {
+          name: 'Nombre9 Nombre Apellido Apellido',
+          rut: '26.266.206-8',
+          access: ['Operador'],
+        },
+        {
+          name: 'Nombre10 Nombre Apellido Apellido',
+          rut: '27.266.206-8',
+          access: ['Oficina de partes'],
+        },
+      ],
+    }
+  },
+  methods: {
+    openFilter(header, event) {
+      event.stopPropagation()
+      this.filtered = !this.filtered
+    },
+    nameFilter(value) {
+      if (!this.filterValue) {
+        return true
+      }
+      return value.toLowerCase().includes(this.filterValue.toLowerCase())
+    },
+    nameFilter1(value) {
+      if (!this.filterRut) {
+        return true
+      }
+      return value.includes(this.filterRut)
+    },
+    activeSearch(header, value) {
+      event.stopPropagation()
+      if (header.value == 'name') this.searchname = !this.searchname
+      if (header.value == 'rut') this.searchrut = !this.searchrut
+    },
+    removeItem(item) {
+      this.permiso = this.permiso.filter(function (val) {
+        return item !== val
+      })
+    },
+    permisosFilter(value) {
+      let flag = false
+      if (this.permiso.length == 0) return true
+
+      value.filter(function (e) {
+        flag = this.indexOf(e) > -1
+      }, this.permiso)
+
+      return flag
+    },
+  },
+
+  computed: {
+    headers() {
+      return [
         {
           text: 'Nombre',
           align: 'start',
           sortable: true,
           value: 'name',
-          filterable: true,
+          filter: this.nameFilter,
+          search: true,
         },
-        { text: 'Rut', value: 'rut', filterable: true },
-        { text: 'Permisos', value: 'access', sortable: true },
+        { text: 'Rut', value: 'rut', sortable: true, filter: this.nameFilter1, search: true },
+        { text: 'Permisos', value: 'access', filterable: true, sortable: false, filter: this.permisosFilter },
         { text: 'Acciones', value: 'actions', sortable: false },
-      ],
-      values: [
-        {
-          name: 'Frozen Yogurt',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-        },
-        {
-          name: 'Ice cream sandwich',
-          rut: '23.266.206-8',
-          access: ['Jefe de servicios'],
-        },
-        {
-          name: 'Eclair',
-          rut: '23.266.206-8',
-          access: ['Jefe de servicios'],
-        },
-        {
-          name: 'Cupcake',
-          rut: '23.266.206-8',
-          access: ['Operador'],
-        },
-        {
-          name: 'Gingerbread',
-          rut: '23.266.206-8',
-          access: ['Oficina de partes', 'Jefe de servicios'],
-        },
-        {
-          name: 'Jelly bean',
-          rut: '23.266.206-8',
-          access: ['Administrador'],
-        },
-        {
-          name: 'Lollipop',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-        },
-        {
-          name: 'Honeycomb',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-        },
-        {
-          name: 'Donut',
-          rut: '23.266.206-8',
-          access: ['Administrador', 'Jefe de servicios'],
-        },
-        {
-          name: 'KitKat',
-          rut: '23.266.206-8',
-          access: ['Operador', 'Jefe de servicios'],
-        },
-      ],
-    }
+      ]
+    },
   },
   //html
   template: `
-    <dx-layout>
+    <dx-main-layout>
 
 <!-- HEADER -->
 
@@ -232,10 +288,15 @@ const Template = (args, { argTypes }) => ({
 <!-- MAIN -->
 
       <template v-slot:main>
-        <v-container class="px-10">
+      <perfect-scrollbar :style="{ height: '100%' }">
+        <v-container class="py-5 px-13 mx-0" style="max-width: 100%">
+        
           <dx-breadcrumbs :items="breadcrums" />
-          <dx-icons-actions class="text-right"/>
-          <span class="weight-700 text-md-h4">Usuarios</span>
+          <dx-bodytitle class="mt-1">
+            <template v-slot:title>
+              <div class="weight-700 text-md-h4 line-height-31">Usuarios</div>
+            </template>
+          </dx-bodytitle>
           <div class="mt-10 weight-400">
             <span class="mr-2">Mostrando hasta</span>
             <v-select
@@ -265,60 +326,9 @@ const Template = (args, { argTypes }) => ({
               <a href="#" class="text-underline"> + Agregar Usuario</a>
             </v-col>
           </v-row>
-
-          <v-tabs class="mt-5" v-model="tabs">
-            <v-tab href="#tab-1"> Activos </v-tab>
-            <v-tab href="#tab-2"> Inactivos </v-tab>
-          </v-tabs>
-      
-          <v-tabs-items v-model="tabs">
-            <v-tab-item value="tab-1" >
-              <v-card flat>
-                <DataTable
-                    color="primary"
-                    :headers="headers"
-                    :items="values"
-                    :page.sync="page"
-                    :items-per-page="itemsPerPage"
-                    hide-default-footer
-                    class="elevation-1"
-                    show-select
-                    @page-count="pageCount = $event"
-                  >
-                    <template v-slot:item.data-table-select="{ isSelected, select }">
-                      <v-simple-checkbox color="primary" :value="isSelected" @input="select($event)" />
-                    </template>
-              
-                    <template v-slot:item.data-table-select="{ isSelected, select }">
-                      <v-simple-checkbox color="green" dense :value="isSelected" @input="select($event)" />
-                    </template>
-              
-                    <template v-slot:item.access="{ item: { access } }">
-                      <v-chip v-for="v in access" :key="v" class="ml-2" color="primary" small>
-                        {{ v }}
-                      </v-chip>
-                    </template>
-              
-                    <template v-slot:item.actions>
-                      <v-icon dense class="mr-2"> mdi-square-edit-outline </v-icon>
-                      <v-icon dense class="mr-2"> mdi-eye </v-icon>
-                      <v-icon dense> mdi-delete </v-icon>
-                    </template>
-                  </DataTable>
-                  <div class="pt-2 mr-6">
-                    <dx-pagination v-model="page" :length="pageCount" class="float-right" />
-                  </div>
-              </v-card>
-            </v-tab-item>
-
-            <v-tab-item value="tab-2" >
-              <v-card flat>
-                <v-card-text>Contenido Inactivos</v-card-text>
-              </v-card>
-            </v-tab-item>
-          </v-tabs-items>
-
+          <table-story-1/>
         </v-container>
+        </perfect-scrollbar>
       </template>
 
 <!-- FOOTER -->
@@ -326,7 +336,7 @@ const Template = (args, { argTypes }) => ({
       <template v-slot:footer>
         <DxFooter color="white" />
       </template>
-    </dx-layout>
+    </dx-main-layout>
   `,
 })
 

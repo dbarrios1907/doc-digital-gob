@@ -27,37 +27,22 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <v-row justify="center">
-      <v-btn
-          color="primary"
-          class="ma-2"
-          dark
-          @click="dialog = true"
-      >
-        Open Dialog 1
-      </v-btn>
-      <v-btn
-          color="primary"
-          class="ma-2"
-          dark
-          @click="dialog1 = true"
-      >
-        Open Dialog 2
-      </v-btn>
-
-      <v-btn
-          color="primary"
-          class="ma-2"
-          dark
-          @click="dialog2 = true"
-      >
-        Open Dialog 3
-      </v-btn>
+      <dx-button color="primary" outlined v-bind="$props" class="text-none mr-2" @click="dialog = true">
+        <span class="text-underline"> Open Dialog 1 </span>
+      </dx-button>
+      <dx-button color="primary" outlined v-bind="$props" class="text-none mr-2" @click="dialog1 = true">
+        <span class="text-underline"> Open Diaglog 2 </span>
+      </dx-button>
+      <dx-button color="primary" outlined v-bind="$props" class="text-none mr-2" @click="dialog2 = true">
+        <span class="text-underline"> Open Dialog 3 </span>
+      </dx-button>
 
       <v-dialog
           overlay-opacity="0.55"
           overlay-color="#001C41"
           v-model="dialog"
-          max-width="600px">
+          max-width="600px"
+          >
         <v-card>
           <v-card-title>
             <h5 class="font-title weight-700 darken3--text">
@@ -92,6 +77,7 @@ const Template = (args, { argTypes }) => ({
             
             <v-spacer></v-spacer>
             <v-btn
+                color="darken3"
                 icon
                 @click="dialog1 = false">
               <v-icon>mdi-close</v-icon>
@@ -135,174 +121,177 @@ const Template = (args, { argTypes }) => ({
             <v-spacer></v-spacer>
             <v-btn
                 icon
+                color="darken3"
                 @click="dialog2 = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-card-title>
           <v-divider></v-divider>
 
-          <v-card-text>
-            <div class="px-3">
-              <v-row class="align-center">
-                <v-col cols=2 class="flex">RUT*</v-col>
-                <v-col cols=10>
-                  <v-text-field
-                    class="d-inline-block"
-                    hide-details
-                    ref="name"
-                    solo
-                    flat
-                    outlined
-                    placeholder="99.999.999"
-                    style="width: 108px"
-                  /> - 
-                  <v-text-field
-                    class="d-inline-block"
-                    hide-details
-                    ref="name"
-                    solo
-                    flat
-                    outlined
-                    placeholder="K"
-                    style="width: 37px"
-                  />
-                </v-col>
-              </v-row>
-
-              <v-row class="align-center">
-                <v-col cols=2 class="flex">Nombre(s)*</v-col>
-                <v-col cols=10>
-                  <v-text-field
-                    hide-details
-                    ref="name"
-                    solo
-                    flat
-                    outlined
-                    placeholder="Nombre Nombre"
-                  />
-                </v-col>
-              </v-row>
-
-              <v-row class="align-center">
-                <v-col cols=2 class="flex">Apellido(s)*</v-col>
-                <v-col cols=10>
-                  <v-text-field
-                    hide-details
-                    ref="name"
-                    solo
-                    flat
-                    outlined
-                    placeholder="Apellido Apellido  "
-                  />
-                </v-col>
-              </v-row>
-
-              <v-row class="align-center">
-                <v-col cols=2 class="flex">Correo*</v-col>
-                <v-col cols=10>
-                  <v-text-field
-                    hide-details
-                    ref="name"
-                    solo
-                    flat
-                    outlined
-                    placeholder="Escribe el correo institucional"
-                  />
-                </v-col>
-              </v-row>
-
-              <v-row class="align-center">
-                <v-col cols=2 class="flex">Cargo*</v-col>
-                <v-col cols=10>
-                  <v-text-field
-                    hide-details
-                    ref="name"
-                    solo
-                    flat
-                    outlined
-                    placeholder="Escribe el cargo"
-                  />
-                </v-col>
-              </v-row>
-
-              <v-row class="align-center">
-                <v-col cols=2 class="flex">Permisos Adicionales</v-col>
-                <v-col cols=10>
-                  <dx-select
-                      :ripple="false"
-                      v-bind="props"
-                      v-model="value"
-                      :items="items"
-                      chips
-                      label="Multi Selección"
-                      persistent-hint
-                      multiple
-                      persistent-hint
-                      flat
+          <v-card-text style="height: 470px">
+            <perfect-scrollbar :style="{ height: '100%' }">
+              <div class="px-3">
+                <v-row class="align-center">
+                  <v-col cols=2 class="flex">RUT*</v-col>
+                  <v-col cols=10>
+                    <v-text-field
+                      class="d-inline-block"
                       hide-details
-                      outlined
-                      :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
-                  >
-                    <template v-slot:selection="{ item, index }">
-                      <Badge type="tertiary" label outlined class="ma-0">
-                        <div class="darken3--text font-16 line-height-22 weight-400">{{item}}</div>
-                        <dx-icon left class="darken3--text ml-2 mr-0" @click.prevent="removeItem(item)">  mdi-close </dx-icon>
-                      </Badge>
-                    </template>
-                  </dx-select>
-                </v-col>
-              </v-row>
-
-              <v-row class="align-center">
-                <v-col cols=2 class="flex">Subrogante</v-col>
-                <v-col cols=10>
-                  <dx-select
-                      :items="items1"
-                      label="Selecciona subrogante"
+                      ref="name"
                       solo
                       flat
                       outlined
-                      v-bind="$props"
-                      ripple="true"
+                      placeholder="99.999.999"
+                      style="width: 108px"
+                    /> - 
+                    <v-text-field
+                      class="d-inline-block"
                       hide-details
-                      append-icon=""
-                  ></dx-select>
-                </v-col>
-              </v-row>
+                      ref="name"
+                      solo
+                      flat
+                      outlined
+                      placeholder="K"
+                      style="width: 37px"
+                    />
+                  </v-col>
+                </v-row>
 
-              <v-row class="align-center">
-                <v-col cols=3 class="flex">Activar subrogancia</v-col>
-                <v-col cols=9>
-                  <doc-switch
-                    class="d-inline-block"
-                    style="width: 40px"
-                    v-model="switch1"
-                        inset
+                <v-row class="align-center">
+                  <v-col cols=2 class="flex">Nombre(s)*</v-col>
+                  <v-col cols=10>
+                    <v-text-field
+                      hide-details
+                      ref="name"
+                      solo
+                      flat
+                      outlined
+                      placeholder="Nombre Nombre"
+                    />
+                  </v-col>
+                </v-row>
+
+                <v-row class="align-center">
+                  <v-col cols=2 class="flex">Apellido(s)*</v-col>
+                  <v-col cols=10>
+                    <v-text-field
+                      hide-details
+                      ref="name"
+                      solo
+                      flat
+                      outlined
+                      placeholder="Apellido Apellido  "
+                    />
+                  </v-col>
+                </v-row>
+
+                <v-row class="align-center">
+                  <v-col cols=2 class="flex">Correo*</v-col>
+                  <v-col cols=10>
+                    <v-text-field
+                      hide-details
+                      ref="name"
+                      solo
+                      flat
+                      outlined
+                      placeholder="Escribe el correo institucional"
+                    />
+                  </v-col>
+                </v-row>
+
+                <v-row class="align-center">
+                  <v-col cols=2 class="flex">Cargo*</v-col>
+                  <v-col cols=10>
+                    <v-text-field
+                      hide-details
+                      ref="name"
+                      solo
+                      flat
+                      outlined
+                      placeholder="Escribe el cargo"
+                    />
+                  </v-col>
+                </v-row>
+
+                <v-row class="align-center">
+                  <v-col cols=2 class="flex">Permisos Adicionales</v-col>
+                  <v-col cols=10>
+                    <dx-select
                         :ripple="false"
-                        dense
-                    > 
-                    </doc-switch>
-                    <v-icon color="warning">mdi-help-circle</v-icon>
-                </v-col>
-              </v-row>
+                        v-bind="props"
+                        v-model="value"
+                        :items="items"
+                        chips
+                        label="Multi Selección"
+                        persistent-hint
+                        multiple
+                        persistent-hint
+                        flat
+                        hide-details
+                        outlined
+                        :menu-props="{ bottom: true, offsetY: true, openOnClick:false }"
+                    >
+                      <template v-slot:selection="{ item, index }">
+                        <Badge type="tertiary" label outlined class="ma-0">
+                          <div class="darken3--text font-16 line-height-22 weight-400">{{item}}</div>
+                          <dx-icon left class="darken3--text ml-2 mr-0" @click.prevent="removeItem(item)">  mdi-close </dx-icon>
+                        </Badge>
+                      </template>
+                    </dx-select>
+                  </v-col>
+                </v-row>
 
-              <v-row class="align-center">
-                <v-col cols=2 class="flex">Seguidor</v-col>
-                <v-col cols=10>
-                  <dx-select
-                      :items="items2"
-                      label="Selecciona seguidor"
-                      solo
-                      flat
-                      outlined
-                      v-bind="$props"
-                      ripple="true"
-                      hide-details
-                      append-icon=""
-                  ></dx-select>
-                </v-col>
-              </v-row>
-            </div>
+                <v-row class="align-center">
+                  <v-col cols=2 class="flex">Subrogante</v-col>
+                  <v-col cols=10>
+                    <dx-select
+                        :items="items1"
+                        label="Selecciona subrogante"
+                        solo
+                        flat
+                        outlined
+                        v-bind="$props"
+                        ripple="true"
+                        hide-details
+                        append-icon=""
+                    ></dx-select>
+                  </v-col>
+                </v-row>
+
+                <v-row class="align-center">
+                  <v-col cols=3 class="flex">Activar subrogancia</v-col>
+                  <v-col cols=9>
+                    <doc-switch
+                      class="d-inline-block"
+                      style="width: 40px"
+                      v-model="switch1"
+                          inset
+                          :ripple="false"
+                          dense
+                      > 
+                      </doc-switch>
+                      <v-icon color="warning">mdi-help-circle</v-icon>
+                  </v-col>
+                </v-row>
+
+                <v-row class="align-center">
+                  <v-col cols=2 class="flex">Seguidor</v-col>
+                  <v-col cols=10>
+                    <dx-select
+                        :items="items2"
+                        label="Selecciona seguidor"
+                        solo
+                        flat
+                        outlined
+                        v-bind="$props"
+                        ripple="true"
+                        hide-details
+                        append-icon=""
+                    ></dx-select>
+                  </v-col>
+                </v-row>
+              </div>
+            </perfect-scrollbar>
           </v-card-text>
 
           <v-card-actions>
